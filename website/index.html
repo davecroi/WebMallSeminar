@@ -623,7 +623,7 @@
                             <p>
                                 The <strong>advanced task set</strong> covers
                                 difficult product search and comparison tasks.
-                                It contains looking for product offers given
+                                It contains tasks like looking for product offers given
                                 only vague requirements from the user, finding
                                 the cheapest offer fitting specific or vague
                                 requirements, finding cheaper substitutes for a
@@ -643,18 +643,94 @@
                                 general instruction contains links to the 4
                                 webshops of WebMall as well as instructions on
                                 how to submit the final solution after
-                                completing a task.
+                                completing a task. An example of the full instruction string is found <a href="https://github.com/wbsg-uni-mannheim/WebMallDev/blob/main/examples/instruction_example.txt">here</a>.
                             </p>
                             <p>
-                                The full set of tasks can be found
+                                The table below shows an overview of the 10 task categories as well as an example task for each category. The full set of tasks can be found
                                 <a
-                                    href="https://github.com/wbsg-uni-mannheim/WebMall/blob/main/BrowserGym/browsergym/webmall/src/browsergym/webmall/task_sets.json"
-                                    >here</a
-                                >.
+                                    href="https://github.com/wbsg-uni-mannheim/WebMallDev/blob/main/examples/task_strings.txt"
+                                    >here</a>.
                             </p>
+                        </div>
+
+                        <h3 class="title is-4">Task Categories Overview</h3>
+                        <div class="results-table" style="width: 100%">
+                            <table class="table is-striped is-hoverable is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th>Task Category</th>
+                                        <th>Count</th>
+                                        <th>Example</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="background-color: #f0f0f0">
+                                        <td colspan="3">
+                                            <strong>Basic Task Set</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Single Product Search</td>
+                                        <td>12</td>
+                                        <td>Find all offers for the Asus ROG Ryujin II ARGB 360mm Liquid CPU Cooler.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cheapest Product Search</td>
+                                        <td>10</td>
+                                        <td>Find the cheapest offer for the Netac Z Slim 1TB M.2 External SSD. If there are multiple offers having the same cheapest price, return all of them.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Fit Specific Req.</td>
+                                        <td>11</td>
+                                        <td>Find all offers for a DDR4 2x16 GB RAM Kit with 3000MHz.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Add to Cart</td>
+                                        <td>7</td>
+                                        <td>Find all offers for the GameMax Iceburg 360mm ARGB Liquid CPU Cooler and add each of them to the respective shopping cart of the shop where you found the offer.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Checkout</td>
+                                        <td>8</td>
+                                        <td>Add the product on page {{Item_URL}} to the shopping cart and complete the checkout process. Pay via credit card using the following information: {{credit_card_info}}</td>
+                                    </tr>
+                                    <tr style="background-color: #f0f0f0">
+                                        <td colspan="3">
+                                            <strong>Advanced Task Set</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cheapest Best Fit Specific Req.</td>
+                                        <td>10</td>
+                                        <td>Find the cheapest offer for a liquid CPU cooler with a 420mm radiator. If there are multiple offers having the same cheapest price, return all of them.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Fit Vague Req.</td>
+                                        <td>9</td>
+                                        <td>Find an offer for a GPU which is best suited for training and running large language models on a local workstation computer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cheapest Best Fit Vague Req.</td>
+                                        <td>6</td>
+                                        <td>Find the cheapest offer for a gaming monitor which is suitable for high-level reaction-based e-sports gaming. If there are multiple offers having the same cheapest price, return all of them.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Find Substitutes</td>
+                                        <td>6</td>
+                                        <td>Find cheaper alternatives with at least the same capacity and speed for this product: {{Item_URL}}. If there are multiple offers having the same cheapest price, return all of them.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Find Compatible Products</td>
+                                        <td>5</td>
+                                        <td>Find compatible CPUs for this item: {{Item_URL}}.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
+
+                
 
                 <!-- The WebMall Shops -->
                 <div class="columns is-centered has-text-centered">
@@ -697,7 +773,7 @@
                                 Internal PC Components, PC Peripherals, PC
                                 Cases, and Devices. The distribution varies
                                 across shops to create diverse shopping
-                                environments for comprehensive agent evaluation.
+                                environments for agent evaluation.
                             </p>
                         </div>
 
@@ -804,7 +880,7 @@
                                 AX-tree id of the element. If short-term memory
                                 is activated, the agent can note down
                                 information it deems relevant to remember at
-                                each step.
+                                each step. An example of the full final message passed to the agent, which also contains an action history, for two experimental settings with the GPT4.1 model can be found <a href="https://github.com/wbsg-uni-mannheim/WebMallDev/blob/main/examples/task_message.txt">here</a> (AXTree only) and <a href="https://github.com/wbsg-uni-mannheim/WebMallDev/blob/main/examples/task_message_memory.txt">here</a> (AXTree+Memory).
                             </p>
                             <p>
                                 Each of the agent setups is run on the Basic and
@@ -822,22 +898,7 @@
                         </div>
 
                         <h3 class="title is-4">Performance Results</h3>
-                        <div class="content has-text-justified">
-                            <p>
-                                <strong>CR:</strong> Completion Rate -
-                                Percentage of tasks completed successfully
-                            </p>
-                            <p>
-                                <strong>PCR:</strong> Partial Completion Rate -
-                                Percentage of tasks with partially correct
-                                results
-                            </p>
-                            <p>
-                                <strong>CCR:</strong> Correct Completion Rate -
-                                Percentage of tasks completed with fully correct
-                                results
-                            </p>
-                        </div>
+                        
                         <div class="results-table" style="width: 100%">
                             <table
                                 class="table is-striped is-hoverable is-fullwidth"
@@ -1601,21 +1662,21 @@
                                     href="https://github.com/wbsg-uni-mannheim/WebMall/tree/main/docker_all"
                                     >GitHub</a
                                 >
-                                for setting up the shops as well as instructions
-                                on how to perform experiments on single tasks as
-                                well as running a full study on the benchmark
-                                sets.
+                                for setting up the shops.
                             </p>
 
                             <h3 class="title is-4">Performing Experiments</h3>
                             <p>
-                                To start experiments, you need to configure the
-                                test driver with appropriate settings for your
-                                chosen agent configuration. The system writes
+                                Instructions on how to perform experiments on single tasks as
+                                well as running a full study on the benchmark
+                                sets can also be found in the <a
+                                    href="https://github.com/wbsg-uni-mannheim/WebMall/tree/main/docker_all"
+                                    >GitHub installation guide</a
+                                >. The system writes
                                 comprehensive logs during execution, including
                                 agent actions, observations, and performance
-                                metrics. All logs are stored in the designated
-                                output directory for later analysis.
+                                metrics. All logs including summary results are stored in the
+                                output directory set in the .env file for later analysis.
                             </p>
                         </div>
                     </div>
