@@ -30,11 +30,113 @@
         <link rel="stylesheet" href="./static/css/index.css" />
         <link rel="icon" href="./static/images/favicon.svg" />
 
+        <style>
+            .results-table {
+                position: relative;
+                width: 85vw;
+                left: 50%;
+                transform: translateX(-50%);
+                overflow: hidden;
+                margin: 1rem 0;
+            }
+
+            .results-table table {
+                width: 100%;
+                table-layout: fixed;
+                font-size: 0.85rem;
+            }
+
+            .results-table th,
+            .results-table td {
+                padding: 0.5em 0.2em;
+                text-align: center;
+                font-size: 0.8rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .results-table th:first-child,
+            .results-table td:first-child {
+                text-align: left;
+                width: 12%;
+                white-space: normal;
+                word-wrap: break-word;
+                overflow: visible;
+            }
+
+            .results-table th:nth-child(2),
+            .results-table td:nth-child(2) {
+                text-align: left;
+                width: 15%;
+                white-space: normal;
+                word-wrap: break-word;
+                overflow: visible;
+            }
+
+            .results-table thead th {
+                background-color: #f8f9fa;
+                font-weight: bold;
+                font-size: 0.75rem;
+                padding: 0.4em 0.2em;
+            }
+
+            .results-table tbody tr:hover {
+                background-color: #f1f3f4;
+            }
+
+            /* Responsive adjustments for smaller screens */
+            @media (max-width: 1200px) {
+                .results-table table {
+                    font-size: 0.75rem;
+                }
+                .results-table th,
+                .results-table td {
+                    padding: 0.4em 0.15em;
+                    font-size: 0.7rem;
+                }
+                .results-table thead th {
+                    font-size: 0.65rem;
+                }
+                .results-table th:first-child,
+                .results-table td:first-child {
+                    width: 10%;
+                }
+                .results-table th:nth-child(2),
+                .results-table td:nth-child(2) {
+                    width: 12%;
+                }
+            }
+
+            @media (max-width: 900px) {
+                .results-table table {
+                    font-size: 0.7rem;
+                }
+                .results-table th,
+                .results-table td {
+                    padding: 0.3em 0.1em;
+                    font-size: 0.65rem;
+                }
+                .results-table thead th {
+                    font-size: 0.6rem;
+                }
+                .results-table th:first-child,
+                .results-table td:first-child {
+                    width: 8%;
+                }
+                .results-table th:nth-child(2),
+                .results-table td:nth-child(2) {
+                    width: 10%;
+                }
+            }
+        </style>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script defer src="./static/js/fontawesome.all.min.js"></script>
         <script src="./static/js/bulma-carousel.min.js"></script>
         <script src="./static/js/bulma-slider.min.js"></script>
         <script src="./static/js/index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
     </head>
     <body>
         <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -60,21 +162,27 @@
                         <div class="navbar-dropdown">
                             <a
                                 class="navbar-item"
-                                href="https://github.com/wbsg-uni-mannheim/WebMall"
+                                href="https://webdatacommons.org/largescaleproductcorpus/wdc-products/"
                             >
-                                Code
+                                WDC Products
                             </a>
                             <a
                                 class="navbar-item"
-                                href="https://github.com/wbsg-uni-mannheim/WebMall/tree/main/product_data"
+                                href="https://webdatacommons.org/structureddata/schemaorgtables/2023/index.html"
                             >
-                                Store Data
+                                WDC Schema.org Tables
                             </a>
                             <a
                                 class="navbar-item"
-                                href="https://github.com/wbsg-uni-mannheim/WebMall/tree/main/product_data"
+                                href="https://webdatacommons.org/structureddata/sotab/v2/"
                             >
-                                Docker Environment
+                                SOTAB Benchmark
+                            </a>
+                            <a
+                                class="navbar-item"
+                                href="https://www.uni-mannheim.de/dws/research/focus-groups/web-based-systems-prof-bizer/"
+                            >
+                                WBSG @ Uni Mannheim
                             </a>
                         </div>
                     </div>
@@ -88,8 +196,8 @@
                     <div class="columns is-centered">
                         <div class="column has-text-centered">
                             <h1 class="title is-1 publication-title">
-                                WebMall - A Multi-Shop ECommerce Benchmark for
-                                Evaluating Web Agents
+                                WebMall - A Multi-Shop Benchmark for Evaluating
+                                Web Agents
                             </h1>
 
                             <div class="column has-text-centered">
@@ -121,7 +229,7 @@
                                     <!-- Docker Environment Link. -->
                                     <span class="link-block">
                                         <a
-                                            href="https://github.com/wbsg-uni-mannheim/WebMall/tree/main/product_data"
+                                            href="https://github.com/wbsg-uni-mannheim/WebMall/tree/main/docker_all"
                                             class="external-link button is-normal is-rounded is-dark"
                                         >
                                             <span class="icon">
@@ -146,18 +254,17 @@
                         <h2 class="title is-3">Introduction</h2>
                         <div class="content has-text-justified">
                             <p>
-                                This website presents the WebMall benchmark for
-                                evaluating the capabilities of Web agents to
-                                find and compare product offers from multiple
+                                This page presents the WebMall benchmark for
+                                evaluating the capability of Web agents to find
+                                and compare product offers from multiple
                                 e-shops. The benchmark features two sets of
-                                task: A set containing basic tasks like
-                                searching and comparing offers between shops,
-                                selecting the best offer into a shopping cart,
-                                and finally checking out the selected offers in
-                                the respective shop. The benchmark also features
-                                an advanced task set containing vague queries
-                                and asking the agent to find compatible or
-                                substitute products.
+                                tasks: A set containing basic tasks like
+                                searching and comparing offers, adding the best
+                                offer to the shopping cart, and finally checking
+                                out the selected offers. The benchmark also
+                                features an advanced task set containing tasks
+                                with vague requirements and asking the agent to
+                                find compatible or substitute products.
                             </p>
                             <p>
                                 Given a user task, the agent is asked to visit
@@ -196,45 +303,54 @@
                         <div class="content has-text-justified">
                             <p>
                                 The WebMall benchmark covers 84 tasks
-                                distributed over 10 distinct task categories. 9
-                                out of 10 tasks require the agents to visit all
-                                webshops to find relevant product offers and 3
-                                out of the 9 further require the comparison of
-                                pricing information across shops to find the
-                                cheapest offer(s). The 10 task categories in
-                                WebMall are further divided into a "Basic" task
-                                set and an "Advanced" task set.
+                                distributed over 10 task categories. 9 out of 10
+                                tasks require the agents to visit four different
+                                webshops to find relevant product offers. 3 out
+                                of the 9 further require the comparison of
+                                product prices across shops in order to find the
+                                cheapest offer(s). The task categories are
+                                grouped into a basic task set and an advanced
+                                task set.
                             </p>
                             <p>
-                                The "Basic" task set covers all tasks usually
-                                handled when looking to buy a specific product.
-                                It contains 5 of the 10 task categories and
-                                covers the tasks of searching for offers for a
-                                specific product, searching for the cheapest
-                                offers for a product, searching for product
-                                offers that fit very specific product
-                                requirements as well as adding products to the
-                                cart and checking out. The "Basic" set contains
-                                48 of the 84 tasks.
+                                The <strong>basic task set</strong> covers tasks
+                                that usually need to be handled in the process
+                                of buying a product online. It contains 5 of the
+                                10 task categories and covers the tasks of
+                                searching for offers for a specific product,
+                                searching for the cheapest offers for a product,
+                                searching for product offers that fit very
+                                specific product requirements, as well as adding
+                                products to the cart and checking out. The basic
+                                set contains 48 tasks.
                             </p>
                             <p>
-                                The "Advanced" task set covers tasks where the
-                                user has not yet decided on a specific product.
-                                It contains the remaining 5 tasks, looking for
-                                product offers with only vague requirements from
-                                the side of the user, finding the cheapest offer
-                                fitting specific or vague requirements as well
-                                as finding cheaper substitutes for a specific
-                                product and finding compatible products like a
-                                cable for connecting a monitor to a computer.
-                                The "Advanced" set contains 36 of the 84 tasks.
+                                The <strong>advanced task set</strong> covers
+                                difficult product search and comparison tasks.
+                                It contains looking for product offers given
+                                only vague requirements from the user, finding
+                                the cheapest offer fitting specific or vague
+                                requirements, finding cheaper substitutes for a
+                                specific product, and finding compatible
+                                products like a cable for connecting a monitor
+                                to a computer. The advanced set contains 36
+                                tasks.
                             </p>
                             <p>
                                 Each task is defined by the specific instruction
                                 to the agent in string format as well as the
                                 expected answers (URLs of the correct product
-                                offers) if the task requires answers. The full
-                                set of tasks can be found
+                                offers) if the task requires answers. The
+                                instruction to the agent consists of a general
+                                instruction part that is the same for all tasks
+                                as well as the task specific instruction. The
+                                general instruction contains links to the 4
+                                webshops of WebMall as well as instructions on
+                                how to submit the final solution after
+                                completing a task.
+                            </p>
+                            <p>
+                                The full set of tasks can be found
                                 <a
                                     href="https://github.com/wbsg-uni-mannheim/WebMall/blob/main/BrowserGym/browsergym/webmall/src/browsergym/webmall/task_sets.json"
                                     >here</a
@@ -250,15 +366,122 @@
                         <h2 class="title is-3">The WebMall Shops</h2>
                         <div class="content has-text-justified">
                             <p>
-                                WebMall consists of four heterogeneous e-shops
-                                exposing product offers via different user
-                                interfaces. The shops contain heterogeneous
-                                offers which were extracted from a wide set of
-                                e-shops featuring schema.org product annotations
-                                and being covered by the Web Data Commons
-                                schema.org extraction [Brinkmann2023] from the
-                                CommonCrawl.
+                                The WebMall benchmark asks agents to search for
+                                products in four distinct webshops which provide
+                                heterogeneous user interfaces. The webshops are
+                                implemented using the WordPress plugin
+                                WooCommerce and can be hosted via docker either
+                                locally or on a remote machine.
                             </p>
+                            <p>
+                                Each shop contains heterogeneous product offers
+                                originating from a wide set of e-shops which
+                                annotate
+                                <a href="https://schema.org/Offer"
+                                    >product offers</a
+                                >
+                                within their pages using the
+                                <a href="https://schema.org">schema.org</a>
+                                vocabulary. The product offers were extracted
+                                from the October 2024 version of the
+                                <a href="https://commoncrawl.org/"
+                                    >CommonCrawl</a
+                                >
+                                by the
+                                <a
+                                    href="https://webdatacommons.org/structureddata/"
+                                    >WebDataCommons</a
+                                >
+                                project [Brinkmann2023].
+                            </p>
+                            <p>
+                                The four WebMall shops contain a total of
+                                <strong>1,088 product offers</strong>
+                                distributed across four main categories:
+                                Internal PC Components, PC Peripherals, PC
+                                Cases, and Devices. The distribution varies
+                                across shops to create diverse shopping
+                                environments for comprehensive agent evaluation.
+                            </p>
+                        </div>
+
+                        <h3 class="title is-4">Overall Product Distribution</h3>
+                        <div class="columns is-centered">
+                            <div class="column is-half">
+                                <canvas
+                                    id="overallChart"
+                                    width="400"
+                                    height="400"
+                                ></canvas>
+                            </div>
+                        </div>
+
+                        <h3 class="title is-4">
+                            Per-Shop Product Distribution
+                        </h3>
+                        <div class="columns is-multiline">
+                            <div class="column is-half">
+                                <h4 class="title is-5">Shop 1 (303 offers)</h4>
+                                <canvas
+                                    id="shop1Chart"
+                                    width="300"
+                                    height="300"
+                                ></canvas>
+                            </div>
+                            <div class="column is-half">
+                                <h4 class="title is-5">Shop 2 (258 offers)</h4>
+                                <canvas
+                                    id="shop2Chart"
+                                    width="300"
+                                    height="300"
+                                ></canvas>
+                            </div>
+                            <div class="column is-half">
+                                <h4 class="title is-5">Shop 3 (342 offers)</h4>
+                                <canvas
+                                    id="shop3Chart"
+                                    width="300"
+                                    height="300"
+                                ></canvas>
+                            </div>
+                            <div class="column is-half">
+                                <h4 class="title is-5">Shop 4 (185 offers)</h4>
+                                <canvas
+                                    id="shop4Chart"
+                                    width="300"
+                                    height="300"
+                                ></canvas>
+                            </div>
+                        </div>
+
+                        <h3 class="title is-4">Shop Screenshots</h3>
+                        <div class="columns is-multiline">
+                            <div class="column is-half">
+                                <h4 class="title is-5">Shop 1</h4>
+                                <figure class="image">
+                                    <img
+                                        src="./static/images/shop1.png"
+                                        alt="Shop 1 Screenshot"
+                                        style="
+                                            border: 1px solid #ddd;
+                                            border-radius: 5px;
+                                        "
+                                    />
+                                </figure>
+                            </div>
+                            <div class="column is-half">
+                                <h4 class="title is-5">Shop 2</h4>
+                                <figure class="image">
+                                    <img
+                                        src="./static/images/shop2.png"
+                                        alt="Shop 2 Screenshot"
+                                        style="
+                                            border: 1px solid #ddd;
+                                            border-radius: 5px;
+                                        "
+                                    />
+                                </figure>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -269,46 +492,799 @@
                         <h2 class="title is-3">Baseline Experiments</h2>
                         <div class="content has-text-justified">
                             <p>
-                                We conduct a series of baseline experiments on
-                                the WebMall benchmark with the Web Agents
-                                implemented in the AgentLab library that
-                                accompanies Browsergym [Chezelles2025]. We use
-                                the GenericAgent from AgentLab with the
-                                "WebArena" action set using the default settings
-                                for a GPT-4o-based agent.
+                                We conduct a series of baseline experiments
+                                using web agents implemented as part of the
+                                AgentLab library that accompanies BrowserGym
+                                [Chezelles2025]. We use the GenericAgent from
+                                AgentLab and configure it to use the WebArena
+                                action set and GPT-4o as foundation model. The
+                                observation space of the agent is the AX-tree of
+                                the visited webpages.
                             </p>
                             <p>
                                 We further evaluate an agent that uses vision
                                 capabilities in addition to the AX-tree by
                                 adding a screenshot, where each element of the
                                 visible page is annotated with a number that
-                                corresponds to the AX-tree id of the element.
+                                corresponds to the AX-tree id of the element
+                                (set of marks prompting).
+                            </p>
+                            <p>
                                 The third evaluated agent uses short-term memory
                                 in addition to the AX-tree which allows it to
                                 note down essential information to remember in
                                 each step.
                             </p>
                             <p>
-                                For each task the agent is required and
-                                instructed to either submit its solution in the
-                                form of product URLs on the WebMall solution
-                                page or finish the task by entering "Done" on
-                                the solution page for tasks that do not require
-                                the selection of specific product offers like
-                                "Add to Cart" or "Checkout" tasks.
+                                Each of the three agents is run on the Basic and
+                                Advanced task sets of WebMall with the LLMs
+                                GPT4.1 (2025-04-14) and Claude Sonnet 4
+                                (2025-05-14).
                             </p>
+                        </div>
+
+                        <h3 class="title is-4">Performance Results</h3>
+                        <div class="content has-text-justified">
+                            <p>
+                                <strong>CR:</strong> Completion Rate -
+                                Percentage of tasks completed successfully
+                            </p>
+                            <p>
+                                <strong>PCR:</strong> Partial Completion Rate -
+                                Percentage of tasks with partially correct
+                                results
+                            </p>
+                            <p>
+                                <strong>CCR:</strong> Correct Completion Rate -
+                                Percentage of tasks completed with fully correct
+                                results
+                            </p>
+                        </div>
+                        <div class="results-table" style="width: 100%">
+                            <table
+                                class="table is-striped is-hoverable is-fullwidth"
+                            >
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Model</th>
+                                        <th rowspan="2">Task set</th>
+                                        <th colspan="2">AX-Tree</th>
+                                        <th colspan="2">AX-Tree + Memory</th>
+                                        <th colspan="2">AX-Tree + Vision</th>
+                                    </tr>
+                                    <tr>
+                                        <th>CR (%)</th>
+                                        <th>PCR (%)</th>
+                                        <th>CR (%)</th>
+                                        <th>PCR (%)</th>
+                                        <th>CR (%)</th>
+                                        <th>PCR (%)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>GPT4.1</td>
+                                        <td>Basic</td>
+                                        <td>62.50</td>
+                                        <td>72.03</td>
+                                        <td>75.00</td>
+                                        <td>81.77</td>
+                                        <td>50.00</td>
+                                        <td>59.26</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Claude Sonnet 4</td>
+                                        <td>Basic</td>
+                                        <td>70.83</td>
+                                        <td>79.85</td>
+                                        <td>75.00</td>
+                                        <td>79.40</td>
+                                        <td>70.84</td>
+                                        <td>76.09</td>
+                                    </tr>
+                                    <tr>
+                                        <td>GPT4.1</td>
+                                        <td>Advanced</td>
+                                        <td>19.45</td>
+                                        <td>30.42</td>
+                                        <td>27.78</td>
+                                        <td>42.45</td>
+                                        <td>19.45</td>
+                                        <td>23.47</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Claude Sonnet 4</td>
+                                        <td>Advanced</td>
+                                        <td>38.89</td>
+                                        <td>53.84</td>
+                                        <td>41.67</td>
+                                        <td>54.12</td>
+                                        <td>33.34</td>
+                                        <td>42.13</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="title is-4">Resource Usage Summary</h3>
+                        <div class="results-table">
+                            <table
+                                class="table is-striped is-hoverable is-fullwidth"
+                            >
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Model</th>
+                                        <th rowspan="2">Task set</th>
+                                        <th colspan="4">AX-Tree</th>
+                                        <th colspan="4">AX-Tree + Memory</th>
+                                        <th colspan="4">AX-Tree + Vision</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Avg. Steps</th>
+                                        <th>Avg. Input Tokens</th>
+                                        <th>Avg. Output Tokens</th>
+                                        <th>Avg. Cost ($)</th>
+                                        <th>Avg. Steps</th>
+                                        <th>Avg. Input Tokens</th>
+                                        <th>Avg. Output Tokens</th>
+                                        <th>Avg. Cost ($)</th>
+                                        <th>Avg. Steps</th>
+                                        <th>Avg. Input Tokens</th>
+                                        <th>Avg. Output Tokens</th>
+                                        <th>Avg. Cost ($)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>GPT4.1</td>
+                                        <td>Basic</td>
+                                        <td>20</td>
+                                        <td>131,451</td>
+                                        <td>2,187</td>
+                                        <td>0.28</td>
+                                        <td>19</td>
+                                        <td>131,118</td>
+                                        <td>3,229</td>
+                                        <td>0.29</td>
+                                        <td>20</td>
+                                        <td>147,237</td>
+                                        <td>1,850</td>
+                                        <td>0.31</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Claude Sonnet 4</td>
+                                        <td>Basic</td>
+                                        <td>20</td>
+                                        <td>173,443</td>
+                                        <td>4,459</td>
+                                        <td>0.59</td>
+                                        <td>20.52</td>
+                                        <td>229,343</td>
+                                        <td>10,613</td>
+                                        <td>0.85</td>
+                                        <td>25</td>
+                                        <td>268,075</td>
+                                        <td>5,907</td>
+                                        <td>0.89</td>
+                                    </tr>
+                                    <tr>
+                                        <td>GPT4.1</td>
+                                        <td>Advanced</td>
+                                        <td>21</td>
+                                        <td>154,609</td>
+                                        <td>2,660</td>
+                                        <td>0.33</td>
+                                        <td>19</td>
+                                        <td>147,548</td>
+                                        <td>3,983</td>
+                                        <td>0.33</td>
+                                        <td>19</td>
+                                        <td>156,366</td>
+                                        <td>2,161</td>
+                                        <td>0.33</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Claude Sonnet 4</td>
+                                        <td>Advanced</td>
+                                        <td>25</td>
+                                        <td>257,357</td>
+                                        <td>6,906</td>
+                                        <td>0.88</td>
+                                        <td>22.72</td>
+                                        <td>331,334</td>
+                                        <td>17,901</td>
+                                        <td>1.26</td>
+                                        <td>33</td>
+                                        <td>461,398</td>
+                                        <td>10,602</td>
+                                        <td>1.54</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="title is-4">
+                            Detailed Task Completion Rates
+                        </h3>
+                        <div class="results-table" style="width: 100%">
+                            <table
+                                class="table is-striped is-hoverable is-fullwidth"
+                            >
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Model</th>
+                                        <th rowspan="2">Task set</th>
+                                        <th colspan="2">AX-Tree</th>
+                                        <th colspan="2">AX-Tree + Memory</th>
+                                        <th colspan="2">AX-Tree + Vision</th>
+                                    </tr>
+                                    <tr>
+                                        <th>CR (%)</th>
+                                        <th>PCR (%)</th>
+                                        <th>CR (%)</th>
+                                        <th>PCR (%)</th>
+                                        <th>CR (%)</th>
+                                        <th>PCR (%)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="background-color: #f0f0f0">
+                                        <td colspan="8">
+                                            <strong>Basic Tasks</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5">GPT4.1</td>
+                                        <td>Single Product Search</td>
+                                        <td>58.34</td>
+                                        <td>69.45</td>
+                                        <td>58.34</td>
+                                        <td>69.45</td>
+                                        <td>41.67</td>
+                                        <td>59.47</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cheapest Product Search</td>
+                                        <td>60.00</td>
+                                        <td>60.00</td>
+                                        <td>80.00</td>
+                                        <td>80.00</td>
+                                        <td>10.00</td>
+                                        <td>15.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Fit Specific Req.</td>
+                                        <td>36.37</td>
+                                        <td>61.26</td>
+                                        <td>54.55</td>
+                                        <td>71.94</td>
+                                        <td>36.37</td>
+                                        <td>52.79</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Add to Cart</td>
+                                        <td>85.71</td>
+                                        <td>85.71</td>
+                                        <td>100.00</td>
+                                        <td>100.00</td>
+                                        <td>85.71</td>
+                                        <td>85.71</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Checkout</td>
+                                        <td>87.50</td>
+                                        <td>93.75</td>
+                                        <td>100.00</td>
+                                        <td>100.00</td>
+                                        <td>100.00</td>
+                                        <td>100.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5">Claude Sonnet 4</td>
+                                        <td>Single Product Search</td>
+                                        <td>75.00</td>
+                                        <td>85.42</td>
+                                        <td>58.34</td>
+                                        <td>66.67</td>
+                                        <td>66.67</td>
+                                        <td>77.08</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cheapest Product Search</td>
+                                        <td>70.00</td>
+                                        <td>70.00</td>
+                                        <td>70.00</td>
+                                        <td>70.00</td>
+                                        <td>70.00</td>
+                                        <td>70.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Fit Specific Req.</td>
+                                        <td>54.55</td>
+                                        <td>73.45</td>
+                                        <td>63.64</td>
+                                        <td>73.76</td>
+                                        <td>54.55</td>
+                                        <td>61.57</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Add to Cart</td>
+                                        <td>71.43</td>
+                                        <td>78.57</td>
+                                        <td>100.00</td>
+                                        <td>100.00</td>
+                                        <td>71.43</td>
+                                        <td>78.57</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Checkout</td>
+                                        <td>87.50</td>
+                                        <td>93.75</td>
+                                        <td>100.00</td>
+                                        <td>100.00</td>
+                                        <td>100.00</td>
+                                        <td>100.00</td>
+                                    </tr>
+                                    <tr style="background-color: #f0f0f0">
+                                        <td colspan="8">
+                                            <strong>Advanced Tasks</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5">GPT4.1</td>
+                                        <td>Cheapest Best Fit Specific Req.</td>
+                                        <td>40.00</td>
+                                        <td>40.00</td>
+                                        <td>50.00</td>
+                                        <td>55.00</td>
+                                        <td>20.00</td>
+                                        <td>20.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Fit Vague Req.</td>
+                                        <td>0.00</td>
+                                        <td>28.15</td>
+                                        <td>11.11</td>
+                                        <td>34.63</td>
+                                        <td>22.23</td>
+                                        <td>32.78</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cheapest Best Fit Vague Req.</td>
+                                        <td>16.67</td>
+                                        <td>31.94</td>
+                                        <td>33.34</td>
+                                        <td>44.45</td>
+                                        <td>33.33</td>
+                                        <td>33.33</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Find Substitutes</td>
+                                        <td>33.34</td>
+                                        <td>41.67</td>
+                                        <td>33.34</td>
+                                        <td>50.00</td>
+                                        <td>16.67</td>
+                                        <td>25.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Find Compatible Products</td>
+                                        <td>0.00</td>
+                                        <td>0.00</td>
+                                        <td>0.00</td>
+                                        <td>20.00</td>
+                                        <td>0.00</td>
+                                        <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5">Claude Sonnet 4</td>
+                                        <td>Cheapest Best Fit Specific Req.</td>
+                                        <td>50.00</td>
+                                        <td>55.00</td>
+                                        <td>60.00</td>
+                                        <td>65.00</td>
+                                        <td>40.00</td>
+                                        <td>45.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Fit Vague Req.</td>
+                                        <td>33.34</td>
+                                        <td>63.52</td>
+                                        <td>33.34</td>
+                                        <td>55.37</td>
+                                        <td>33.34</td>
+                                        <td>43.52</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cheapest Best Fit Vague Req.</td>
+                                        <td>33.34</td>
+                                        <td>37.50</td>
+                                        <td>33.34</td>
+                                        <td>48.61</td>
+                                        <td>16.67</td>
+                                        <td>31.95</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Find Substitutes</td>
+                                        <td>33.34</td>
+                                        <td>61.12</td>
+                                        <td>33.34</td>
+                                        <td>47.22</td>
+                                        <td>33.34</td>
+                                        <td>47.23</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Find Compatible Products</td>
+                                        <td>40.00</td>
+                                        <td>45.00</td>
+                                        <td>40.00</td>
+                                        <td>45.00</td>
+                                        <td>40.00</td>
+                                        <td>40.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="title is-4">Cost and Resource Usage</h3>
+                        <div class="results-table cost-table">
+                            <table
+                                class="table is-striped is-hoverable is-fullwidth"
+                            >
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Model</th>
+                                        <th rowspan="2">Task set</th>
+                                        <th colspan="4">AX-Tree</th>
+                                        <th colspan="4">AX-Tree + Memory</th>
+                                        <th colspan="4">AX-Tree + Vision</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Avg. Steps</th>
+                                        <th>Avg. Input Tokens</th>
+                                        <th>Avg. Output Tokens</th>
+                                        <th>Avg. Cost ($)</th>
+                                        <th>Avg. Steps</th>
+                                        <th>Avg. Input Tokens</th>
+                                        <th>Avg. Output Tokens</th>
+                                        <th>Avg. Cost ($)</th>
+                                        <th>Avg. Steps</th>
+                                        <th>Avg. Input Tokens</th>
+                                        <th>Avg. Output Tokens</th>
+                                        <th>Avg. Cost ($)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="background-color: #f0f0f0">
+                                        <td colspan="14">
+                                            <strong>Basic Tasks</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5">GPT4.1</td>
+                                        <td>Single Product Search</td>
+                                        <td>18</td>
+                                        <td>112,625</td>
+                                        <td>2,071</td>
+                                        <td>0.24</td>
+                                        <td>17</td>
+                                        <td>113,030</td>
+                                        <td>3,155</td>
+                                        <td>0.25</td>
+                                        <td>18</td>
+                                        <td>127,133</td>
+                                        <td>1,845</td>
+                                        <td>0.27</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cheapest Product Search</td>
+                                        <td>17</td>
+                                        <td>100,277</td>
+                                        <td>1,736</td>
+                                        <td>0.21</td>
+                                        <td>16</td>
+                                        <td>102,181</td>
+                                        <td>2,774</td>
+                                        <td>0.23</td>
+                                        <td>18</td>
+                                        <td>125,801</td>
+                                        <td>1,605</td>
+                                        <td>0.26</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Fit Specific Req.</td>
+                                        <td>24</td>
+                                        <td>182,700</td>
+                                        <td>3,073</td>
+                                        <td>0.39</td>
+                                        <td>21</td>
+                                        <td>165,627</td>
+                                        <td>4,101</td>
+                                        <td>0.36</td>
+                                        <td>22</td>
+                                        <td>187,407</td>
+                                        <td>2,384</td>
+                                        <td>0.39</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Add to Cart</td>
+                                        <td>19</td>
+                                        <td>119,019</td>
+                                        <td>1,969</td>
+                                        <td>0.25</td>
+                                        <td>18</td>
+                                        <td>122,835</td>
+                                        <td>2,970</td>
+                                        <td>0.27</td>
+                                        <td>18</td>
+                                        <td>126,263</td>
+                                        <td>1,482</td>
+                                        <td>0.26</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Checkout</td>
+                                        <td>24</td>
+                                        <td>139,070</td>
+                                        <td>1,899</td>
+                                        <td>0.29</td>
+                                        <td>24</td>
+                                        <td>154,220</td>
+                                        <td>2,934</td>
+                                        <td>0.33</td>
+                                        <td>24</td>
+                                        <td>167,308</td>
+                                        <td>1,749</td>
+                                        <td>0.35</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5">Claude Sonnet 4</td>
+                                        <td>Single Product Search</td>
+                                        <td>19</td>
+                                        <td>149,838</td>
+                                        <td>4,102</td>
+                                        <td>0.51</td>
+                                        <td>21</td>
+                                        <td>235,463</td>
+                                        <td>12,541</td>
+                                        <td>0.89</td>
+                                        <td>21</td>
+                                        <td>203,623</td>
+                                        <td>5,024</td>
+                                        <td>0.69</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cheapest Product Search</td>
+                                        <td>17</td>
+                                        <td>126,316</td>
+                                        <td>3,215</td>
+                                        <td>0.43</td>
+                                        <td>17</td>
+                                        <td>163,060</td>
+                                        <td>7,779</td>
+                                        <td>0.61</td>
+                                        <td>22</td>
+                                        <td>214,319</td>
+                                        <td>4,662</td>
+                                        <td>0.71</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Fit Specific Req.</td>
+                                        <td>25</td>
+                                        <td>262,004</td>
+                                        <td>6,738</td>
+                                        <td>0.89</td>
+                                        <td>23</td>
+                                        <td>328,001</td>
+                                        <td>14,560</td>
+                                        <td>1.20</td>
+                                        <td>32</td>
+                                        <td>427,724</td>
+                                        <td>8,801</td>
+                                        <td>1.42</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Add to Cart</td>
+                                        <td>18</td>
+                                        <td>141,195</td>
+                                        <td>3,441</td>
+                                        <td>0.48</td>
+                                        <td>18</td>
+                                        <td>175,459</td>
+                                        <td>8,457</td>
+                                        <td>0.65</td>
+                                        <td>23</td>
+                                        <td>224,813</td>
+                                        <td>4,311</td>
+                                        <td>0.74</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Checkout</td>
+                                        <td>23</td>
+                                        <td>174,202</td>
+                                        <td>4,309</td>
+                                        <td>0.59</td>
+                                        <td>23</td>
+                                        <td>214,509</td>
+                                        <td>7,724</td>
+                                        <td>0.76</td>
+                                        <td>26</td>
+                                        <td>250,284</td>
+                                        <td>6,202</td>
+                                        <td>0.84</td>
+                                    </tr>
+                                    <tr style="background-color: #f0f0f0">
+                                        <td colspan="14">
+                                            <strong>Advanced Tasks</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5">GPT4.1</td>
+                                        <td>Cheapest Best Fit Specific Req.</td>
+                                        <td>20</td>
+                                        <td>142,851</td>
+                                        <td>2,198</td>
+                                        <td>0.30</td>
+                                        <td>20</td>
+                                        <td>146,210</td>
+                                        <td>3,377</td>
+                                        <td>0.32</td>
+                                        <td>18</td>
+                                        <td>139,887</td>
+                                        <td>1,718</td>
+                                        <td>0.29</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Fit Vague Req.</td>
+                                        <td>24</td>
+                                        <td>182,507</td>
+                                        <td>3,151</td>
+                                        <td>0.39</td>
+                                        <td>18</td>
+                                        <td>146,078</td>
+                                        <td>4,581</td>
+                                        <td>0.33</td>
+                                        <td>23</td>
+                                        <td>205,822</td>
+                                        <td>3,036</td>
+                                        <td>0.44</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cheapest Best Fit Vague Req.</td>
+                                        <td>22</td>
+                                        <td>169,166</td>
+                                        <td>2,916</td>
+                                        <td>0.36</td>
+                                        <td>19</td>
+                                        <td>146,537</td>
+                                        <td>3,988</td>
+                                        <td>0.32</td>
+                                        <td>20</td>
+                                        <td>169,546</td>
+                                        <td>2,299</td>
+                                        <td>0.36</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Find Substitutes</td>
+                                        <td>19</td>
+                                        <td>125,073</td>
+                                        <td>2,472</td>
+                                        <td>0.27</td>
+                                        <td>19</td>
+                                        <td>138,926</td>
+                                        <td>3,562</td>
+                                        <td>0.30</td>
+                                        <td>17</td>
+                                        <td>136,587</td>
+                                        <td>1,975</td>
+                                        <td>0.29</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Find Compatible Products</td>
+                                        <td>22</td>
+                                        <td>145,882</td>
+                                        <td>2,617</td>
+                                        <td>0.31</td>
+                                        <td>21</td>
+                                        <td>164,433</td>
+                                        <td>4,619</td>
+                                        <td>0.37</td>
+                                        <td>15</td>
+                                        <td>108,222</td>
+                                        <td>1,528</td>
+                                        <td>0.23</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5">Claude Sonnet 4</td>
+                                        <td>Cheapest Best Fit Specific Req.</td>
+                                        <td>21</td>
+                                        <td>184,652</td>
+                                        <td>4,768</td>
+                                        <td>0.63</td>
+                                        <td>21</td>
+                                        <td>306,201</td>
+                                        <td>19,909</td>
+                                        <td>1.22</td>
+                                        <td>29</td>
+                                        <td>363,086</td>
+                                        <td>7,278</td>
+                                        <td>1.20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Fit Vague Req.</td>
+                                        <td>30</td>
+                                        <td>360,564</td>
+                                        <td>9,720</td>
+                                        <td>1.23</td>
+                                        <td>28</td>
+                                        <td>466,259</td>
+                                        <td>23,329</td>
+                                        <td>1.75</td>
+                                        <td>37</td>
+                                        <td>542,216</td>
+                                        <td>13,202</td>
+                                        <td>1.82</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cheapest Best Fit Vague Req.</td>
+                                        <td>25</td>
+                                        <td>254,591</td>
+                                        <td>6,206</td>
+                                        <td>0.86</td>
+                                        <td>24</td>
+                                        <td>343,691</td>
+                                        <td>16,423</td>
+                                        <td>1.28</td>
+                                        <td>37</td>
+                                        <td>532,580</td>
+                                        <td>9,576</td>
+                                        <td>1.74</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Find Substitutes</td>
+                                        <td>23</td>
+                                        <td>234,912</td>
+                                        <td>6,423</td>
+                                        <td>0.80</td>
+                                        <td>17</td>
+                                        <td>207,122</td>
+                                        <td>13,662</td>
+                                        <td>0.83</td>
+                                        <td>31</td>
+                                        <td>489,526</td>
+                                        <td>12,386</td>
+                                        <td>1.65</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Find Compatible Products</td>
+                                        <td>25</td>
+                                        <td>247,251</td>
+                                        <td>7,537</td>
+                                        <td>0.85</td>
+                                        <td>22</td>
+                                        <td>272,964</td>
+                                        <td>10,975</td>
+                                        <td>0.98</td>
+                                        <td>32</td>
+                                        <td>393,378</td>
+                                        <td>11,663</td>
+                                        <td>1.36</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
 
-                <!-- How to get started -->
+                <!-- Running the WebMall Benchmark -->
                 <div class="columns is-centered has-text-centered">
                     <div class="column is-four-fifths">
-                        <h2 class="title is-3">How to Get Started</h2>
+                        <h2 class="title is-3">
+                            Running the WebMall Benchmark
+                        </h2>
                         <div class="content has-text-justified">
                             <p>
                                 For this benchmark we assume a unix operating
-                                system in order to run Docker. In case windows
+                                system in order to run Docker. In case Windows
                                 is used we refer to the
                                 <a
                                     href="https://docs.docker.com/desktop/setup/install/windows-install/"
@@ -321,27 +1297,23 @@
                                 The setup consists of different Docker
                                 containers, two for each shop (shop + database).
                                 This allows for a simple setup using Docker
-                                Compose. In order to get started hosting the
-                                benchmark locally:
-                            </p>
-                            <ol>
-                                <li>Clone the repo.</li>
-                                <li>
-                                    Set up the environment variables as desired,
-                                    based on the env.example file.
-                                </li>
-                                <li>
-                                    Start all containers using the deploy
-                                    script.
-                                </li>
-                            </ol>
-                            <p>
-                                For a more detailed installation guide, refer to
-                                the
+                                Compose. Please refer to the installation guide
+                                on
                                 <a
                                     href="https://github.com/wbsg-uni-mannheim/WebMall/tree/main/docker_all"
-                                    >repository</a
+                                    >GitHub</a
                                 >.
+                            </p>
+
+                            <h3 class="title is-4">Performing Experiments</h3>
+                            <p>
+                                To start experiments, you need to configure the
+                                test driver with appropriate settings for your
+                                chosen agent configuration. The system writes
+                                comprehensive logs during execution, including
+                                agent actions, observations, and performance
+                                metrics. All logs are stored in the designated
+                                output directory for later analysis.
                             </p>
                         </div>
                     </div>
@@ -353,40 +1325,30 @@
                         <h2 class="title is-3">Related Work</h2>
                         <div class="content has-text-justified">
                             <p>
-                                Survey on benchmarks for LLM agents
-                                [Yehudai2025]. We fall into the category:
-                                benchmarks for Web agents requiring realistic
-                                multi-site time consuming tasks (similar to
-                                ASSISTANTBENCH and WebVoyager).
+                                [Yehudai2025] survey benchmarks for the
+                                evaluation of LLM agents and categorize them
+                                according to the agent's application domain as
+                                well as the agent capabilities that are
+                                evaluated. Other benchmarks that also evaluate
+                                the capability of Web agents to perform online
+                                shopping are the
+                                <a href="https://webshop-pnlp.github.io/"
+                                    >WebShop</a
+                                >
+                                benchmark as well as the
+                                <a href="https://webarena.dev/">WebArena</a> and
+                                <a
+                                    href="https://osu-nlp-group.github.io/Mind2Web/"
+                                    >Mind2Web</a
+                                >
+                                benchmarks, which feature e-commerce tasks as
+                                part of a wider task set. Compared to these
+                                benchmarks, the WebMall benchmark requires
+                                agents to perform longer running tasks (due to
+                                visiting multiple shops) and to deal with
+                                heterogeneous product data from different
+                                real-world sources.
                             </p>
-                            <p>Benchmarks to compare to:</p>
-                            <ul>
-                                <li>
-                                    <a href="https://webarena.dev/">WebArena</a>
-                                </li>
-                                <li>
-                                    <a href="https://webshop-pnlp.github.io/"
-                                        >WebShop</a
-                                    >
-                                </li>
-                                <li>
-                                    <a
-                                        href="https://osu-nlp-group.github.io/Mind2Web/"
-                                        >Mind2Web</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="https://www.realevals.xyz/"
-                                        >RealEvals</a
-                                    >
-                                </li>
-                                <li>
-                                    <a
-                                        href="https://openai.com/index/browsecomp/"
-                                        >BrowseComp</a
-                                    >
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -459,5 +1421,212 @@
                 </div>
             </div>
         </footer>
+
+        <script>
+            // Register the datalabels plugin
+            Chart.register(ChartDataLabels);
+
+            // Common color scheme for categories
+            const categoryColors = {
+                "Internal PC Components": "#3498db",
+                "PC Peripherals": "#e74c3c",
+                "PC Cases": "#f39c12",
+                Devices: "#2ecc71",
+            };
+
+            // Chart configuration function
+            function createPieChart(canvasId, data, title) {
+                const ctx = document.getElementById(canvasId).getContext("2d");
+                return new Chart(ctx, {
+                    type: "pie",
+                    data: {
+                        labels: data.map((item) => item.label),
+                        datasets: [
+                            {
+                                data: data.map((item) => item.value),
+                                backgroundColor: data.map(
+                                    (item) => categoryColors[item.label]
+                                ),
+                                borderWidth: 2,
+                                borderColor: "#ffffff",
+                            },
+                        ],
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: title,
+                                font: {
+                                    size: 16,
+                                    weight: "bold",
+                                },
+                            },
+                            legend: {
+                                position: "bottom",
+                                labels: {
+                                    padding: 20,
+                                    usePointStyle: true,
+                                    font: {
+                                        size: 13,
+                                        weight: "bold",
+                                    },
+                                    generateLabels: function (chart) {
+                                        const data = chart.data;
+                                        if (
+                                            data.labels.length &&
+                                            data.datasets.length
+                                        ) {
+                                            return data.labels.map(
+                                                (label, i) => {
+                                                    const dataset =
+                                                        data.datasets[0];
+                                                    const value =
+                                                        dataset.data[i];
+                                                    const total =
+                                                        dataset.data.reduce(
+                                                            (a, b) => a + b,
+                                                            0
+                                                        );
+                                                    const percentage = (
+                                                        (value / total) *
+                                                        100
+                                                    ).toFixed(1);
+                                                    return {
+                                                        text: `${label}\n${value} offers (${percentage}%)`,
+                                                        fillStyle:
+                                                            dataset
+                                                                .backgroundColor[
+                                                                i
+                                                            ],
+                                                        strokeStyle:
+                                                            dataset.borderColor,
+                                                        lineWidth:
+                                                            dataset.borderWidth,
+                                                        pointStyle: "circle",
+                                                        hidden: false,
+                                                        index: i,
+                                                    };
+                                                }
+                                            );
+                                        }
+                                        return [];
+                                    },
+                                },
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        const label = context.label || "";
+                                        const value = context.parsed;
+                                        const total =
+                                            context.dataset.data.reduce(
+                                                (a, b) => a + b,
+                                                0
+                                            );
+                                        const percentage = (
+                                            (value / total) *
+                                            100
+                                        ).toFixed(1);
+                                        return `${label}: ${value} offers (${percentage}%)`;
+                                    },
+                                },
+                            },
+                            datalabels: {
+                                color: "#ffffff",
+                                font: {
+                                    weight: "bold",
+                                    size: 11,
+                                },
+                                formatter: function (value, context) {
+                                    const total = context.dataset.data.reduce(
+                                        (a, b) => a + b,
+                                        0
+                                    );
+                                    const percentage = (
+                                        (value / total) *
+                                        100
+                                    ).toFixed(1);
+                                    const label =
+                                        context.chart.data.labels[
+                                            context.dataIndex
+                                        ];
+
+                                    // Only show label if the segment is large enough (>8%)
+                                    if (percentage > 8) {
+                                        // Split long labels into multiple lines
+                                        if (label.length > 12) {
+                                            const words = label.split(" ");
+                                            if (words.length > 1) {
+                                                return words;
+                                            }
+                                        }
+                                        return label;
+                                    }
+                                    return ""; // Don't show label for small segments
+                                },
+                                anchor: "center",
+                                align: "center",
+                                textAlign: "center",
+                                clip: false,
+                            },
+                        },
+                    },
+                });
+            }
+
+            // Wait for DOM to be fully loaded
+            document.addEventListener("DOMContentLoaded", function () {
+                // Overall distribution
+                const overallData = [
+                    { label: "Internal PC Components", value: 477 },
+                    { label: "PC Peripherals", value: 225 },
+                    { label: "PC Cases", value: 270 },
+                    { label: "Devices", value: 116 },
+                ];
+                createPieChart(
+                    "overallChart",
+                    overallData,
+                    "Total: 1,088 offers"
+                );
+
+                // Shop 1 distribution
+                const shop1Data = [
+                    { label: "Internal PC Components", value: 120 },
+                    { label: "PC Peripherals", value: 91 },
+                    { label: "PC Cases", value: 57 },
+                    { label: "Devices", value: 35 },
+                ];
+                createPieChart("shop1Chart", shop1Data, "");
+
+                // Shop 2 distribution
+                const shop2Data = [
+                    { label: "PC Cases", value: 114 },
+                    { label: "Internal PC Components", value: 72 },
+                    { label: "PC Peripherals", value: 49 },
+                    { label: "Devices", value: 23 },
+                ];
+                createPieChart("shop2Chart", shop2Data, "");
+
+                // Shop 3 distribution
+                const shop3Data = [
+                    { label: "Internal PC Components", value: 210 },
+                    { label: "PC Cases", value: 56 },
+                    { label: "PC Peripherals", value: 45 },
+                    { label: "Devices", value: 31 },
+                ];
+                createPieChart("shop3Chart", shop3Data, "");
+
+                // Shop 4 distribution
+                const shop4Data = [
+                    { label: "Internal PC Components", value: 75 },
+                    { label: "PC Cases", value: 43 },
+                    { label: "PC Peripherals", value: 40 },
+                    { label: "Devices", value: 27 },
+                ];
+                createPieChart("shop4Chart", shop4Data, "");
+            });
+        </script>
     </body>
 </html>
