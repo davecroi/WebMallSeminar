@@ -82,16 +82,15 @@
                 max-width: 150px;
             }
 
-            /* Numeric columns alignment */
+            /* Numeric columns alignment - center aligned */
             .results-table td[data-type="number"],
             .results-table td:matches-text('^\\d+$'),
             .results-table td:matches-text('\\d+\\.\\d+%?$'),
             .results-table td:matches-text('^\\$\\d'),
             .results-table td:matches-text('^\\d+,\\d+$') {
-                text-align: right;
+                text-align: center;
                 font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
                 font-weight: 500;
-                padding-right: 1em;
             }
 
             .results-table thead th {
@@ -173,21 +172,21 @@
             .product-distribution-table td:nth-child(2) {
                 width: 10%;
                 min-width: 60px;
-                text-align: right;
+                text-align: center;
             }
 
             .product-distribution-table th:nth-child(3),
             .product-distribution-table td:nth-child(3) {
                 width: 8%;
                 min-width: 50px;
-                text-align: right;
+                text-align: center;
             }
 
             .product-distribution-table th:nth-child(n+4),
             .product-distribution-table td:nth-child(n+4) {
                 width: 7.125%;
                 min-width: 50px;
-                text-align: right;
+                text-align: center;
             }
 
             /* Performance Results Table Specific */
@@ -215,7 +214,7 @@
             .performance-table td:nth-child(n+3) {
                 width: 12%;
                 min-width: 80px;
-                text-align: right;
+                text-align: center;
             }
 
             /* Resource Usage Table Specific */
@@ -250,7 +249,7 @@
             .resource-table td:nth-child(n+4) {
                 width: 14.5%;
                 min-width: 90px;
-                text-align: right;
+                text-align: center;
             }
 
             /* Cost Table Specific */
@@ -264,24 +263,28 @@
             .cost-table td:nth-child(1) {
                 width: 10%;
                 min-width: 80px;
+                text-align: left;
             }
 
             .cost-table th:nth-child(2),
             .cost-table td:nth-child(2) {
                 width: 18%;
                 min-width: 140px;
+                text-align: left;
             }
 
             .cost-table th:nth-child(3),
             .cost-table td:nth-child(3) {
                 width: 16%;
                 min-width: 120px;
+                text-align: left;
             }
 
             .cost-table th:nth-child(n+4),
             .cost-table td:nth-child(n+4) {
                 width: 14%;
                 min-width: 90px;
+                text-align: center;
             }
 
             /* Section Headers in Tables */
