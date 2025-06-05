@@ -1,0 +1,269 @@
+version: "3.8"
+
+networks:
+    webmall:
+        driver: bridge
+        external: false
+
+services:
+    webmall_frontend:
+        image: nginx:latest
+        container_name: WebMall_frontend
+        ports:
+            - "${FRONTEND_PORT}:80"
+        volumes:
+            - ./index.html:/usr/share/nginx/html/index.html
+        networks:
+            - webmall
+
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:8.10.2
+        container_name: WebMall_elasticsearch
+        environment:
+            - discovery.type=single-node
+            - xpack.security.enabled=false
+            - ES_JAVA_OPTS=-Xms512m -Xmx512m -XX:UseSVE=0
+            - CLI_JAVA_OPTS=-XX:UseSVE=0
+        ports:
+            - "9200:9200"
+        volumes:
+            - esdata:/usr/share/elasticsearch/data
+        healthcheck:
+            test:
+                [
+                    "CMD-SHELL",
+                    'curl -s http://localhost:9200/_cluster/health | grep -q ''"status":"green"''',
+                ]
+            interval: 30s
+            timeout: 10s
+            retries: 5
+        networks:
+            - webmall
+
+    mariadb_shop1:
+        image: bitnami/mariadb:latest
+        container_name: WebMall_mariadb_shop1
+        environment:
+            - MARIADB_ROOT_PASSWORD=rootpassword
+            - MARIADB_USER=bn_wordpress
+            - MARIADB_PASSWORD=wordpress_db_password
+            - MARIADB_DATABASE=bitnami_wordpress
+        volumes:
+            - woocommerce_mariadb_data_shop1:/bitnami/mariadb
+        networks:
+            - webmall
+
+    wordpress_shop1:
+        image: bitnami/wordpress:latest
+        container_name: WebMall_wordpress_shop1
+        ports:
+            - "${SHOP1_PORT}:8080"
+        environment:
+            - WORDPRESS_DATABASE_HOST=mariadb_shop1
+            - WORDPRESS_DATABASE_USER=bn_wordpress
+            - WORDPRESS_DATABASE_PASSWORD=wordpress_db_password
+            - WORDPRESS_DATABASE_NAME=bitnami_wordpress
+            - WORDPRESS_USERNAME=admin
+            - WORDPRESS_PASSWORD=admin
+            - WORDPRESS_EMAIL=user@example.com
+            - WORDPRESS_CONFIG_EXTRA=|
+              define('EP_HOST','http://WebMall_elasticsearch:9200');
+              define('EP_INDEX_PREFIX','shop1_');
+        volumes:
+            - woocommerce_wordpress_data_shop1:/bitnami/wordpress
+            - ./fix_urls.sh:/usr/local/bin/fix_urls.sh
+            - ./fix_urls_deploy.sh:/usr/local/bin/fix_urls_deploy.sh
+        depends_on:
+            - mariadb_shop1
+            - elasticsearch
+        healthcheck:
+            test:
+                [
+                    "CMD",
+                    "wp",
+                    "core",
+                    "is-installed",
+                    "--path=/opt/bitnami/wordpress",
+                ]
+            interval: 10s
+            timeout: 5s
+            retries: 3
+            start_period: 30s
+        networks:
+            - webmall
+
+    mariadb_shop2:
+        image: bitnami/mariadb:latest
+        container_name: WebMall_mariadb_shop2
+        environment:
+            - MARIADB_ROOT_PASSWORD=rootpassword
+            - MARIADB_USER=bn_wordpress
+            - MARIADB_PASSWORD=wordpress_db_password
+            - MARIADB_DATABASE=bitnami_wordpress
+        volumes:
+            - woocommerce_mariadb_data_shop2:/bitnami/mariadb
+        networks:
+            - webmall
+
+    wordpress_shop2:
+        image: bitnami/wordpress:latest
+        container_name: WebMall_wordpress_shop2
+        ports:
+            - "${SHOP2_PORT}:8080"
+        environment:
+            - WORDPRESS_DATABASE_HOST=mariadb_shop2
+            - WORDPRESS_DATABASE_USER=bn_wordpress
+            - WORDPRESS_DATABASE_PASSWORD=wordpress_db_password
+            - WORDPRESS_DATABASE_NAME=bitnami_wordpress
+            - WORDPRESS_USERNAME=admin
+            - WORDPRESS_PASSWORD=admin
+            - WORDPRESS_EMAIL=user@example.com
+            - WORDPRESS_CONFIG_EXTRA=|
+              define('EP_HOST','http://WebMall_elasticsearch:9200');
+              define('EP_INDEX_PREFIX','shop2_');
+        volumes:
+            - woocommerce_wordpress_data_shop2:/bitnami/wordpress
+            - ./fix_urls.sh:/usr/local/bin/fix_urls.sh
+            - ./fix_urls_deploy.sh:/usr/local/bin/fix_urls_deploy.sh
+        depends_on:
+            - mariadb_shop2
+            - elasticsearch
+        healthcheck:
+            test:
+                [
+                    "CMD",
+                    "wp",
+                    "core",
+                    "is-installed",
+                    "--path=/opt/bitnami/wordpress",
+                ]
+            interval: 10s
+            timeout: 5s
+            retries: 3
+            start_period: 30s
+        networks:
+            - webmall
+
+    mariadb_shop3:
+        image: bitnami/mariadb:latest
+        container_name: WebMall_mariadb_shop3
+        environment:
+            - MARIADB_ROOT_PASSWORD=rootpassword
+            - MARIADB_USER=bn_wordpress
+            - MARIADB_PASSWORD=wordpress_db_password
+            - MARIADB_DATABASE=bitnami_wordpress
+        volumes:
+            - woocommerce_mariadb_data_shop3:/bitnami/mariadb
+        networks:
+            - webmall
+
+    wordpress_shop3:
+        image: bitnami/wordpress:latest
+        container_name: WebMall_wordpress_shop3
+        ports:
+            - "${SHOP3_PORT}:8080"
+        environment:
+            - WORDPRESS_DATABASE_HOST=mariadb_shop3
+            - WORDPRESS_DATABASE_USER=bn_wordpress
+            - WORDPRESS_DATABASE_PASSWORD=wordpress_db_password
+            - WORDPRESS_DATABASE_NAME=bitnami_wordpress
+            - WORDPRESS_USERNAME=admin
+            - WORDPRESS_PASSWORD=admin
+            - WORDPRESS_EMAIL=user@example.com
+            - WORDPRESS_CONFIG_EXTRA=|
+              define('EP_HOST','http://WebMall_elasticsearch:9200');
+              define('EP_INDEX_PREFIX','shop3_');
+        volumes:
+            - woocommerce_wordpress_data_shop3:/bitnami/wordpress
+            - ./fix_urls.sh:/usr/local/bin/fix_urls.sh
+            - ./fix_urls_deploy.sh:/usr/local/bin/fix_urls_deploy.sh
+        depends_on:
+            - mariadb_shop3
+            - elasticsearch
+        healthcheck:
+            test:
+                [
+                    "CMD",
+                    "wp",
+                    "core",
+                    "is-installed",
+                    "--path=/opt/bitnami/wordpress",
+                ]
+            interval: 10s
+            timeout: 5s
+            retries: 3
+            start_period: 30s
+        networks:
+            - webmall
+
+    mariadb_shop4:
+        image: bitnami/mariadb:latest
+        container_name: WebMall_mariadb_shop4
+        environment:
+            - MARIADB_ROOT_PASSWORD=rootpassword
+            - MARIADB_USER=bn_wordpress
+            - MARIADB_PASSWORD=wordpress_db_password
+            - MARIADB_DATABASE=bitnami_wordpress
+        volumes:
+            - woocommerce_mariadb_data_shop4:/bitnami/mariadb
+        networks:
+            - webmall
+
+    wordpress_shop4:
+        image: bitnami/wordpress:latest
+        container_name: WebMall_wordpress_shop4
+        ports:
+            - "${SHOP4_PORT}:8080"
+        environment:
+            - WORDPRESS_DATABASE_HOST=mariadb_shop4
+            - WORDPRESS_DATABASE_USER=bn_wordpress
+            - WORDPRESS_DATABASE_PASSWORD=wordpress_db_password
+            - WORDPRESS_DATABASE_NAME=bitnami_wordpress
+            - WORDPRESS_USERNAME=admin
+            - WORDPRESS_PASSWORD=admin
+            - WORDPRESS_EMAIL=user@example.com
+            - WORDPRESS_CONFIG_EXTRA=|
+              define('EP_HOST','http://WebMall_elasticsearch:9200');
+              define('EP_INDEX_PREFIX','shop4_');
+        volumes:
+            - woocommerce_wordpress_data_shop4:/bitnami/wordpress
+            - ./fix_urls.sh:/usr/local/bin/fix_urls.sh
+            - ./fix_urls_deploy.sh:/usr/local/bin/fix_urls_deploy.sh
+        depends_on:
+            - mariadb_shop4
+            - elasticsearch
+        healthcheck:
+            test:
+                [
+                    "CMD",
+                    "wp",
+                    "core",
+                    "is-installed",
+                    "--path=/opt/bitnami/wordpress",
+                ]
+            interval: 10s
+            timeout: 5s
+            retries: 3
+            start_period: 30s
+        networks:
+            - webmall
+
+volumes:
+    esdata:
+        driver: local
+    woocommerce_mariadb_data_shop1:
+        name: woocommerce_mariadb_data_shop1
+    woocommerce_wordpress_data_shop1:
+        name: woocommerce_wordpress_data_shop1
+    woocommerce_mariadb_data_shop2:
+        name: woocommerce_mariadb_data_shop2
+    woocommerce_wordpress_data_shop2:
+        name: woocommerce_wordpress_data_shop2
+    woocommerce_mariadb_data_shop3:
+        name: woocommerce_mariadb_data_shop3
+    woocommerce_wordpress_data_shop3:
+        name: woocommerce_wordpress_data_shop3
+    woocommerce_mariadb_data_shop4:
+        name: woocommerce_mariadb_data_shop4
+    woocommerce_wordpress_data_shop4:
+        name: woocommerce_wordpress_data_shop4
