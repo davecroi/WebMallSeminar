@@ -21,15 +21,10 @@ from analyze_agentlab_results.summarize_study import summarize_all_tasks_in_subd
 
 logging.getLogger().setLevel(logging.DEBUG)
 
-#from agentlab.agents.webmall_generic_agent import AGENT_4o_VISION
-#from agentlab.agents.generic_agent import AGENT_4o_VISION
-
 from agentlab.agents import dynamic_prompting as dp
 
-#from agentlab.llm.eco_logits_llm_configs import CHAT_MODEL_ARGS_DICT
 from agentlab.llm.llm_configs import CHAT_MODEL_ARGS_DICT
 
-#from agentlab.agents.webmall_generic_agent.generic_agent import GenericAgent, GenericPromptFlags, GenericAgentArgs
 from agentlab.agents.generic_agent.generic_agent import GenericAgent, GenericPromptFlags, GenericAgentArgs
 
 FLAGS_default = GenericPromptFlags(
@@ -87,13 +82,12 @@ FLAGS_AX_M = FLAGS_default.copy()
 FLAGS_AX_M.use_memory = True
 FLAGS_AX_M.extra_instructions = 'Use your memory to note down important information like the URLs of potential solutions and corresponding pricing information.'
 
-FLAGS_AX_V_M = FLAGS_default.copy()
-FLAGS_AX_V_M.obs.use_screenshot = True
-FLAGS_AX_V_M.obs.use_som = True
-FLAGS_AX_V_M.use_memory = True
-FLAGS_AX_V_M.extra_instructions = 'Use your memory to note down important information like the URLs of potential solutions and corresponding pricing information.'
-
 AGENT_41_AX = GenericAgentArgs(
+    chat_model_args=CHAT_MODEL_ARGS_DICT["openai/gpt-4.1-2025-04-14"],
+    flags=FLAGS_AX,
+)
+
+AGENT_CLAUDE_AX = GenericAgentArgs(
     chat_model_args=CHAT_MODEL_ARGS_DICT["anthropic/claude-sonnet-4-20250514"],
     flags=FLAGS_AX,
 )
@@ -103,20 +97,29 @@ AGENT_41_V = GenericAgentArgs(
     flags=FLAGS_V,
 )
 
+AGENT_CLAUDE_V = GenericAgentArgs(
+    chat_model_args=CHAT_MODEL_ARGS_DICT["anthropic/claude-sonnet-4-20250514"],
+    flags=FLAGS_V,
+)
 
 AGENT_41_AX_V = GenericAgentArgs(
+    chat_model_args=CHAT_MODEL_ARGS_DICT["openai/gpt-4.1-2025-04-14"],
+    flags=FLAGS_AX_V,
+)
+
+AGENT_CLAUDE_AX_V = GenericAgentArgs(
     chat_model_args=CHAT_MODEL_ARGS_DICT["anthropic/claude-sonnet-4-20250514"],
     flags=FLAGS_AX_V,
 )
 
 AGENT_41_AX_M = GenericAgentArgs(
-    chat_model_args=CHAT_MODEL_ARGS_DICT["anthropic/claude-sonnet-4-20250514"],
+    chat_model_args=CHAT_MODEL_ARGS_DICT["openai/gpt-4.1-2025-04-14"],
     flags=FLAGS_AX_M,
 )
 
-AGENT_41_AX_V_M = GenericAgentArgs(
-    chat_model_args=CHAT_MODEL_ARGS_DICT["openai/gpt-4.1-2025-04-14"],
-    flags=FLAGS_AX_V_M,
+AGENT_CLAUDE_AX_M = GenericAgentArgs(
+    chat_model_args=CHAT_MODEL_ARGS_DICT["anthropic/claude-sonnet-4-20250514"],
+    flags=FLAGS_AX_M,
 )
 
 current_file = Path(__file__).resolve()
@@ -125,21 +128,12 @@ load_dotenv(PATH_TO_DOT_ENV_FILE)
 
 
 # choose your agent or provide a new agent
-agent_args = [AGENT_41_AX_M]
+agent_args = [AGENT_41_AX]
 
 # ## select the benchmark to run on
-# benchmark = "webmall_a_c_d"
-# benchmark = "webmall_tiny"
-# benchmark = "webmall"
-# benchmark = "miniwob"
-# benchmark = "workarena_l1"
-# benchmark = "workarena_l2"
-# benchmark = "workarena_l3"
-# benchmark = "webarena"
-#benchmark = "webmall_basic_v0.7"
-benchmark = "webmall_advanced_v0.7"
-#benchmark = "webmall_tiny_v0.7"
-# benchmark = "webmall_j_v0.7"
+
+benchmark = "webmall_basic_v0.7"
+# benchmark = "webmall_advanced_v0.7"
 
 # Set reproducibility_mode = True for reproducibility
 # this will "ask" agents to be deterministic. Also, it will prevent you from launching if you have
