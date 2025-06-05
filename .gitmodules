@@ -1,6 +1,6 @@
-[submodule "AgentLab"]
-    path = AgentLab
-    url = https://github.com/wbsg-uni-mannheim/AgentLab.git
-[submodule "BrowserGym"]
-	path = BrowserGym
+[submodule "Browsergym"]
+	path = Browsergym
 	url = https://github.com/wbsg-uni-mannheim/BrowserGym.git
+[submodule "AgentLab"]
+	path = AgentLab
+	url = https://github.com/wbsg-uni-mannheim/AgentLab.git
