@@ -33,99 +33,334 @@
         <style>
             .results-table {
                 position: relative;
-                width: 85vw;
+                width: 90vw;
+                max-width: 1400px;
                 left: 50%;
                 transform: translateX(-50%);
-                overflow: hidden;
-                margin: 1rem 0;
+                overflow-x: auto;
+                margin: 1.5rem 0;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
             }
 
             .results-table table {
                 width: 100%;
-                table-layout: fixed;
-                font-size: 0.85rem;
+                table-layout: auto;
+                font-size: 0.9rem;
+                border-collapse: separate;
+                border-spacing: 0;
+                background: white;
+                border-radius: 8px;
+                overflow: hidden;
             }
 
             .results-table th,
             .results-table td {
-                padding: 0.5em 0.2em;
+                padding: 0.75em 0.5em;
                 text-align: center;
-                font-size: 0.8rem;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                border-bottom: 1px solid #e5e7eb;
+                vertical-align: middle;
+                white-space: nowrap;
             }
 
             .results-table th:first-child,
             .results-table td:first-child {
                 text-align: left;
-                width: 12%;
                 white-space: normal;
                 word-wrap: break-word;
-                overflow: visible;
+                min-width: 120px;
+                max-width: 200px;
+                padding-left: 1em;
             }
 
             .results-table th:nth-child(2),
             .results-table td:nth-child(2) {
-                text-align: left;
-                width: 15%;
+                text-align: center;
                 white-space: normal;
                 word-wrap: break-word;
-                overflow: visible;
+                min-width: 100px;
+                max-width: 150px;
+            }
+
+            /* Numeric columns alignment */
+            .results-table td[data-type="number"],
+            .results-table td:matches-text('^\\d+$'),
+            .results-table td:matches-text('\\d+\\.\\d+%?$'),
+            .results-table td:matches-text('^\\$\\d'),
+            .results-table td:matches-text('^\\d+,\\d+$') {
+                text-align: right;
+                font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+                font-weight: 500;
+                padding-right: 1em;
             }
 
             .results-table thead th {
-                background-color: #f8f9fa;
-                font-weight: bold;
-                font-size: 0.75rem;
-                padding: 0.4em 0.2em;
+                background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+                color: #2d3748;
+                font-weight: 600;
+                font-size: 0.85rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                border-bottom: none;
+                position: sticky;
+                top: 0;
+                z-index: 10;
+            }
+
+            .results-table tbody tr {
+                transition: all 0.2s ease;
             }
 
             .results-table tbody tr:hover {
-                background-color: #f1f3f4;
+                background-color: #f8fafc;
+                transform: translateY(-1px);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
 
-            /* Responsive adjustments for smaller screens */
-            @media (max-width: 1200px) {
+            .results-table tbody tr:nth-child(even) {
+                background-color: #f9fafb;
+            }
+
+            .results-table tbody tr:nth-child(even):hover {
+                background-color: #f1f5f9;
+            }
+
+            /* Task Categories Table Specific */
+            .task-categories-table {
+                width: 95vw;
+                max-width: 1200px;
+            }
+
+            .task-categories-table th:nth-child(1),
+            .task-categories-table td:nth-child(1) {
+                width: 22%;
+                min-width: 180px;
+                text-align: left;
+            }
+
+            .task-categories-table th:nth-child(2),
+            .task-categories-table td:nth-child(2) {
+                width: 8%;
+                min-width: 50px;
+                text-align: center;
+            }
+
+            .task-categories-table th:nth-child(3),
+            .task-categories-table td:nth-child(3) {
+                width: 70%;
+                text-align: left;
+                white-space: normal;
+                word-wrap: break-word;
+                line-height: 1.4;
+                padding-left: 1em;
+            }
+
+            /* Product Distribution Table Specific */
+            .product-distribution-table th,
+            .product-distribution-table td {
+                padding: 0.6em 0.3em;
+                font-size: 0.85rem;
+            }
+
+            .product-distribution-table th:nth-child(1),
+            .product-distribution-table td:nth-child(1) {
+                width: 25%;
+                min-width: 150px;
+                text-align: left;
+            }
+
+            .product-distribution-table th:nth-child(2),
+            .product-distribution-table td:nth-child(2) {
+                width: 10%;
+                min-width: 60px;
+                text-align: right;
+            }
+
+            .product-distribution-table th:nth-child(3),
+            .product-distribution-table td:nth-child(3) {
+                width: 8%;
+                min-width: 50px;
+                text-align: right;
+            }
+
+            .product-distribution-table th:nth-child(n+4),
+            .product-distribution-table td:nth-child(n+4) {
+                width: 7.125%;
+                min-width: 50px;
+                text-align: right;
+            }
+
+            /* Performance Results Table Specific */
+            .performance-table th,
+            .performance-table td {
+                font-size: 0.8rem;
+                padding: 0.6em 0.4em;
+            }
+
+            .performance-table th:nth-child(1),
+            .performance-table td:nth-child(1) {
+                width: 14%;
+                min-width: 100px;
+                text-align: left;
+            }
+
+            .performance-table th:nth-child(2),
+            .performance-table td:nth-child(2) {
+                width: 14%;
+                min-width: 80px;
+                text-align: left;
+            }
+
+            .performance-table th:nth-child(n+3),
+            .performance-table td:nth-child(n+3) {
+                width: 12%;
+                min-width: 80px;
+                text-align: right;
+            }
+
+            /* Resource Usage Table Specific */
+            .resource-table th,
+            .resource-table td {
+                font-size: 0.8rem;
+                padding: 0.5em 0.3em;
+            }
+
+            .resource-table th:nth-child(1),
+            .resource-table td:nth-child(1) {
+                width: 12%;
+                min-width: 80px;
+                text-align: left;
+            }
+
+            .resource-table th:nth-child(2),
+            .resource-table td:nth-child(2) {
+                width: 12%;
+                min-width: 80px;
+                text-align: left;
+            }
+
+            .resource-table th:nth-child(3),
+            .resource-table td:nth-child(3) {
+                width: 18%;
+                min-width: 120px;
+                text-align: left;
+            }
+
+            .resource-table th:nth-child(n+4),
+            .resource-table td:nth-child(n+4) {
+                width: 14.5%;
+                min-width: 90px;
+                text-align: right;
+            }
+
+            /* Cost Table Specific */
+            .cost-table th,
+            .cost-table td {
+                font-size: 0.75rem;
+                padding: 0.5em 0.25em;
+            }
+
+            .cost-table th:nth-child(1),
+            .cost-table td:nth-child(1) {
+                width: 10%;
+                min-width: 80px;
+            }
+
+            .cost-table th:nth-child(2),
+            .cost-table td:nth-child(2) {
+                width: 18%;
+                min-width: 140px;
+            }
+
+            .cost-table th:nth-child(3),
+            .cost-table td:nth-child(3) {
+                width: 16%;
+                min-width: 120px;
+            }
+
+            .cost-table th:nth-child(n+4),
+            .cost-table td:nth-child(n+4) {
+                width: 14%;
+                min-width: 90px;
+            }
+
+            /* Section Headers in Tables */
+            .results-table tr[style*="background-color: #f0f0f0"] {
+                background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%) !important;
+                font-weight: 700;
+                color: #2d3748;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .results-table tr[style*="background-color: #f0f0f0"]:hover {
+                background: linear-gradient(135deg, #cbd5e0 0%, #a0aec0 100%) !important;
+            }
+
+            /* Number formatting */
+            .results-table td:has-text('$'),
+            .results-table td[data-numeric="true"] {
+                font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+                font-weight: 500;
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 1400px) {
+                .results-table {
+                    width: 95vw;
+                }
+                
+                .results-table table {
+                    font-size: 0.85rem;
+                }
+                
+                .results-table th,
+                .results-table td {
+                    padding: 0.6em 0.4em;
+                }
+            }
+
+            @media (max-width: 1000px) {
+                .results-table {
+                    width: 98vw;
+                }
+                
+                .results-table table {
+                    font-size: 0.8rem;
+                }
+                
+                .results-table th,
+                .results-table td {
+                    padding: 0.5em 0.3em;
+                }
+                
+                .cost-table th,
+                .cost-table td {
+                    font-size: 0.7rem;
+                    padding: 0.4em 0.2em;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .results-table {
+                    width: 100vw;
+                    border-radius: 0;
+                }
+                
                 .results-table table {
                     font-size: 0.75rem;
+                    border-radius: 0;
                 }
+                
                 .results-table th,
                 .results-table td {
-                    padding: 0.4em 0.15em;
-                    font-size: 0.7rem;
+                    padding: 0.4em 0.2em;
                 }
-                .results-table thead th {
-                    font-size: 0.65rem;
-                }
+                
                 .results-table th:first-child,
                 .results-table td:first-child {
-                    width: 10%;
-                }
-                .results-table th:nth-child(2),
-                .results-table td:nth-child(2) {
-                    width: 12%;
-                }
-            }
-
-            @media (max-width: 900px) {
-                .results-table table {
-                    font-size: 0.7rem;
-                }
-                .results-table th,
-                .results-table td {
-                    padding: 0.3em 0.1em;
-                    font-size: 0.65rem;
-                }
-                .results-table thead th {
-                    font-size: 0.6rem;
-                }
-                .results-table th:first-child,
-                .results-table td:first-child {
-                    width: 8%;
-                }
-                .results-table th:nth-child(2),
-                .results-table td:nth-child(2) {
-                    width: 10%;
+                    min-width: 100px;
+                    max-width: 150px;
                 }
             }
         </style>
@@ -566,7 +801,7 @@
                         </div>
 
                         <h3 class="title is-4">Task Categories Overview</h3>
-                        <div class="results-table" style="width: 100%">
+                        <div class="results-table task-categories-table">
                             <table class="table is-striped is-hoverable is-fullwidth">
                                 <thead>
                                     <tr>
@@ -720,7 +955,7 @@
                         </div>
 
                         <h3 class="title is-4">Product Distribution Across All Shops</h3>
-                        <div class="results-table" style="width: 100%;">
+                        <div class="results-table product-distribution-table">
                             <table class="table is-striped is-hoverable is-fullwidth">
                                 <thead>
                                     <tr>
@@ -845,10 +1080,10 @@
                             </p>
                             <p>
                                 Each of the agent setups is run on the Basic and
-                                Advanced task sets of WebMall. CR refers to the
+                                Advanced task sets of WebMall. Completion Rate refers to the
                                 task completion rate, i.e. how many tasks of
                                 that respective set were fully and correctly
-                                completed. PCR is the average partial completion
+                                completed. Partial Completion Rate is the average partial completion
                                 rate which shows the average over the partial
                                 completion rates of all tasks in a set. A
                                 partial completion of a task is achieved if e.g.
@@ -860,7 +1095,7 @@
 
                         <h3 class="title is-4">Performance Results</h3>
                         
-                        <div class="results-table" style="width: 100%">
+                        <div class="results-table performance-table">
                             <table
                                 class="table is-striped is-hoverable is-fullwidth"
                             >
@@ -873,12 +1108,12 @@
                                         <th colspan="2">AX-Tree + Vision</th>
                                     </tr>
                                     <tr>
-                                        <th>CR (%)</th>
-                                        <th>PCR (%)</th>
-                                        <th>CR (%)</th>
-                                        <th>PCR (%)</th>
-                                        <th>CR (%)</th>
-                                        <th>PCR (%)</th>
+                                        <th>Completion Rate (%)</th>
+                                        <th>Partial Completion Rate (%)</th>
+                                        <th>Completion Rate (%)</th>
+                                        <th>Partial Completion Rate (%)</th>
+                                        <th>Completion Rate (%)</th>
+                                        <th>Partial Completion Rate (%)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -927,27 +1162,15 @@
                         </div>
 
                         <h3 class="title is-4">Resource Usage Summary</h3>
-                        <div class="results-table">
+                        <div class="results-table resource-table">
                             <table
                                 class="table is-striped is-hoverable is-fullwidth"
                             >
                                 <thead>
                                     <tr>
-                                        <th rowspan="2">Model</th>
-                                        <th rowspan="2">Task set</th>
-                                        <th colspan="4">AX-Tree</th>
-                                        <th colspan="4">AX-Tree + Memory</th>
-                                        <th colspan="4">AX-Tree + Vision</th>
-                                    </tr>
-                                    <tr>
-                                        <th>Avg. Steps</th>
-                                        <th>Avg. Input Tokens</th>
-                                        <th>Avg. Output Tokens</th>
-                                        <th>Avg. Cost ($)</th>
-                                        <th>Avg. Steps</th>
-                                        <th>Avg. Input Tokens</th>
-                                        <th>Avg. Output Tokens</th>
-                                        <th>Avg. Cost ($)</th>
+                                        <th>Model</th>
+                                        <th>Task Set</th>
+                                        <th>Observation Space</th>
                                         <th>Avg. Steps</th>
                                         <th>Avg. Input Tokens</th>
                                         <th>Avg. Output Tokens</th>
@@ -956,64 +1179,92 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>GPT4.1</td>
-                                        <td>Basic</td>
+                                        <td rowspan="3">GPT4.1</td>
+                                        <td rowspan="3">Basic</td>
+                                        <td>AX-Tree</td>
                                         <td>20</td>
                                         <td>131,451</td>
                                         <td>2,187</td>
                                         <td>0.28</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
                                         <td>19</td>
                                         <td>131,118</td>
                                         <td>3,229</td>
                                         <td>0.29</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>20</td>
                                         <td>147,237</td>
                                         <td>1,850</td>
                                         <td>0.31</td>
                                     </tr>
                                     <tr>
-                                        <td>Claude Sonnet 4</td>
-                                        <td>Basic</td>
+                                        <td rowspan="3">Claude Sonnet 4</td>
+                                        <td rowspan="3">Basic</td>
+                                        <td>AX-Tree</td>
                                         <td>20</td>
                                         <td>173,443</td>
                                         <td>4,459</td>
                                         <td>0.59</td>
-                                        <td>20.52</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
+                                        <td>21</td>
                                         <td>229,343</td>
                                         <td>10,613</td>
                                         <td>0.85</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>25</td>
                                         <td>268,075</td>
                                         <td>5,907</td>
                                         <td>0.89</td>
                                     </tr>
                                     <tr>
-                                        <td>GPT4.1</td>
-                                        <td>Advanced</td>
+                                        <td rowspan="3">GPT4.1</td>
+                                        <td rowspan="3">Advanced</td>
+                                        <td>AX-Tree</td>
                                         <td>21</td>
                                         <td>154,609</td>
                                         <td>2,660</td>
                                         <td>0.33</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
                                         <td>19</td>
                                         <td>147,548</td>
                                         <td>3,983</td>
                                         <td>0.33</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>19</td>
                                         <td>156,366</td>
                                         <td>2,161</td>
                                         <td>0.33</td>
                                     </tr>
                                     <tr>
-                                        <td>Claude Sonnet 4</td>
-                                        <td>Advanced</td>
+                                        <td rowspan="3">Claude Sonnet 4</td>
+                                        <td rowspan="3">Advanced</td>
+                                        <td>AX-Tree</td>
                                         <td>25</td>
                                         <td>257,357</td>
                                         <td>6,906</td>
                                         <td>0.88</td>
-                                        <td>22.72</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
+                                        <td>23</td>
                                         <td>331,334</td>
                                         <td>17,901</td>
                                         <td>1.26</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>33</td>
                                         <td>461,398</td>
                                         <td>10,602</td>
@@ -1026,7 +1277,7 @@
                         <h3 class="title is-4">
                             Detailed Task Completion Rates
                         </h3>
-                        <div class="results-table" style="width: 100%">
+                        <div class="results-table performance-table">
                             <table
                                 class="table is-striped is-hoverable is-fullwidth"
                             >
@@ -1039,12 +1290,12 @@
                                         <th colspan="2">AX-Tree + Vision</th>
                                     </tr>
                                     <tr>
-                                        <th>CR (%)</th>
-                                        <th>PCR (%)</th>
-                                        <th>CR (%)</th>
-                                        <th>PCR (%)</th>
-                                        <th>CR (%)</th>
-                                        <th>PCR (%)</th>
+                                        <th>Completion Rate (%)</th>
+                                        <th>Partial Completion Rate (%)</th>
+                                        <th>Completion Rate (%)</th>
+                                        <th>Partial Completion Rate (%)</th>
+                                        <th>Completion Rate (%)</th>
+                                        <th>Partial Completion Rate (%)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1253,21 +1504,9 @@
                             >
                                 <thead>
                                     <tr>
-                                        <th rowspan="2">Model</th>
-                                        <th rowspan="2">Task set</th>
-                                        <th colspan="4">AX-Tree</th>
-                                        <th colspan="4">AX-Tree + Memory</th>
-                                        <th colspan="4">AX-Tree + Vision</th>
-                                    </tr>
-                                    <tr>
-                                        <th>Avg. Steps</th>
-                                        <th>Avg. Input Tokens</th>
-                                        <th>Avg. Output Tokens</th>
-                                        <th>Avg. Cost ($)</th>
-                                        <th>Avg. Steps</th>
-                                        <th>Avg. Input Tokens</th>
-                                        <th>Avg. Output Tokens</th>
-                                        <th>Avg. Cost ($)</th>
+                                        <th>Model</th>
+                                        <th>Task Category</th>
+                                        <th>Observation Space</th>
                                         <th>Avg. Steps</th>
                                         <th>Avg. Input Tokens</th>
                                         <th>Avg. Output Tokens</th>
@@ -1276,314 +1515,470 @@
                                 </thead>
                                 <tbody>
                                     <tr style="background-color: #f0f0f0">
-                                        <td colspan="14">
+                                        <td colspan="7">
                                             <strong>Basic Tasks</strong>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td rowspan="5">GPT4.1</td>
-                                        <td>Single Product Search</td>
+                                        <td rowspan="3">GPT4.1</td>
+                                        <td rowspan="3">Single Product Search</td>
+                                        <td>AX-Tree</td>
                                         <td>18</td>
                                         <td>112,625</td>
                                         <td>2,071</td>
                                         <td>0.24</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
                                         <td>17</td>
                                         <td>113,030</td>
                                         <td>3,155</td>
                                         <td>0.25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>18</td>
                                         <td>127,133</td>
                                         <td>1,845</td>
                                         <td>0.27</td>
                                     </tr>
                                     <tr>
-                                        <td>Cheapest Product Search</td>
-                                        <td>17</td>
-                                        <td>100,277</td>
-                                        <td>1,736</td>
-                                        <td>0.21</td>
-                                        <td>16</td>
-                                        <td>102,181</td>
-                                        <td>2,774</td>
-                                        <td>0.23</td>
-                                        <td>18</td>
-                                        <td>125,801</td>
-                                        <td>1,605</td>
-                                        <td>0.26</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Best Fit Specific Req.</td>
-                                        <td>24</td>
-                                        <td>182,700</td>
-                                        <td>3,073</td>
-                                        <td>0.39</td>
-                                        <td>21</td>
-                                        <td>165,627</td>
-                                        <td>4,101</td>
-                                        <td>0.36</td>
-                                        <td>22</td>
-                                        <td>187,407</td>
-                                        <td>2,384</td>
-                                        <td>0.39</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Add to Cart</td>
-                                        <td>19</td>
-                                        <td>119,019</td>
-                                        <td>1,969</td>
-                                        <td>0.25</td>
-                                        <td>18</td>
-                                        <td>122,835</td>
-                                        <td>2,970</td>
-                                        <td>0.27</td>
-                                        <td>18</td>
-                                        <td>126,263</td>
-                                        <td>1,482</td>
-                                        <td>0.26</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Checkout</td>
-                                        <td>24</td>
-                                        <td>139,070</td>
-                                        <td>1,899</td>
-                                        <td>0.29</td>
-                                        <td>24</td>
-                                        <td>154,220</td>
-                                        <td>2,934</td>
-                                        <td>0.33</td>
-                                        <td>24</td>
-                                        <td>167,308</td>
-                                        <td>1,749</td>
-                                        <td>0.35</td>
-                                    </tr>
-                                    <tr>
-                                        <td rowspan="5">Claude Sonnet 4</td>
-                                        <td>Single Product Search</td>
+                                        <td rowspan="3">Claude Sonnet 4</td>
+                                        <td rowspan="3">Single Product Search</td>
+                                        <td>AX-Tree</td>
                                         <td>19</td>
                                         <td>149,838</td>
                                         <td>4,102</td>
                                         <td>0.51</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
                                         <td>21</td>
                                         <td>235,463</td>
                                         <td>12,541</td>
                                         <td>0.89</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>21</td>
                                         <td>203,623</td>
                                         <td>5,024</td>
                                         <td>0.69</td>
                                     </tr>
                                     <tr>
-                                        <td>Cheapest Product Search</td>
+                                        <td rowspan="3">GPT4.1</td>
+                                        <td rowspan="3">Cheapest Product Search</td>
+                                        <td>AX-Tree</td>
+                                        <td>17</td>
+                                        <td>100,277</td>
+                                        <td>1,736</td>
+                                        <td>0.21</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
+                                        <td>16</td>
+                                        <td>102,181</td>
+                                        <td>2,774</td>
+                                        <td>0.23</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
+                                        <td>18</td>
+                                        <td>125,801</td>
+                                        <td>1,605</td>
+                                        <td>0.26</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3">Claude Sonnet 4</td>
+                                        <td rowspan="3">Cheapest Product Search</td>
+                                        <td>AX-Tree</td>
                                         <td>17</td>
                                         <td>126,316</td>
                                         <td>3,215</td>
                                         <td>0.43</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
                                         <td>17</td>
                                         <td>163,060</td>
                                         <td>7,779</td>
                                         <td>0.61</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>22</td>
                                         <td>214,319</td>
                                         <td>4,662</td>
                                         <td>0.71</td>
                                     </tr>
                                     <tr>
-                                        <td>Best Fit Specific Req.</td>
+                                        <td rowspan="3">GPT4.1</td>
+                                        <td rowspan="3">Best Fit Specific Req.</td>
+                                        <td>AX-Tree</td>
+                                        <td>24</td>
+                                        <td>182,700</td>
+                                        <td>3,073</td>
+                                        <td>0.39</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
+                                        <td>21</td>
+                                        <td>165,627</td>
+                                        <td>4,101</td>
+                                        <td>0.36</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
+                                        <td>22</td>
+                                        <td>187,407</td>
+                                        <td>2,384</td>
+                                        <td>0.39</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3">Claude Sonnet 4</td>
+                                        <td rowspan="3">Best Fit Specific Req.</td>
+                                        <td>AX-Tree</td>
                                         <td>25</td>
                                         <td>262,004</td>
                                         <td>6,738</td>
                                         <td>0.89</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
                                         <td>23</td>
                                         <td>328,001</td>
                                         <td>14,560</td>
                                         <td>1.20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>32</td>
                                         <td>427,724</td>
                                         <td>8,801</td>
                                         <td>1.42</td>
                                     </tr>
                                     <tr>
-                                        <td>Add to Cart</td>
+                                        <td rowspan="3">GPT4.1</td>
+                                        <td rowspan="3">Add to Cart</td>
+                                        <td>AX-Tree</td>
+                                        <td>19</td>
+                                        <td>119,019</td>
+                                        <td>1,969</td>
+                                        <td>0.25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
+                                        <td>18</td>
+                                        <td>122,835</td>
+                                        <td>2,970</td>
+                                        <td>0.27</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
+                                        <td>18</td>
+                                        <td>126,263</td>
+                                        <td>1,482</td>
+                                        <td>0.26</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3">Claude Sonnet 4</td>
+                                        <td rowspan="3">Add to Cart</td>
+                                        <td>AX-Tree</td>
                                         <td>18</td>
                                         <td>141,195</td>
                                         <td>3,441</td>
                                         <td>0.48</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
                                         <td>18</td>
                                         <td>175,459</td>
                                         <td>8,457</td>
                                         <td>0.65</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>23</td>
                                         <td>224,813</td>
                                         <td>4,311</td>
                                         <td>0.74</td>
                                     </tr>
                                     <tr>
-                                        <td>Checkout</td>
+                                        <td rowspan="3">GPT4.1</td>
+                                        <td rowspan="3">Checkout</td>
+                                        <td>AX-Tree</td>
+                                        <td>24</td>
+                                        <td>139,070</td>
+                                        <td>1,899</td>
+                                        <td>0.29</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
+                                        <td>24</td>
+                                        <td>154,220</td>
+                                        <td>2,934</td>
+                                        <td>0.33</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
+                                        <td>24</td>
+                                        <td>167,308</td>
+                                        <td>1,749</td>
+                                        <td>0.35</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3">Claude Sonnet 4</td>
+                                        <td rowspan="3">Checkout</td>
+                                        <td>AX-Tree</td>
                                         <td>23</td>
                                         <td>174,202</td>
                                         <td>4,309</td>
                                         <td>0.59</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
                                         <td>23</td>
                                         <td>214,509</td>
                                         <td>7,724</td>
                                         <td>0.76</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>26</td>
                                         <td>250,284</td>
                                         <td>6,202</td>
                                         <td>0.84</td>
                                     </tr>
                                     <tr style="background-color: #f0f0f0">
-                                        <td colspan="14">
+                                        <td colspan="7">
                                             <strong>Advanced Tasks</strong>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td rowspan="5">GPT4.1</td>
-                                        <td>Cheapest Best Fit Specific Req.</td>
+                                        <td rowspan="3">GPT4.1</td>
+                                        <td rowspan="3">Cheapest Best Fit Specific Req.</td>
+                                        <td>AX-Tree</td>
                                         <td>20</td>
                                         <td>142,851</td>
                                         <td>2,198</td>
                                         <td>0.30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
                                         <td>20</td>
                                         <td>146,210</td>
                                         <td>3,377</td>
                                         <td>0.32</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>18</td>
                                         <td>139,887</td>
                                         <td>1,718</td>
                                         <td>0.29</td>
                                     </tr>
                                     <tr>
-                                        <td>Best Fit Vague Req.</td>
-                                        <td>24</td>
-                                        <td>182,507</td>
-                                        <td>3,151</td>
-                                        <td>0.39</td>
-                                        <td>18</td>
-                                        <td>146,078</td>
-                                        <td>4,581</td>
-                                        <td>0.33</td>
-                                        <td>23</td>
-                                        <td>205,822</td>
-                                        <td>3,036</td>
-                                        <td>0.44</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cheapest Best Fit Vague Req.</td>
-                                        <td>22</td>
-                                        <td>169,166</td>
-                                        <td>2,916</td>
-                                        <td>0.36</td>
-                                        <td>19</td>
-                                        <td>146,537</td>
-                                        <td>3,988</td>
-                                        <td>0.32</td>
-                                        <td>20</td>
-                                        <td>169,546</td>
-                                        <td>2,299</td>
-                                        <td>0.36</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Find Substitutes</td>
-                                        <td>19</td>
-                                        <td>125,073</td>
-                                        <td>2,472</td>
-                                        <td>0.27</td>
-                                        <td>19</td>
-                                        <td>138,926</td>
-                                        <td>3,562</td>
-                                        <td>0.30</td>
-                                        <td>17</td>
-                                        <td>136,587</td>
-                                        <td>1,975</td>
-                                        <td>0.29</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Find Compatible Products</td>
-                                        <td>22</td>
-                                        <td>145,882</td>
-                                        <td>2,617</td>
-                                        <td>0.31</td>
-                                        <td>21</td>
-                                        <td>164,433</td>
-                                        <td>4,619</td>
-                                        <td>0.37</td>
-                                        <td>15</td>
-                                        <td>108,222</td>
-                                        <td>1,528</td>
-                                        <td>0.23</td>
-                                    </tr>
-                                    <tr>
-                                        <td rowspan="5">Claude Sonnet 4</td>
-                                        <td>Cheapest Best Fit Specific Req.</td>
+                                        <td rowspan="3">Claude Sonnet 4</td>
+                                        <td rowspan="3">Cheapest Best Fit Specific Req.</td>
+                                        <td>AX-Tree</td>
                                         <td>21</td>
                                         <td>184,652</td>
                                         <td>4,768</td>
                                         <td>0.63</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
                                         <td>21</td>
                                         <td>306,201</td>
                                         <td>19,909</td>
                                         <td>1.22</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>29</td>
                                         <td>363,086</td>
                                         <td>7,278</td>
                                         <td>1.20</td>
                                     </tr>
                                     <tr>
-                                        <td>Best Fit Vague Req.</td>
+                                        <td rowspan="3">GPT4.1</td>
+                                        <td rowspan="3">Best Fit Vague Req.</td>
+                                        <td>AX-Tree</td>
+                                        <td>24</td>
+                                        <td>182,507</td>
+                                        <td>3,151</td>
+                                        <td>0.39</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
+                                        <td>18</td>
+                                        <td>146,078</td>
+                                        <td>4,581</td>
+                                        <td>0.33</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
+                                        <td>23</td>
+                                        <td>205,822</td>
+                                        <td>3,036</td>
+                                        <td>0.44</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3">Claude Sonnet 4</td>
+                                        <td rowspan="3">Best Fit Vague Req.</td>
+                                        <td>AX-Tree</td>
                                         <td>30</td>
                                         <td>360,564</td>
                                         <td>9,720</td>
                                         <td>1.23</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
                                         <td>28</td>
                                         <td>466,259</td>
                                         <td>23,329</td>
                                         <td>1.75</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>37</td>
                                         <td>542,216</td>
                                         <td>13,202</td>
                                         <td>1.82</td>
                                     </tr>
                                     <tr>
-                                        <td>Cheapest Best Fit Vague Req.</td>
+                                        <td rowspan="3">GPT4.1</td>
+                                        <td rowspan="3">Cheapest Best Fit Vague Req.</td>
+                                        <td>AX-Tree</td>
+                                        <td>22</td>
+                                        <td>169,166</td>
+                                        <td>2,916</td>
+                                        <td>0.36</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
+                                        <td>19</td>
+                                        <td>146,537</td>
+                                        <td>3,988</td>
+                                        <td>0.32</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
+                                        <td>20</td>
+                                        <td>169,546</td>
+                                        <td>2,299</td>
+                                        <td>0.36</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3">Claude Sonnet 4</td>
+                                        <td rowspan="3">Cheapest Best Fit Vague Req.</td>
+                                        <td>AX-Tree</td>
                                         <td>25</td>
                                         <td>254,591</td>
                                         <td>6,206</td>
                                         <td>0.86</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
                                         <td>24</td>
                                         <td>343,691</td>
                                         <td>16,423</td>
                                         <td>1.28</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>37</td>
                                         <td>532,580</td>
                                         <td>9,576</td>
                                         <td>1.74</td>
                                     </tr>
                                     <tr>
-                                        <td>Find Substitutes</td>
+                                        <td rowspan="3">GPT4.1</td>
+                                        <td rowspan="3">Find Substitutes</td>
+                                        <td>AX-Tree</td>
+                                        <td>19</td>
+                                        <td>125,073</td>
+                                        <td>2,472</td>
+                                        <td>0.27</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
+                                        <td>19</td>
+                                        <td>138,926</td>
+                                        <td>3,562</td>
+                                        <td>0.30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
+                                        <td>17</td>
+                                        <td>136,587</td>
+                                        <td>1,975</td>
+                                        <td>0.29</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3">Claude Sonnet 4</td>
+                                        <td rowspan="3">Find Substitutes</td>
+                                        <td>AX-Tree</td>
                                         <td>23</td>
                                         <td>234,912</td>
                                         <td>6,423</td>
                                         <td>0.80</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
                                         <td>17</td>
                                         <td>207,122</td>
                                         <td>13,662</td>
                                         <td>0.83</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>31</td>
                                         <td>489,526</td>
                                         <td>12,386</td>
                                         <td>1.65</td>
                                     </tr>
                                     <tr>
-                                        <td>Find Compatible Products</td>
+                                        <td rowspan="3">GPT4.1</td>
+                                        <td rowspan="3">Find Compatible Products</td>
+                                        <td>AX-Tree</td>
+                                        <td>22</td>
+                                        <td>145,882</td>
+                                        <td>2,617</td>
+                                        <td>0.31</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
+                                        <td>21</td>
+                                        <td>164,433</td>
+                                        <td>4,619</td>
+                                        <td>0.37</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
+                                        <td>15</td>
+                                        <td>108,222</td>
+                                        <td>1,528</td>
+                                        <td>0.23</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3">Claude Sonnet 4</td>
+                                        <td rowspan="3">Find Compatible Products</td>
+                                        <td>AX-Tree</td>
                                         <td>25</td>
                                         <td>247,251</td>
                                         <td>7,537</td>
                                         <td>0.85</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Memory</td>
                                         <td>22</td>
                                         <td>272,964</td>
                                         <td>10,975</td>
                                         <td>0.98</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AX-Tree + Vision</td>
                                         <td>32</td>
                                         <td>393,378</td>
                                         <td>11,663</td>
