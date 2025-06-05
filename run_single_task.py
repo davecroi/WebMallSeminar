@@ -1,5 +1,5 @@
 """
-Script to run a set of specific tasks
+Script to run a single or set of specific tasks
 """
 
 import logging
@@ -8,16 +8,8 @@ from dotenv import load_dotenv
 from pathlib import Path
 from webmall_overrides.env_args import EnvArgsWebMall
 from webmall_overrides.exp_args import ExpArgsWebMall
-# from agentlab.agents.generic_agent import (
-#     AGENT_LLAMA3_70B,
-#     AGENT_LLAMA31_70B,
-#     RANDOM_SEARCH_AGENT,
-#     AGENT_4o,
-#     AGENT_4o_MINI,
-# )
 
 from agentlab.agents.visualwebmall_agent.agent import WA_AGENT_4O
-#from agentlab.agents.webmall_generic_agent import AGENT_4o_VISION
 from agentlab.agents.generic_agent import AGENT_4o_VISION
 
 from agentlab.agents.most_basic_agent.most_basic_agent import MostBasicAgentArgs
@@ -27,11 +19,8 @@ from agentlab.experiments.launch_exp import run_experiments
 
 from agentlab.agents import dynamic_prompting as dp
 from agentlab.experiments import args
-#from agentlab.llm.eco_logits_llm_configs import CHAT_MODEL_ARGS_DICT
 from agentlab.llm.llm_configs import CHAT_MODEL_ARGS_DICT
 
-
-#from agentlab.agents.webmall_generic_agent.generic_agent import GenericAgent, GenericPromptFlags, GenericAgentArgs
 from agentlab.agents.generic_agent.generic_agent import GenericAgent, GenericPromptFlags, GenericAgentArgs
 
 FLAGS_default = GenericPromptFlags(
@@ -74,40 +63,59 @@ FLAGS_default = GenericPromptFlags(
     extra_instructions=None,
     )
 
-FLAGS_T = FLAGS_default.copy()
+FLAGS_AX = FLAGS_default.copy()
 
-FLAGS_T_V = FLAGS_default.copy()
-FLAGS_T_V.obs.use_screenshot = True
-FLAGS_T_V.obs.use_som = True
+FLAGS_V = FLAGS_default.copy()
+FLAGS_V.obs.use_screenshot = True
+FLAGS_V.obs.use_som = True
+FLAGS_V.obs.use_ax_tree = False
 
-FLAGS_T_M = FLAGS_default.copy()
-FLAGS_T_M.use_memory = True
+FLAGS_AX_V = FLAGS_default.copy()
+FLAGS_AX_V.obs.use_screenshot = True
+FLAGS_AX_V.obs.use_som = True
 
-FLAGS_T_V_M = FLAGS_default.copy()
-FLAGS_T_V_M.obs.use_screenshot = True
-FLAGS_T_V_M.obs.use_som = True
-FLAGS_T_V_M.use_memory = True
+FLAGS_AX_M = FLAGS_default.copy()
+FLAGS_AX_M.use_memory = True
+FLAGS_AX_M.extra_instructions = 'Use your memory to note down important information like the URLs of potential solutions and corresponding pricing information.'
 
-
-AGENT_41_T = GenericAgentArgs(
-    chat_model_args=CHAT_MODEL_ARGS_DICT["anthropic/claude-sonnet-4-20250514"],
-    flags=FLAGS_T,
+AGENT_41_AX = GenericAgentArgs(
+    chat_model_args=CHAT_MODEL_ARGS_DICT["openai/gpt-4.1-2025-04-14"],
+    flags=FLAGS_AX,
 )
 
-
-AGENT_41_T_V = GenericAgentArgs(
+AGENT_CLAUDE_AX = GenericAgentArgs(
     chat_model_args=CHAT_MODEL_ARGS_DICT["anthropic/claude-sonnet-4-20250514"],
-    flags=FLAGS_T_V,
+    flags=FLAGS_AX,
 )
 
-AGENT_41_T_M = GenericAgentArgs(
-    chat_model_args=CHAT_MODEL_ARGS_DICT["anthropic/claude-sonnet-4-20250514"],
-    flags=FLAGS_T_M,
+AGENT_41_V = GenericAgentArgs(
+    chat_model_args=CHAT_MODEL_ARGS_DICT["openai/gpt-4.1-2025-04-14"],
+    flags=FLAGS_V,
 )
 
-AGENT_41_T_V_M = GenericAgentArgs(
+AGENT_CLAUDE_V = GenericAgentArgs(
     chat_model_args=CHAT_MODEL_ARGS_DICT["anthropic/claude-sonnet-4-20250514"],
-    flags=FLAGS_T_V_M,
+    flags=FLAGS_V,
+)
+
+AGENT_41_AX_V = GenericAgentArgs(
+    chat_model_args=CHAT_MODEL_ARGS_DICT["openai/gpt-4.1-2025-04-14"],
+    flags=FLAGS_AX_V,
+)
+
+AGENT_CLAUDE_AX_V = GenericAgentArgs(
+    chat_model_args=CHAT_MODEL_ARGS_DICT["anthropic/claude-sonnet-4-20250514"],
+    flags=FLAGS_AX_V,
+)
+
+AGENT_41_AX_M = GenericAgentArgs(
+    chat_model_args=CHAT_MODEL_ARGS_DICT["openai/gpt-4.1-2025-04-14"],
+    flags=FLAGS_AX_M,
+)
+
+AGENT_CLAUDE_AX_M = GenericAgentArgs(
+    chat_model_args=CHAT_MODEL_ARGS_DICT["anthropic/claude-sonnet-4-20250514"],
+    flags=FLAGS_AX_M,
 )
 
 # example for a single task
@@ -116,29 +124,18 @@ env_args = EnvArgsWebMall(
     task_seed=0,
     max_steps=30,
     headless=True,
-    record_video=True
+    record_video=False
 )
 
 
 
-agent = AGENT_4o_VISION
+agent = AGENT_41_AX
 agent.set_benchmark(bgym.DEFAULT_BENCHMARKS["webarena"](), demo_mode="off")
 
-# example for 2 experiments testing chain of thoughts on a webmall task
-#chat_model_args = CHAT_MODEL_ARGS_DICT["openai/gpt-4o-2024-05-13"]
-#chat_model_args = CHAT_MODEL_ARGS_DICT["openai/gpt-4.1-2025-04-14"]
-chat_model_args = CHAT_MODEL_ARGS_DICT["anthropic/claude-sonnet-4-20250514"]
+chat_model_args = CHAT_MODEL_ARGS_DICT["openai/gpt-4.1-2025-04-14"]
+#chat_model_args = CHAT_MODEL_ARGS_DICT["anthropic/claude-sonnet-4-20250514"]
 
 exp_args = [
-    # bgym.ExpArgs(
-    #     agent_args=MostBasicAgentArgs(
-    #         temperature=0.1,
-    #         use_chain_of_thought=True,
-    #         chat_model_args=chat_model_args,
-    #     ),
-    #     env_args=env_args,
-    #     logging_level=logging.INFO,
-    # ),
     ExpArgsWebMall(
         agent_args=agent,
         env_args=env_args,
@@ -151,5 +148,4 @@ PATH_TO_DOT_ENV_FILE = current_file.parent / ".env"
 load_dotenv(PATH_TO_DOT_ENV_FILE)
 
 if __name__ == "__main__":
-
     run_experiments(n_jobs=1, exp_args_list=exp_args, study_dir="task_results", parallel_backend="sequential")
