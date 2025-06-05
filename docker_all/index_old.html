@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebMall</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    .shop-links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    a {
+      display: block;
+      padding: 15px 30px;
+      background-color: #0073e6;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+
+    a:hover {
+      background-color: #005bb5;
+    }
+
+    /* --- submission area --- */
+    .submission {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* multi‑line input */
+    #finalInput {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+      resize: vertical; /* user can resize further if desired */
+    }
+
+    #submitBtn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #submitBtn:hover {
+      background-color: #218838;
+    }
+
+    #submittedResult {
+      margin-top: 25px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      word-wrap: break-word;
+      white-space: pre-wrap; /* preserves line breaks */
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to WebMall</h1>
+
+  <div class="shop-links">
+    <a href="http://localhost:8081" target="_blank">Shop 1</a>
+    <a href="http://localhost:8082" target="_blank">Shop 2</a>
+    <a href="http://localhost:8083" target="_blank">Shop 3</a>
+    <a href="http://localhost:8084" target="_blank">Shop 4</a>
+  </div>
+
+  <!-- multi‑line textarea + button -->
+  <div class="submission">
+    <textarea id="finalInput" rows="10" placeholder="Type your final answer here"></textarea>
+    <button id="submitBtn">Submit final result</button>
+  </div>
+
+  <!-- where the submitted text is rendered -->
+  <div id="submittedResult" aria-live="polite"></div>
+
+  <script>
+    // Move text from textarea to the page when the button is clicked
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      const text = document.getElementById('finalInput').value.trim();
+      if (text) {
+        document.getElementById('submittedResult').textContent = text;
+        // optional UX: lock the textarea so the agent can’t change it after submission
+        document.getElementById('finalInput').disabled = true;
+        document.getElementById('submitBtn').disabled = true;
+      }
+    });
+  </script>
+</body>
+</html>
