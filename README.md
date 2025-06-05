@@ -22,7 +22,7 @@
 
 ### Setup the WebMall Shops locally with Docker
 1. The local docker setup requires docker-compose
-2. Run ```bash docker_all/restore_all_and_deploy_local.sh``` to download the relevant files, start the containers and host the shops locally.
+2. Navigate to the ```docker_all/``` folder and run ```bash restore_all_and_deploy_local.sh``` to download the relevant files, start the containers and host the shops locally.
 3. If you used the default ports, the setup is done, if not, you need to change the adresses inside the WooCommerce-Containers by running ```docker_all/fix_urls_deploy.sh``` for each of the 4 shops inside the respective docker-containers. 
 Example: ```docker exec WebMall_wordpress_shop1 /bin/bash -c "/usr/local/bin/fix_urls_deploy.sh 'http://localhost:8081' 'http://localhost:7733'```
 4. Verify the setup by visiting the Shop-Websites and the Submission page in your browser. 
