@@ -4,7 +4,7 @@
 
 ## Abstract
 
-This page presents the WebMall benchmark for evaluating the capability of Web agents to find and compare product offers from multiple e-shops. The benchmark features two sets of tasks: A set containing basic tasks like searching and comparing offers, adding offers to the shopping cart, and finally checking out the selected offers. The benchmark also features an advanced task set containing searches with vague requirements as well as searches for compatible products or cheaper substitute products.
+This repository contains the code and data of the WebMall benchmark for evaluating the capability of Web agents to find and compare product offers from multiple e-shops. The benchmark features two sets of tasks: A set containing basic tasks like searching and comparing offers, adding offers to the shopping cart, and finally checking out the selected offers. The benchmark also features an advanced task set containing searches with vague requirements as well as searches for compatible products or cheaper substitute products.
 
 For more detailed information about the benchmark design, task specifications, and initial results, please refer to our [website](https://wbsg-uni-mannheim.github.io/WebMall/).
 
