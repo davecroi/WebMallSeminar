@@ -461,7 +461,8 @@
                                     Luca Schwarz,
                                 </span>
                                 <span class="author-block">
-                                    <a href="https://www.linkedin.com/in/julian-caspary-5067b7236/"
+                                    <a
+                                        href="https://www.linkedin.com/in/julian-caspary-5067b7236/"
                                         >Julian Caspary</a
                                     >,
                                 </span>
@@ -483,6 +484,20 @@
                                     >
                                         Web-based Systems Group, University of
                                         Mannheim
+                                    </a>
+                                </span>
+                            </div>
+
+                            <div
+                                class="is-size-6 publication-contact"
+                                style="margin-top: 0.5rem"
+                            >
+                                <span class="contact-block">
+                                    <i class="fas fa-envelope"></i>
+                                    <a
+                                        href="mailto:ralph.peeters@uni-mannheim.de"
+                                    >
+                                        ralph.peeters@uni-mannheim.de
                                     </a>
                                 </span>
                             </div>
@@ -582,6 +597,82 @@
                     </div>
                 </div>
 
+                <!-- Shop Screenshots -->
+                <div class="columns is-multiline">
+                    <div class="column is-half">
+                        <h4 class="title is-5">
+                            Screenshot Shop 1: E-Store Athletics
+                        </h4>
+                        <figure class="image">
+                            <img
+                                src="./static/images/shop1.png"
+                                alt="Screenshot Shop 1: E-Store Athletics"
+                                class="gallery-image"
+                                data-caption="Screenshot Shop 1: E-Store Athletics"
+                                style="
+                                    border: 1px solid #ddd;
+                                    border-radius: 5px;
+                                    cursor: pointer;
+                                    transition: opacity 0.3s ease;
+                                "
+                                onmouseover="this.style.opacity='0.8'"
+                                onmouseout="this.style.opacity='1'"
+                            />
+                        </figure>
+                    </div>
+                    <div class="column is-half">
+                        <h4 class="title is-5">Screenshot Shop 2: TechTalk</h4>
+                        <figure class="image">
+                            <img
+                                src="./static/images/shop2.png"
+                                alt="Screenshot Shop 2: TechTalk"
+                                class="gallery-image"
+                                data-caption="Screenshot Shop 2: TechTalk"
+                                style="
+                                    border: 1px solid #ddd;
+                                    border-radius: 5px;
+                                    cursor: pointer;
+                                    transition: opacity 0.3s ease;
+                                "
+                                onmouseover="this.style.opacity='0.8'"
+                                onmouseout="this.style.opacity='1'"
+                            />
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Image Gallery Modal -->
+                <div id="gallery-modal" class="modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-content">
+                        <p class="image">
+                            <img
+                                id="modal-image"
+                                src=""
+                                alt=""
+                                style="
+                                    max-width: 90vw;
+                                    max-height: 90vh;
+                                    object-fit: contain;
+                                "
+                            />
+                        </p>
+                        <div
+                            class="has-text-centered has-text-white"
+                            style="margin-top: 1rem"
+                        >
+                            <p
+                                id="modal-caption"
+                                class="title is-5 has-text-white"
+                            ></p>
+                        </div>
+                    </div>
+                    <button
+                        class="modal-close is-large"
+                        aria-label="close"
+                    ></button>
+                </div>
+
                 <!-- Demo Videos -->
                 <div class="columns is-centered has-text-centered">
                     <div class="column is-four-fifths">
@@ -600,7 +691,7 @@
                             <div class="column is-half">
                                 <h3 class="title is-5">
                                     Agent finding the cheapest product that
-                                        meets specific technical requirements.
+                                    meets specific technical requirements.
                                 </h3>
                                 <div
                                     class="video-container"
@@ -637,8 +728,8 @@
                             <div class="column is-half">
                                 <h3 class="title is-5">
                                     Advanced task showing agent interpreting
-                                        vague user requirements to find suitable
-                                        products.
+                                    vague user requirements to find suitable
+                                    products.
                                 </h3>
                                 <div
                                     class="video-container"
@@ -674,9 +765,8 @@
                             <!-- Video 3: Find Substitutes Task -->
                             <div class="column is-half">
                                 <h3 class="title is-5">
-                                    Advanced task demonstrating agent
-                                        finding substitute products for a given
-                                        item.
+                                    Advanced task demonstrating agent finding
+                                    substitute products for a given item.
                                 </h3>
                                 <div
                                     class="video-container"
@@ -711,8 +801,10 @@
 
                             <!-- Video 4: Checkout Task -->
                             <div class="column is-half">
-                                <h3 class="title is-5">Demo showing an agent completing the
-                                        checkout process for selected products.</h3>
+                                <h3 class="title is-5">
+                                    Demo showing an agent completing the
+                                    checkout process for selected products.
+                                </h3>
                                 <div
                                     class="video-container"
                                     style="
@@ -762,6 +854,60 @@
                             // Also set playback rate if video is already loaded
                             if (video.readyState >= 1) {
                                 video.playbackRate = 2.0;
+                            }
+                        });
+                    });
+                </script>
+
+                <!-- Gallery Modal Script -->
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        // Get modal elements
+                        const modal = document.getElementById("gallery-modal");
+                        const modalImage =
+                            document.getElementById("modal-image");
+                        const modalCaption =
+                            document.getElementById("modal-caption");
+                        const modalClose = modal.querySelector(".modal-close");
+                        const modalBackground =
+                            modal.querySelector(".modal-background");
+
+                        // Add click event to all gallery images
+                        const galleryImages =
+                            document.querySelectorAll(".gallery-image");
+                        galleryImages.forEach(function (image) {
+                            image.addEventListener("click", function () {
+                                // Set modal image source and caption
+                                modalImage.src = this.src;
+                                modalImage.alt = this.alt;
+                                modalCaption.textContent =
+                                    this.getAttribute("data-caption");
+
+                                // Show modal
+                                modal.classList.add("is-active");
+                                document.body.classList.add("is-clipped");
+                            });
+                        });
+
+                        // Close modal functionality
+                        function closeModal() {
+                            modal.classList.remove("is-active");
+                            document.body.classList.remove("is-clipped");
+                        }
+
+                        // Close modal on close button click
+                        modalClose.addEventListener("click", closeModal);
+
+                        // Close modal on background click
+                        modalBackground.addEventListener("click", closeModal);
+
+                        // Close modal on escape key
+                        document.addEventListener("keydown", function (e) {
+                            if (
+                                e.key === "Escape" &&
+                                modal.classList.contains("is-active")
+                            ) {
+                                closeModal();
                             }
                         });
                     });
@@ -875,7 +1021,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Best Fit Specific Req.</td>
+                                        <td>Best Fit Specific Requirements</td>
                                         <td>11</td>
                                         <td>
                                             Find all offers for a DDR4 2x16 GB
@@ -910,7 +1056,10 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Cheapest Best Fit Specific Req.</td>
+                                        <td>
+                                            Cheapest Best Fit Specific
+                                            Requirements
+                                        </td>
                                         <td>10</td>
                                         <td>
                                             Find the cheapest offer for a liquid
@@ -921,7 +1070,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Best Fit Vague Req.</td>
+                                        <td>Best Fit Vague Requirements</td>
                                         <td>9</td>
                                         <td>
                                             Find an offer for a GPU which is
@@ -931,7 +1080,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Cheapest Best Fit Vague Req.</td>
+                                        <td>
+                                            Cheapest Best Fit Vague Requirements
+                                        </td>
                                         <td>6</td>
                                         <td>
                                             Find the cheapest offer for a gaming
@@ -984,7 +1135,9 @@
 
                             <div class="columns is-multiline">
                                 <div class="column is-half">
-                                    <h4 class="title is-5">Screenshot Shop 1: E-Store Athletics</h4>
+                                    <h4 class="title is-5">
+                                        Screenshot Shop 1: E-Store Athletics
+                                    </h4>
                                     <figure class="image">
                                         <img
                                             src="./static/images/shop1.png"
@@ -997,7 +1150,9 @@
                                     </figure>
                                 </div>
                                 <div class="column is-half">
-                                    <h4 class="title is-5">Screenshot Shop 2: TechTalk</h4>
+                                    <h4 class="title is-5">
+                                        Screenshot Shop 2: TechTalk
+                                    </h4>
                                     <figure class="image">
                                         <img
                                             src="./static/images/shop2.png"
@@ -1273,7 +1428,9 @@
                             </table>
                         </div>
 
-                        <h3 class="title is-4">Token Usage and Cost per Task</h3>
+                        <h3 class="title is-4">
+                            Token Usage and Cost per Task
+                        </h3>
                         <div class="results-table resource-table">
                             <table
                                 class="table is-striped is-hoverable is-fullwidth"
@@ -1582,7 +1739,7 @@
                                     </tr>
                                     <tr>
                                         <td style="text-align: left">
-                                            Best Fit Specific Req.
+                                            Best Fit Specific Requirements
                                         </td>
                                         <td style="text-align: center">
                                             36.37
@@ -1703,7 +1860,7 @@
                                     </tr>
                                     <tr>
                                         <td style="text-align: left">
-                                            Best Fit Specific Req.
+                                            Best Fit Specific Requirements
                                         </td>
                                         <td style="text-align: center">
                                             54.55
@@ -1783,7 +1940,8 @@
                                             GPT4.1
                                         </td>
                                         <td style="text-align: left">
-                                            Cheapest Best Fit Specific Req.
+                                            Cheapest Best Fit Specific
+                                            Requirements
                                         </td>
                                         <td style="text-align: center">
                                             40.00
@@ -1806,7 +1964,7 @@
                                     </tr>
                                     <tr>
                                         <td style="text-align: left">
-                                            Best Fit Vague Req.
+                                            Best Fit Vague Requirements
                                         </td>
                                         <td style="text-align: center">0.00</td>
                                         <td style="text-align: center">
@@ -1827,7 +1985,7 @@
                                     </tr>
                                     <tr>
                                         <td style="text-align: left">
-                                            Cheapest Best Fit Vague Req.
+                                            Cheapest Best Fit Vague Requirements
                                         </td>
                                         <td style="text-align: center">
                                             16.67
@@ -1892,7 +2050,8 @@
                                             Claude Sonnet 4
                                         </td>
                                         <td style="text-align: left">
-                                            Cheapest Best Fit Specific Req.
+                                            Cheapest Best Fit Specific
+                                            Requirements
                                         </td>
                                         <td style="text-align: center">
                                             50.00
@@ -1915,7 +2074,7 @@
                                     </tr>
                                     <tr>
                                         <td style="text-align: left">
-                                            Best Fit Vague Req.
+                                            Best Fit Vague Requirements
                                         </td>
                                         <td style="text-align: center">
                                             33.34
@@ -1938,7 +2097,7 @@
                                     </tr>
                                     <tr>
                                         <td style="text-align: left">
-                                            Cheapest Best Fit Vague Req.
+                                            Cheapest Best Fit Vague Requirements
                                         </td>
                                         <td style="text-align: center">
                                             33.34
@@ -2009,7 +2168,9 @@
                             </table>
                         </div>
 
-                        <h3 class="title is-4">Token Usage and Cost per Task Category</h3>
+                        <h3 class="title is-4">
+                            Token Usage and Cost per Task Category
+                        </h3>
                         <div class="results-table cost-table">
                             <table
                                 class="table is-striped is-hoverable is-fullwidth"
@@ -2246,7 +2407,7 @@
                                             rowspan="3"
                                             style="text-align: left"
                                         >
-                                            Best Fit Specific Req.
+                                            Best Fit Specific Requirements
                                         </td>
                                         <td style="text-align: left">
                                             AX-Tree
@@ -2297,7 +2458,7 @@
                                             rowspan="3"
                                             style="text-align: left"
                                         >
-                                            Best Fit Specific Req.
+                                            Best Fit Specific Requirements
                                         </td>
                                         <td style="text-align: left">
                                             AX-Tree
@@ -2549,7 +2710,8 @@
                                     <tr>
                                         <td rowspan="3">GPT4.1</td>
                                         <td rowspan="3">
-                                            Cheapest Best Fit Specific Req.
+                                            Cheapest Best Fit Specific
+                                            Requirements
                                         </td>
                                         <td>AX-Tree</td>
                                         <td style="text-align: center">20</td>
@@ -2586,7 +2748,8 @@
                                     <tr>
                                         <td rowspan="3">Claude Sonnet 4</td>
                                         <td rowspan="3">
-                                            Cheapest Best Fit Specific Req.
+                                            Cheapest Best Fit Specific
+                                            Requirements
                                         </td>
                                         <td>AX-Tree</td>
                                         <td style="text-align: center">21</td>
@@ -2622,7 +2785,9 @@
                                     </tr>
                                     <tr>
                                         <td rowspan="3">GPT4.1</td>
-                                        <td rowspan="3">Best Fit Vague Req.</td>
+                                        <td rowspan="3">
+                                            Best Fit Vague Requirements
+                                        </td>
                                         <td>AX-Tree</td>
                                         <td style="text-align: center">24</td>
                                         <td style="text-align: center">
@@ -2657,7 +2822,9 @@
                                     </tr>
                                     <tr>
                                         <td rowspan="3">Claude Sonnet 4</td>
-                                        <td rowspan="3">Best Fit Vague Req.</td>
+                                        <td rowspan="3">
+                                            Best Fit Vague Requirements
+                                        </td>
                                         <td>AX-Tree</td>
                                         <td style="text-align: center">30</td>
                                         <td style="text-align: center">
@@ -2693,7 +2860,7 @@
                                     <tr>
                                         <td rowspan="3">GPT4.1</td>
                                         <td rowspan="3">
-                                            Cheapest Best Fit Vague Req.
+                                            Cheapest Best Fit Vague Requirements
                                         </td>
                                         <td>AX-Tree</td>
                                         <td style="text-align: center">22</td>
@@ -2730,7 +2897,7 @@
                                     <tr>
                                         <td rowspan="3">Claude Sonnet 4</td>
                                         <td rowspan="3">
-                                            Cheapest Best Fit Vague Req.
+                                            Cheapest Best Fit Vague Requirements
                                         </td>
                                         <td>AX-Tree</td>
                                         <td style="text-align: center">25</td>
@@ -3022,24 +3189,44 @@
                         <div class="content has-text-justified">
                             <p id="Brinkmann2023">
                                 [Brinkmann2023] Brinkmann, Alexander, et al.:
-                                The Web Data Commons Schema.org Data Set Series.
-                                Companion Proceedings of the ACM Web Conference,
-                                2023.
+                                <a
+                                    href="https://www.uni-mannheim.de/media/Einrichtungen/dws/Files_Research/Web-based_Systems/pub/Brinkmann-etal-TheWDCSchemaorgDataSetSeries-WWW2023.pdf"
+                                    target="_blank"
+                                >
+                                    The Web Data Commons Schema.org Data Set
+                                    Series</a
+                                >. Companion Proceedings of the ACM Web
+                                Conference, 2023.
                             </p>
                             <p id="Chezelles2025">
                                 [Chezelles2025] Le Sellier De Chezelles,
-                                Thibault, et al.: The BrowserGym Ecosystem for
-                                Web Agent Research. arXiv:2412.05467, 2025.
+                                Thibault, et al.:
+                                <a
+                                    href="https://arxiv.org/pdf/2412.05467"
+                                    target="_blank"
+                                >
+                                    The BrowserGym Ecosystem for Web Agent
+                                    Research</a
+                                >. arXiv:2412.05467, 2025.
                             </p>
                             <p id="Yehudai2025">
-                                [Yehudai2025] Yehudai, Asaf , et al.: Survey on
-                                Evaluation of LLM-based Agents,
-                                arXiv:2503.16416, 2025.
+                                [Yehudai2025] Yehudai, Asaf , et al.:
+                                <a
+                                    href="https://arxiv.org/pdf/2503.16416"
+                                    target="_blank"
+                                >
+                                    Survey on Evaluation of LLM-based Agents</a
+                                >, arXiv:2503.16416, 2025.
                             </p>
                             <p id="Zhou2023">
-                                [Zhou2023] Zhou, Shuyan, et al.: Webarena: A
-                                realistic web environment for building
-                                autonomous agents. arXiv:2307.13854, 2023.
+                                [Zhou2023] Zhou, Shuyan, et al.:
+                                <a
+                                    href="https://arxiv.org/abs/2307.13854"
+                                    target="_blank"
+                                >
+                                    Webarena: A realistic web environment for
+                                    building autonomous agents</a
+                                >. arXiv:2307.13854, 2023.
                             </p>
                         </div>
                     </div>
