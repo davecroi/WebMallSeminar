@@ -1,12 +1,12 @@
 # WebMall - A Multi-Shop Benchmark for Evaluating Web Agents
 
-🌐 [WebMall Website](https://webmall-benchmark.github.io/)
+🌐 [WebMall Website](https://wbsg-uni-mannheim.github.io/WebMall/)
 
 ## Abstract
 
 This page presents the WebMall benchmark for evaluating the capability of Web agents to find and compare product offers from multiple e-shops. The benchmark features two sets of tasks: A set containing basic tasks like searching and comparing offers, adding offers to the shopping cart, and finally checking out the selected offers. The benchmark also features an advanced task set containing searches with vague requirements as well as searches for compatible products or cheaper substitute products.
 
-For more detailed information about the benchmark design, task specifications, and initial results, please refer to our [website](https://webmall-benchmark.github.io/).
+For more detailed information about the benchmark design, task specifications, and initial results, please refer to our [website](https://wbsg-uni-mannheim.github.io/WebMall/).
 
 ## Setting up WebMall
 
