@@ -597,82 +597,6 @@
                     </div>
                 </div>
 
-                <!-- Shop Screenshots -->
-                <div class="columns is-multiline">
-                    <div class="column is-half">
-                        <h4 class="title is-5">
-                            Screenshot Shop 1: E-Store Athletics
-                        </h4>
-                        <figure class="image">
-                            <img
-                                src="./static/images/shop1.png"
-                                alt="Screenshot Shop 1: E-Store Athletics"
-                                class="gallery-image"
-                                data-caption="Screenshot Shop 1: E-Store Athletics"
-                                style="
-                                    border: 1px solid #ddd;
-                                    border-radius: 5px;
-                                    cursor: pointer;
-                                    transition: opacity 0.3s ease;
-                                "
-                                onmouseover="this.style.opacity='0.8'"
-                                onmouseout="this.style.opacity='1'"
-                            />
-                        </figure>
-                    </div>
-                    <div class="column is-half">
-                        <h4 class="title is-5">Screenshot Shop 2: TechTalk</h4>
-                        <figure class="image">
-                            <img
-                                src="./static/images/shop2.png"
-                                alt="Screenshot Shop 2: TechTalk"
-                                class="gallery-image"
-                                data-caption="Screenshot Shop 2: TechTalk"
-                                style="
-                                    border: 1px solid #ddd;
-                                    border-radius: 5px;
-                                    cursor: pointer;
-                                    transition: opacity 0.3s ease;
-                                "
-                                onmouseover="this.style.opacity='0.8'"
-                                onmouseout="this.style.opacity='1'"
-                            />
-                        </figure>
-                    </div>
-                </div>
-
-                <!-- Image Gallery Modal -->
-                <div id="gallery-modal" class="modal">
-                    <div class="modal-background"></div>
-                    <div class="modal-content">
-                        <p class="image">
-                            <img
-                                id="modal-image"
-                                src=""
-                                alt=""
-                                style="
-                                    max-width: 90vw;
-                                    max-height: 90vh;
-                                    object-fit: contain;
-                                "
-                            />
-                        </p>
-                        <div
-                            class="has-text-centered has-text-white"
-                            style="margin-top: 1rem"
-                        >
-                            <p
-                                id="modal-caption"
-                                class="title is-5 has-text-white"
-                            ></p>
-                        </div>
-                    </div>
-                    <button
-                        class="modal-close is-large"
-                        aria-label="close"
-                    ></button>
-                </div>
-
                 <!-- Demo Videos -->
                 <div class="columns is-centered has-text-centered">
                     <div class="column is-four-fifths">
@@ -1142,10 +1066,19 @@
                                         <img
                                             src="./static/images/shop1.png"
                                             alt="Screenshot Shop 1: E-Store Athletics"
+                                            class="gallery-image"
+                                            data-caption="Screenshot Shop 1: E-Store Athletics"
                                             style="
                                                 border: 1px solid #ddd;
                                                 border-radius: 5px;
+                                                cursor: pointer;
+                                                transition: opacity 0.3s ease;
+                                                height: 300px;
+                                                object-fit: cover;
+                                                object-position: top;
                                             "
+                                            onmouseover="this.style.opacity='0.8'"
+                                            onmouseout="this.style.opacity='1'"
                                         />
                                     </figure>
                                 </div>
@@ -1157,10 +1090,19 @@
                                         <img
                                             src="./static/images/shop2.png"
                                             alt="Screenshot Shop 2: TechTalk"
+                                            class="gallery-image"
+                                            data-caption="Screenshot Shop 2: TechTalk"
                                             style="
                                                 border: 1px solid #ddd;
                                                 border-radius: 5px;
+                                                cursor: pointer;
+                                                transition: opacity 0.3s ease;
+                                                height: 300px;
+                                                object-fit: cover;
+                                                object-position: top;
                                             "
+                                            onmouseover="this.style.opacity='0.8'"
+                                            onmouseout="this.style.opacity='1'"
                                         />
                                     </figure>
                                 </div>
@@ -1304,6 +1246,38 @@
                             </table>
                         </div>
                     </div>
+                </div>
+
+                <!-- Image Gallery Modal -->
+                <div id="gallery-modal" class="modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-content">
+                        <p class="image">
+                            <img
+                                id="modal-image"
+                                src=""
+                                alt=""
+                                style="
+                                    max-width: 90vw;
+                                    max-height: 90vh;
+                                    object-fit: contain;
+                                "
+                            />
+                        </p>
+                        <div
+                            class="has-text-centered has-text-white"
+                            style="margin-top: 1rem"
+                        >
+                            <p
+                                id="modal-caption"
+                                class="title is-5 has-text-white"
+                            ></p>
+                        </div>
+                    </div>
+                    <button
+                        class="modal-close is-large"
+                        aria-label="close"
+                    ></button>
                 </div>
 
                 <!-- Baseline Experiments -->
@@ -1460,7 +1434,7 @@
                                         >
                                             Basic
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
                                         <td style="text-align: center">20</td>
@@ -1473,7 +1447,7 @@
                                         <td style="text-align: center">0.28</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
                                         <td style="text-align: center">19</td>
@@ -1486,7 +1460,7 @@
                                         <td style="text-align: center">0.29</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
                                         <td style="text-align: center">20</td>
@@ -1511,7 +1485,7 @@
                                         >
                                             Basic
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
                                         <td style="text-align: center">20</td>
@@ -1524,7 +1498,7 @@
                                         <td style="text-align: center">0.59</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
                                         <td style="text-align: center">21</td>
@@ -1537,7 +1511,7 @@
                                         <td style="text-align: center">0.85</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
                                         <td style="text-align: center">25</td>
@@ -1562,7 +1536,7 @@
                                         >
                                             Advanced
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
                                         <td style="text-align: center">21</td>
@@ -1575,7 +1549,7 @@
                                         <td style="text-align: center">0.33</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
                                         <td style="text-align: center">19</td>
@@ -1588,7 +1562,7 @@
                                         <td style="text-align: center">0.33</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
                                         <td style="text-align: center">19</td>
@@ -1613,7 +1587,7 @@
                                         >
                                             Advanced
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
                                         <td style="text-align: center">25</td>
@@ -1626,7 +1600,7 @@
                                         <td style="text-align: center">0.88</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
                                         <td style="text-align: center">23</td>
@@ -1639,7 +1613,7 @@
                                         <td style="text-align: center">1.26</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
                                         <td style="text-align: center">33</td>
@@ -1692,7 +1666,7 @@
                                         >
                                             GPT4.1
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Single Product Search
                                         </td>
                                         <td style="text-align: center">
@@ -1715,7 +1689,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Cheapest Product Search
                                         </td>
                                         <td style="text-align: center">
@@ -1738,7 +1712,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Best Fit Specific Requirements
                                         </td>
                                         <td style="text-align: center">
@@ -1761,7 +1735,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Add to Cart
                                         </td>
                                         <td style="text-align: center">
@@ -1784,7 +1758,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Checkout
                                         </td>
                                         <td style="text-align: center">
@@ -1813,7 +1787,7 @@
                                         >
                                             Claude Sonnet 4
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Single Product Search
                                         </td>
                                         <td style="text-align: center">
@@ -1836,7 +1810,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Cheapest Product Search
                                         </td>
                                         <td style="text-align: center">
@@ -1859,7 +1833,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Best Fit Specific Requirements
                                         </td>
                                         <td style="text-align: center">
@@ -1882,7 +1856,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Add to Cart
                                         </td>
                                         <td style="text-align: center">
@@ -1905,7 +1879,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Checkout
                                         </td>
                                         <td style="text-align: center">
@@ -1939,7 +1913,7 @@
                                         >
                                             GPT4.1
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Cheapest Best Fit Specific
                                             Requirements
                                         </td>
@@ -1963,7 +1937,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Best Fit Vague Requirements
                                         </td>
                                         <td style="text-align: center">0.00</td>
@@ -1984,7 +1958,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Cheapest Best Fit Vague Requirements
                                         </td>
                                         <td style="text-align: center">
@@ -2007,7 +1981,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Find Substitutes
                                         </td>
                                         <td style="text-align: center">
@@ -2030,7 +2004,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Find Compatible Products
                                         </td>
                                         <td style="text-align: center">0.00</td>
@@ -2049,7 +2023,7 @@
                                         >
                                             Claude Sonnet 4
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Cheapest Best Fit Specific
                                             Requirements
                                         </td>
@@ -2073,7 +2047,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Best Fit Vague Requirements
                                         </td>
                                         <td style="text-align: center">
@@ -2096,7 +2070,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Cheapest Best Fit Vague Requirements
                                         </td>
                                         <td style="text-align: center">
@@ -2119,7 +2093,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Find Substitutes
                                         </td>
                                         <td style="text-align: center">
@@ -2142,7 +2116,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             Find Compatible Products
                                         </td>
                                         <td style="text-align: center">
@@ -2205,7 +2179,7 @@
                                         >
                                             Single Product Search
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
                                         <td style="text-align: center">18</td>
@@ -2218,7 +2192,7 @@
                                         <td style="text-align: center">0.24</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
                                         <td style="text-align: center">17</td>
@@ -2231,7 +2205,7 @@
                                         <td style="text-align: center">0.25</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
                                         <td style="text-align: center">18</td>
@@ -2256,7 +2230,7 @@
                                         >
                                             Single Product Search
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
                                         <td style="text-align: center">19</td>
@@ -2269,7 +2243,7 @@
                                         <td style="text-align: center">0.51</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
                                         <td style="text-align: center">21</td>
@@ -2282,7 +2256,7 @@
                                         <td style="text-align: center">0.89</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
                                         <td style="text-align: center">21</td>
@@ -2307,7 +2281,7 @@
                                         >
                                             Cheapest Product Search
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
                                         <td style="text-align: center">17</td>
@@ -2320,7 +2294,7 @@
                                         <td style="text-align: center">0.21</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
                                         <td style="text-align: center">16</td>
@@ -2333,7 +2307,7 @@
                                         <td style="text-align: center">0.23</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
                                         <td style="text-align: center">18</td>
@@ -2358,7 +2332,7 @@
                                         >
                                             Cheapest Product Search
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
                                         <td style="text-align: center">17</td>
@@ -2371,7 +2345,7 @@
                                         <td style="text-align: center">0.43</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
                                         <td style="text-align: center">17</td>
@@ -2384,7 +2358,7 @@
                                         <td style="text-align: center">0.61</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
                                         <td style="text-align: center">22</td>
@@ -2409,7 +2383,7 @@
                                         >
                                             Best Fit Specific Requirements
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
                                         <td style="text-align: center">24</td>
@@ -2422,7 +2396,7 @@
                                         <td style="text-align: center">0.39</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
                                         <td style="text-align: center">21</td>
@@ -2435,7 +2409,7 @@
                                         <td style="text-align: center">0.36</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
                                         <td style="text-align: center">22</td>
@@ -2460,7 +2434,7 @@
                                         >
                                             Best Fit Specific Requirements
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
                                         <td style="text-align: center">25</td>
@@ -2473,7 +2447,7 @@
                                         <td style="text-align: center">0.89</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
                                         <td style="text-align: center">23</td>
@@ -2486,7 +2460,7 @@
                                         <td style="text-align: center">1.20</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
                                         <td style="text-align: center">32</td>
@@ -2511,7 +2485,7 @@
                                         >
                                             Add to Cart
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
                                         <td style="text-align: center">19</td>
@@ -2524,7 +2498,7 @@
                                         <td style="text-align: center">0.25</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
                                         <td style="text-align: center">18</td>
@@ -2537,7 +2511,7 @@
                                         <td style="text-align: center">0.27</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
                                         <td style="text-align: center">18</td>
@@ -2562,7 +2536,7 @@
                                         >
                                             Add to Cart
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
                                         <td style="text-align: center">18</td>
@@ -2575,7 +2549,7 @@
                                         <td style="text-align: center">0.48</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
                                         <td style="text-align: center">18</td>
@@ -2588,7 +2562,7 @@
                                         <td style="text-align: center">0.65</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
                                         <td style="text-align: center">23</td>
@@ -2613,7 +2587,7 @@
                                         >
                                             Checkout
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
                                         <td style="text-align: center">24</td>
@@ -2626,7 +2600,7 @@
                                         <td style="text-align: center">0.29</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
                                         <td style="text-align: center">24</td>
@@ -2639,7 +2613,7 @@
                                         <td style="text-align: center">0.33</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
                                         <td style="text-align: center">24</td>
@@ -2664,7 +2638,7 @@
                                         >
                                             Checkout
                                         </td>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
                                         <td style="text-align: center">23</td>
@@ -2677,7 +2651,7 @@
                                         <td style="text-align: center">0.59</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
                                         <td style="text-align: center">23</td>
@@ -2690,7 +2664,7 @@
                                         <td style="text-align: center">0.76</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left">
+                                        <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
                                         <td style="text-align: center">26</td>
@@ -2713,7 +2687,7 @@
                                             Cheapest Best Fit Specific
                                             Requirements
                                         </td>
-                                        <td>AX-Tree</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree</td>
                                         <td style="text-align: center">20</td>
                                         <td style="text-align: center">
                                             142,851
@@ -2724,7 +2698,7 @@
                                         <td style="text-align: center">0.30</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Memory</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Memory</td>
                                         <td style="text-align: center">20</td>
                                         <td style="text-align: center">
                                             146,210
@@ -2735,7 +2709,7 @@
                                         <td style="text-align: center">0.32</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Vision</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Vision</td>
                                         <td style="text-align: center">18</td>
                                         <td style="text-align: center">
                                             139,887
@@ -2751,7 +2725,7 @@
                                             Cheapest Best Fit Specific
                                             Requirements
                                         </td>
-                                        <td>AX-Tree</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree</td>
                                         <td style="text-align: center">21</td>
                                         <td style="text-align: center">
                                             184,652
@@ -2762,7 +2736,7 @@
                                         <td style="text-align: center">0.63</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Memory</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Memory</td>
                                         <td style="text-align: center">21</td>
                                         <td style="text-align: center">
                                             306,201
@@ -2773,7 +2747,7 @@
                                         <td style="text-align: center">1.22</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Vision</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Vision</td>
                                         <td style="text-align: center">29</td>
                                         <td style="text-align: center">
                                             363,086
@@ -2788,7 +2762,7 @@
                                         <td rowspan="3">
                                             Best Fit Vague Requirements
                                         </td>
-                                        <td>AX-Tree</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree</td>
                                         <td style="text-align: center">24</td>
                                         <td style="text-align: center">
                                             182,507
@@ -2799,7 +2773,7 @@
                                         <td style="text-align: center">0.39</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Memory</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Memory</td>
                                         <td style="text-align: center">18</td>
                                         <td style="text-align: center">
                                             146,078
@@ -2810,7 +2784,7 @@
                                         <td style="text-align: center">0.33</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Vision</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Vision</td>
                                         <td style="text-align: center">23</td>
                                         <td style="text-align: center">
                                             205,822
@@ -2825,7 +2799,7 @@
                                         <td rowspan="3">
                                             Best Fit Vague Requirements
                                         </td>
-                                        <td>AX-Tree</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree</td>
                                         <td style="text-align: center">30</td>
                                         <td style="text-align: center">
                                             360,564
@@ -2836,7 +2810,7 @@
                                         <td style="text-align: center">1.23</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Memory</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Memory</td>
                                         <td style="text-align: center">28</td>
                                         <td style="text-align: center">
                                             466,259
@@ -2847,7 +2821,7 @@
                                         <td style="text-align: center">1.75</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Vision</td>
+                                        <td style="text-align: left; padding-left: 2px" >AX-Tree + Vision</td>
                                         <td style="text-align: center">37</td>
                                         <td style="text-align: center">
                                             542,216
@@ -2862,7 +2836,7 @@
                                         <td rowspan="3">
                                             Cheapest Best Fit Vague Requirements
                                         </td>
-                                        <td>AX-Tree</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree</td>
                                         <td style="text-align: center">22</td>
                                         <td style="text-align: center">
                                             169,166
@@ -2873,7 +2847,7 @@
                                         <td style="text-align: center">0.36</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Memory</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Memory</td>
                                         <td style="text-align: center">19</td>
                                         <td style="text-align: center">
                                             146,537
@@ -2884,7 +2858,7 @@
                                         <td style="text-align: center">0.32</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Vision</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Vision</td>
                                         <td style="text-align: center">20</td>
                                         <td style="text-align: center">
                                             169,546
@@ -2899,7 +2873,7 @@
                                         <td rowspan="3">
                                             Cheapest Best Fit Vague Requirements
                                         </td>
-                                        <td>AX-Tree</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree</td>
                                         <td style="text-align: center">25</td>
                                         <td style="text-align: center">
                                             254,591
@@ -2910,7 +2884,7 @@
                                         <td style="text-align: center">0.86</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Memory</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Memory</td>
                                         <td style="text-align: center">24</td>
                                         <td style="text-align: center">
                                             343,691
@@ -2921,7 +2895,7 @@
                                         <td style="text-align: center">1.28</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Vision</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Vision</td>
                                         <td style="text-align: center">37</td>
                                         <td style="text-align: center">
                                             532,580
@@ -2934,7 +2908,7 @@
                                     <tr>
                                         <td rowspan="3">GPT4.1</td>
                                         <td rowspan="3">Find Substitutes</td>
-                                        <td>AX-Tree</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree</td>
                                         <td style="text-align: center">19</td>
                                         <td style="text-align: center">
                                             125,073
@@ -2945,7 +2919,7 @@
                                         <td style="text-align: center">0.27</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Memory</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Memory</td>
                                         <td style="text-align: center">19</td>
                                         <td style="text-align: center">
                                             138,926
@@ -2956,7 +2930,7 @@
                                         <td style="text-align: center">0.30</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Vision</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Vision</td>
                                         <td style="text-align: center">17</td>
                                         <td style="text-align: center">
                                             136,587
@@ -2969,7 +2943,7 @@
                                     <tr>
                                         <td rowspan="3">Claude Sonnet 4</td>
                                         <td rowspan="3">Find Substitutes</td>
-                                        <td>AX-Tree</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree</td>
                                         <td style="text-align: center">23</td>
                                         <td style="text-align: center">
                                             234,912
@@ -2980,7 +2954,7 @@
                                         <td style="text-align: center">0.80</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Memory</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Memory</td>
                                         <td style="text-align: center">17</td>
                                         <td style="text-align: center">
                                             207,122
@@ -2991,7 +2965,7 @@
                                         <td style="text-align: center">0.83</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Vision</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Vision</td>
                                         <td style="text-align: center">31</td>
                                         <td style="text-align: center">
                                             489,526
@@ -3006,7 +2980,7 @@
                                         <td rowspan="3">
                                             Find Compatible Products
                                         </td>
-                                        <td>AX-Tree</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree</td>
                                         <td style="text-align: center">22</td>
                                         <td style="text-align: center">
                                             145,882
@@ -3017,7 +2991,7 @@
                                         <td style="text-align: center">0.31</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Memory</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Memory</td>
                                         <td style="text-align: center">21</td>
                                         <td style="text-align: center">
                                             164,433
@@ -3028,7 +3002,7 @@
                                         <td style="text-align: center">0.37</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Vision</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Vision</td>
                                         <td style="text-align: center">15</td>
                                         <td style="text-align: center">
                                             108,222
@@ -3043,7 +3017,7 @@
                                         <td rowspan="3">
                                             Find Compatible Products
                                         </td>
-                                        <td>AX-Tree</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree</td>
                                         <td style="text-align: center">25</td>
                                         <td style="text-align: center">
                                             247,251
@@ -3054,7 +3028,7 @@
                                         <td style="text-align: center">0.85</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Memory</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Memory</td>
                                         <td style="text-align: center">22</td>
                                         <td style="text-align: center">
                                             272,964
@@ -3065,7 +3039,7 @@
                                         <td style="text-align: center">0.98</td>
                                     </tr>
                                     <tr>
-                                        <td>AX-Tree + Vision</td>
+                                        <td style="text-align: left; padding-left: 2px">AX-Tree + Vision</td>
                                         <td style="text-align: center">32</td>
                                         <td style="text-align: center">
                                             393,378
