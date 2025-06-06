@@ -1,0 +1,28 @@
+<instructions>
+Solve the task below using these four webshops:
+
+E-Store Athletes: {{URL_1}}
+TechTalk: {{URL_2}}
+CamelCases: {{URL_3}}
+Hardware Cafe: {{URL_4}}
+
+After solving the task, submit the final result by first navigating to this page:
+
+Solution page: {{URL_5}}
+
+Then fill the final results into the text field on the solution page and press the "Submit Final Result" button.
+
+If the result is one or more product offers enter their exact full URL(s) into the text field separated by three ### characters.
+Example submission:
+Offer1: {{URL_1}}/product/tp-link-ha100-bluetooth-nfc-music-receiver-provides-wireless-connectivity-to-your-stereo/###Offer2: {{URL_3}}/product/spire-usb-2-0-type-a-cable-male-to-male-1-metre/###Offer3: {{URL_2}}/product/sandberg-usb-c-pd-to-lightning-cable-braided-1-meter-white/
+
+If the result is any other kind of value(s), input the value(s) into the text field.
+
+If there is no result to return after completion of the task, simply enter "Done" into the text field.
+
+Do not forget to press the "Submit Final Result" button in all cases!
+</instructions>
+
+<task>
+Find all offers for the Asus ROG Ryujin II ARGB 360mm Liquid CPU Cooler.
+</task>
