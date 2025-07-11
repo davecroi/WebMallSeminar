@@ -1,6 +1,8 @@
 [submodule "Browsergym"]
 	path = Browsergym
 	url = https://github.com/wbsg-uni-mannheim/BrowserGym.git
+	branch = main
 [submodule "AgentLab"]
 	path = AgentLab
 	url = https://github.com/wbsg-uni-mannheim/AgentLab.git
+	branch = main
