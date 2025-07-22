@@ -12,7 +12,7 @@ SHOP_PORT_DICT = {
     8081: "shop1",
     8082: "shop2",
     8083: "shop3",
-    8084: "shop4"
+    8084: "shop4",
 }
 
 SHOP_DOMAIN_DICT = {
@@ -20,16 +20,18 @@ SHOP_DOMAIN_DICT = {
     "webmall-1.informatik.uni-mannheim.de": "shop1",
     "webmall-2.informatik.uni-mannheim.de": "shop2",
     "webmall-3.informatik.uni-mannheim.de": "shop3",
-    "webmall-4.informatik.uni-mannheim.de": "shop4"
+    "webmall-4.informatik.uni-mannheim.de": "shop4",
 }
+
 
 def extract_step_number(filename):
     # This will match the 'step' followed by numbers like step1, step10, etc.
-    match = re.search(r'step_(\d+)', filename)
+    match = re.search(r"step_(\d+)", filename)
     if match:
         return int(match.group(1))
     else:
         raise ValueError(f"Filename {filename} does not contain a valid step number.")
+
 
 def extract_eco_metrics(agent_info):
     try:
@@ -43,7 +45,7 @@ def extract_eco_metrics(agent_info):
                 metrics[metric_key] = {
                     "min": data.get("value", {}).get("min", 0),
                     "max": data.get("value", {}).get("max", 0),
-                    "unit": data.get("unit", "")
+                    "unit": data.get("unit", ""),
                 }
         return metrics
     except Exception as e:
@@ -55,19 +57,19 @@ def extract_task_summary(step_data):
     try:
         action = getattr(step_data, "action", "")
         url = step_data.obs.get("url", "") if hasattr(step_data, "obs") else ""
-        think = step_data.agent_info.get("think", "") if hasattr(step_data, "agent_info") else ""
+        think = (
+            step_data.agent_info.get("think", "")
+            if hasattr(step_data, "agent_info")
+            else ""
+        )
 
-        task_summary = {
-            "action": action,
-            "url": url,
-            "think": think
-        }
+        task_summary = {"action": action, "url": url, "think": think}
 
         if step_data.terminated:
-            task_summary["finished"] = 'terminated'
+            task_summary["finished"] = "terminated"
             return task_summary
         elif step_data.truncated:
-            task_summary["finished"] = 'truncated'
+            task_summary["finished"] = "truncated"
             return task_summary
 
         # Match ax_tree element from action
@@ -79,7 +81,9 @@ def extract_task_summary(step_data):
                 if str(node.get("browsergym_id", "")) == target_id:
                     name = node.get("name", {}).get("value", "")
                     role = node.get("role", {}).get("value", "")
-                    task_summary["axtree_object_info"] = f"axtree_object: {role}: {name}"
+                    task_summary["axtree_object_info"] = (
+                        f"axtree_object: {role}: {name}"
+                    )
                     break
 
         return task_summary
@@ -89,7 +93,9 @@ def extract_task_summary(step_data):
 
 
 def summarize_single_task(directory="."):
-    step_files = sorted(glob(os.path.join(directory, "step_*.pkl.gz")), key=extract_step_number)
+    step_files = sorted(
+        glob(os.path.join(directory, "step_*.pkl.gz")), key=extract_step_number
+    )
 
     all_steps_data = {}
     all_task_summary = {}
@@ -124,11 +130,15 @@ def summarize_single_task(directory="."):
                 reward = step_data.reward
                 cumulative_reward += reward
                 all_task_summary[previous_step_num]["reward"] = reward
-                all_task_summary[previous_step_num]["cumulative_reward"] = cumulative_reward
+                all_task_summary[previous_step_num][
+                    "cumulative_reward"
+                ] = cumulative_reward
 
                 last_action_error = step_data.obs.get("last_action_error")
                 if last_action_error:
-                    all_task_summary[previous_step_num]["action_error"] = last_action_error
+                    all_task_summary[previous_step_num][
+                        "action_error"
+                    ] = last_action_error
 
             # Store current step summary
             all_task_summary[step_num] = task_summary
@@ -137,35 +147,47 @@ def summarize_single_task(directory="."):
         except Exception as e:
             print(f"Failed to process {filepath}: {e}")
 
-
     csv_data_all = []
 
     for i in range(len(all_task_summary)):
         task_summary = all_task_summary.get(i)
-        
+
         # Try to get shop_id by domain first, then fall back to port
         url = task_summary.get("url", "")
         parsed_url = urlparse(url)
-        
+
         shop_id = "none"
         if parsed_url.hostname and parsed_url.hostname in SHOP_DOMAIN_DICT:
             shop_id = SHOP_DOMAIN_DICT[parsed_url.hostname]
         elif parsed_url.port and parsed_url.port in SHOP_PORT_DICT:
             shop_id = SHOP_PORT_DICT[parsed_url.port]
-        
+
         action = task_summary.get("action")
         try:
-            used_axtree_object = task_summary.get("axtree_object_info").replace("axtree_object: ", "")
+            used_axtree_object = task_summary.get("axtree_object_info").replace(
+                "axtree_object: ", ""
+            )
         except AttributeError:
             used_axtree_object = "none"
         url = task_summary.get("url")
         reward = task_summary.get("reward")
         cumulative_reward = task_summary.get("cumulative_reward")
         thought = task_summary.get("think")
-        experiment_id = os.path.basename(directory).split('/')[-1].split('.')[0]
-        task_id = os.path.basename(directory).split('/')[-1].split('.')[1]
+        experiment_id = os.path.basename(directory).split("/")[-1].split(".")[0]
+        task_id = os.path.basename(directory).split("/")[-1].split(".")[1]
 
-        csv_data_cur = [i, shop_id, action, used_axtree_object, url, reward, cumulative_reward, thought, experiment_id, task_id]
+        csv_data_cur = [
+            i,
+            shop_id,
+            action,
+            used_axtree_object,
+            url,
+            reward,
+            cumulative_reward,
+            thought,
+            experiment_id,
+            task_id,
+        ]
         csv_data_all.append(csv_data_cur)
 
     # Attach error from summary_info.json to the last step if available
@@ -188,33 +210,45 @@ def summarize_single_task(directory="."):
             print(f"⚠️ Failed to read or parse summary_info.json: {e}")
 
     # Extract and save checklist data from the last step
-    if last_step_data and hasattr(last_step_data, "task_info") and 'checklist' in last_step_data.task_info:
-        checklist = last_step_data.task_info['checklist']
+    if (
+        last_step_data
+        and hasattr(last_step_data, "task_info")
+        and "checklist" in last_step_data.task_info
+    ):
+        checklist = last_step_data.task_info["checklist"]
         checklist_data = []
-        
+
         # Extract experiment and task ID for identification
-        experiment_id = os.path.basename(directory).split('/')[-1].split('.')[0]
-        task_id = os.path.basename(directory).split('/')[-1].split('.')[1]
-        
+        experiment_id = os.path.basename(directory).split("/")[-1].split(".")[0]
+        task_id = os.path.basename(directory).split("/")[-1].split(".")[1]
+
         # Extract penalty and wrong solutions for separate penalties.csv
-        penalty = last_step_data.task_info.get('penalty')
-        wrong_solutions = last_step_data.task_info.get('wrong_solutions')
-        wrong_solutions_str = "|".join(str(solution) for solution in wrong_solutions) if wrong_solutions else ""
-        
+        penalty = last_step_data.task_info.get("penalty")
+        wrong_solutions = last_step_data.task_info.get("wrong_solutions")
+        wrong_solutions_str = (
+            "|".join(str(solution) for solution in wrong_solutions)
+            if wrong_solutions
+            else ""
+        )
+
         # Write penalties and wrong solutions to separate CSV
         penalties_csv_path = os.path.join(directory, "penalties.csv")
         with open(penalties_csv_path, "w") as f:
             f.write("experiment_id,task_id,penalty,wrong_solutions\n")
             f.write(f"{experiment_id},{task_id},{penalty},{wrong_solutions_str}\n")
-        
-        # Process goals in the checklist
+
+        # Process goals in the checklist - only include answer1, answer2, etc.
         for i, goal in enumerate(checklist):
-            if isinstance(goal, dict) and 'flag' in goal and 'weight' in goal:
-                goal_desc = goal.get('id')
-                achieved = goal['flag']
-                weight = goal['weight']
-                checklist_data.append([experiment_id, task_id, goal_desc, achieved, weight])
-        
+            if isinstance(goal, dict) and "flag" in goal and "weight" in goal:
+                goal_desc = goal.get("id")
+                # Only include goals that match the pattern "answer" followed by a number
+                if goal_desc and re.match(r"^answer\d+$", goal_desc):
+                    achieved = goal["flag"]
+                    weight = goal["weight"]
+                    checklist_data.append(
+                        [experiment_id, task_id, goal_desc, achieved, weight]
+                    )
+
         # Save checklist data to CSV
         if checklist_data:
             checklist_csv_path = os.path.join(directory, "goal_achievement.csv")
@@ -224,7 +258,7 @@ def summarize_single_task(directory="."):
                     f.write(",".join(map(str, row)) + "\n")
             print(f"  - {checklist_csv_path}")
             print(f"  - {penalties_csv_path}")
-    
+
     # Sort steps
     sorted_steps_data = OrderedDict(sorted(all_steps_data.items()))
     sorted_task_summary = OrderedDict(sorted(all_task_summary.items()))
@@ -246,16 +280,21 @@ def summarize_single_task(directory="."):
     # Save CSV data
     csv_output_path = os.path.join(directory, "task_stepwise_log.csv")
     with open(csv_output_path, "w") as f:
-        f.write("step\tshop_id\taction\tused_axtree_object\turl\treward\tcumulative_reward\tthought\texperiment_id\ttask_id\n")
+        f.write(
+            "step\tshop_id\taction\tused_axtree_object\turl\treward\tcumulative_reward\tthought\texperiment_id\ttask_id\n"
+        )
         for row in csv_data_all:
             f.write("\t".join(map(str, row)) + "\n")
 
-    
-    print(f"✅ Done. Results written to:\n  - {eco_output_path}\n  - {task_output_path}\n  - {csv_output_path}")
+    print(
+        f"✅ Done. Results written to:\n  - {eco_output_path}\n  - {task_output_path}\n  - {csv_output_path}"
+    )
     # Also mention goal_achievement.csv if it was created
     if os.path.exists(os.path.join(directory, "goal_achievement.csv")):
         print(f"  - {os.path.join(directory, 'goal_achievement.csv')}")
 
 
 if __name__ == "__main__":
-    summarize_single_task(directory="/home/ralph/WebMall/AgentLab/study_results/genericagent-gpt-4o-2024-05-13-memory-on-webmall-a-c-d/GenericAgent-gpt-4o-2024-05-13-memory_on_webmall.Webmall_Best_Fit_Specific_Task1_1")
+    summarize_single_task(
+        directory="/home/ralph/WebMall/AgentLab/study_results/genericagent-gpt-4o-2024-05-13-memory-on-webmall-a-c-d/GenericAgent-gpt-4o-2024-05-13-memory_on_webmall.Webmall_Best_Fit_Specific_Task1_1"
+    )
