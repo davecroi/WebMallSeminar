@@ -181,7 +181,10 @@ def read_penalties_data(subdir):
             with open(penalties_path, "r") as f:
                 reader = csv.DictReader(f)
                 for row in reader:
-                    penalty_data["penalty"] = float(row.get("penalty", 0))
+                    penalty_value = row.get("penalty", 0)
+                    penalty_data["penalty"] = (
+                        float(penalty_value) if penalty_value not in ["None"] else 0.0
+                    )
                     wrong_solutions_str = row.get("wrong_solutions", "")
                     if wrong_solutions_str:
                         penalty_data["wrong_solutions"] = wrong_solutions_str.split("|")
