@@ -179,15 +179,16 @@ The setup includes:
 
 ```
 docker_all/
-├── docker-compose.yml          # Main container orchestration
-├── restore_all_and_deploy_local.sh  # Setup and deployment script
 ├── deployed_wp_config_local/   # WordPress configuration templates
 │   ├── shop_1.php
 │   ├── shop_2.php
 │   ├── shop_3.php
 │   └── shop_4.php
-├── fix_urls.sh                 # URL fixing utility
+├── backup_all.sh               # Script to create backup of all running docker volumes
+├── docker-compose.yml          # Main container orchestration
 ├── fix_urls_deploy.sh          # Deployment URL fixing
+├── index.html                  # WebMall starting and submission page
 └── README.md                   # This file
+├── restore_all_and_deploy_local.sh  # Setup and deployment script
 ```
 
