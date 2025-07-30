@@ -594,10 +594,10 @@
                         <div class="content has-text-justified">
                             <p>
                                 <strong>29-07-2025:</strong>
-                                Version 1.0 released: Featuring additional product offers, new task category "End to End", and cleanup of tasks und solutions.
+                                Version 1.0 of the WebMall benchmark released: Added new task category "End to End" to Advanced task set + general cleanup for full release.
                                 <br>
                                 <strong>05-06-2025:</strong> Initial release:
-                                Version 0.7 released.
+                                Version 0.7 of the WebMall benchmark released.
                             </p>
                         </div>
                     </div>
@@ -617,7 +617,7 @@
 
                         <!-- Video Grid - Two videos per row -->
                         <div class="columns is-multiline">
-                            <!-- Video 1: Cheapest Offer Specific Requirements -->
+                            <!-- Video 1: Cheapest Best Fit Specific Requirements -->
                             <div class="column is-half">
                                 <h3 class="title is-5">
                                     Agent finding the cheapest product that
@@ -654,7 +654,7 @@
                                 </div>
                             </div>
 
-                            <!-- Video 2: Cheapest Offer Vague Requirements -->
+                            <!-- Video 2: Cheapest Best Fit Vague Requirements -->
                             <div class="column is-half">
                                 <h3 class="title is-5">
                                     Advanced task showing agent interpreting
@@ -931,7 +931,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Find Specific Product</td>
+                                        <td>Single Product Search</td>
                                         <td>12</td>
                                         <td>
                                             Find all offers for the AMD Ryzen 9 5900X.
@@ -940,7 +940,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Find Cheapest Offer</td>
+                                        <td>Cheapest Product Search</td>
                                         <td>10</td>
                                         <td>
                                             Find the cheapest offer for the Samsung Galaxy S24 Plus.
@@ -949,7 +949,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Products Fulfilling Specific Requirements</td>
+                                        <td>Best Fit Specific Requirements</td>
                                         <td>11</td>
                                         <td>
                                             Find all offers for orange straps that fit with the Apple Watch Series 6.
@@ -970,9 +970,9 @@
                                         <td>Checkout</td>
                                         <td>8</td>
                                         <td>
-                                            Add the product on page https://webmall-3.[local_path].de/product/trust-tk-350-wireless-membrane-keyboard-spill-proof-silent-keys-media-keys-black to the shopping cart and complete the checkout process. Pay via credit card using the following information: Address: Jessica Morgan, jessica.morgan@yahoo.com, Maple Avenue, 742, 60614, IL, USA, Credit card number: 4242424242424242, CVV: 123, expiry date: 12/28.
+                                            Add the product on page https://webmall-3.de/product/trust-tk-350-wireless-membrane-keyboard-spill-proof-silent-keys-media-keys-black to the shopping cart and complete the checkout process. Pay via credit card using the following information: Address: Jessica Morgan, jessica.morgan@yahoo.com, Maple Avenue, 742, 60614, IL, USA, Credit card number: 4242424242424242, CVV: 123, expiry date: 12/28.
                                             <br><br>
-                                            Add the product on page https://webmall-1.[local_path].de/product/palit-rtx3050-dual-v2-pcie4-8gb-ddr6-dvi-hdmi-dp-1777mhz-clock-rgb-lighting to the shopping cart and complete the checkout process. Pay via credit card using the following information: Address: Jessica Morgan, jessica.morgan@yahoo.com, Maple Avenue, 742, 60614, IL, USA, Credit card number: 4242424242424242, CVV: 123, expiry date: 12/28.
+                                            Add the product on page https://webmall-1.de/product/palit-rtx3050-dual-v2-pcie4-8gb-ddr6-dvi-hdmi-dp-1777mhz-clock-rgb-lighting to the shopping cart and complete the checkout process. Pay via credit card using the following information: Address: Jessica Morgan, jessica.morgan@yahoo.com, Maple Avenue, 742, 60614, IL, USA, Credit card number: 4242424242424242, CVV: 123, expiry date: 12/28.
                                         </td>
                                     </tr>
                                     <tr style="background-color: #f0f0f0">
@@ -981,7 +981,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Cheapest Offer Specific Requirements</td>
+                                        <td>Cheapest Best Fit Specific Requirements</td>
                                         <td>10</td>
                                         <td>
                                             Find the cheapest offer for a new Xbox gaming console with at least 512gb disk space in white.
@@ -990,7 +990,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Products Satisfying Vague Requirements</td>
+                                        <td>Best Fit Vague Requirements</td>
                                         <td>8</td>
                                         <td>
                                             Find all offers for the largest available MX500 model by Crucial.
@@ -999,7 +999,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Cheapest Offer Vague Requirements</td>
+                                        <td>Cheapest Best Fit Vague Requirements</td>
                                         <td>6</td>
                                         <td>
                                             Find the cheapest offer for each Smartphone model of Samsungs budget-friendly smartphone series.
@@ -1011,18 +1011,18 @@
                                         <td>Find Substitutes</td>
                                         <td>6</td>
                                         <td>
-                                            Find the cheapest alternative for this item: https://webmall-3.[local_path].de/product/arctic-liquid-freezer-iii-360mm-liquid-cpu-cooler-p12-pwm-pst-fans-pwm-controlled-pump .
+                                            Find the cheapest alternative for this item: https://webmall-3.de/product/arctic-liquid-freezer-iii-360mm-liquid-cpu-cooler-p12-pwm-pst-fans-pwm-controlled-pump .
                                             <br><br>
-                                            Find the cheapest alternative with at least the same capacity and speed for this product: https://webmall-3.[local_path].de/product/corsair-1tb-mp600-core-xt-m-2-nvme-ssd-m-2-2280-pcie4-3d-qlc-nand-r-w-5000-3500-mb-s-700k-900k-iops .
+                                            Find the cheapest alternative with at least the same capacity and speed for this product: https://webmall-3.de/product/corsair-1tb-mp600-core-xt-m-2-nvme-ssd-m-2-2280-pcie4-3d-qlc-nand-r-w-5000-3500-mb-s-700k-900k-iops .
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Find Compatible Products</td>
                                         <td>5</td>
                                         <td>
-                                            Find all offers for compatible CPUs for this motherboard: https://webmall-3.[local_path].de/product/asus-pro-ws-wrx80e-sage-se-wifi-ii-workstation-amd-wrx80-swrx8-eatx-8-ddr4-sli-wi-fi-6e-dual-10g-lan-hyper-m-2-card-3x-m-2 .
+                                            Find all offers for compatible CPUs for this motherboard: https://webmall-3.de/product/asus-pro-ws-wrx80e-sage-se-wifi-ii-workstation-amd-wrx80-swrx8-eatx-8-ddr4-sli-wi-fi-6e-dual-10g-lan-hyper-m-2-card-3x-m-2 .
                                             <br><br>
-                                            Find kits with single or multiple 32 GB RAM sticks compatible with this motherboard: https://webmall-4.[local_path].de/product/asus-rog-strix-z790-e-gaming-wifi-intel-z790-1700-atx-4-ddr5-hdmi-dp-wi-fi-6e-2-5g-lan-pcie5-rgb-5x-m-2 .
+                                            Find kits with single or multiple 32 GB RAM sticks compatible with this motherboard: https://webmall-4.de/product/asus-rog-strix-z790-e-gaming-wifi-intel-z790-1700-atx-4-ddr5-hdmi-dp-wi-fi-6e-2-5g-lan-pcie5-rgb-5x-m-2 .
                                         </td>
                                     </tr>
                                     <tr>
@@ -1314,7 +1314,10 @@
                             </p>
                             <p>
                                 Each of the agent setups is run on the Basic and
-                                Advanced task sets of WebMall. The Completion Rate measures the number of tasks in a given set that are completed fully and correctly, meaning that all correct answers are identified, and no additional incorrect answers are returned. Precision, Recall and F1 allow a more fine-grained evaluation of the results as they take into account the number of correct and incorrect answers given by the agent. Precision is the ratio of correct answers to all answers given by the agent, Recall is the ratio of correct answers to all correct answers in the task set, and F1 is the harmonic mean of Precision and Recall. The second table reports the average number of steps taken by the agent to complete a task, the average number of input and output tokens used by the agent to complete a single task, as well as the average runtime and cost per task.
+                                Advanced task sets of WebMall. Completion Rate
+                                refers to the task completion rate, i.e. how
+                                many tasks of that respective set were fully and
+                                correctly completed. Precision, Recall and F1 allow a more fine-grained evaluation of the results as they take into account the number of correct and incorrect answers given by the agent. Precision is the ratio of correct answers to all answers given by the agent, Recall is the ratio of correct answers to all correct answers in the task set, and F1 is the harmonic mean of Precision and Recall. The average number of steps taken by the agent to complete a task, the average number of input and output tokens used by the agent, as well as the average runtime and cost per task are also reported.
                             </p>
                         </div>
 
@@ -1334,22 +1337,22 @@
                                         <th colspan="4">Vision</th>
                                     </tr>
                                     <tr>
-                                        <th>Completion<br>Rate</th>
-                                        <th>Precision</th>
-                                        <th>Recall</th>
-                                        <th>F1 Score</th>
-                                        <th>Completion<br>Rate</th>
-                                        <th>Precision</th>
-                                        <th>Recall</th>
-                                        <th>F1 Score</th>
-                                        <th>Completion<br>Rate</th>
-                                        <th>Precision</th>
-                                        <th>Recall</th>
-                                        <th>F1 Score</th>
-                                        <th>Completion<br>Rate</th>
-                                        <th>Precision</th>
-                                        <th>Recall</th>
-                                        <th>F1 Score</th>
+                                        <th>Completion Rate (%)</th>
+                                        <th>Precision (%)</th>
+                                        <th>Recall (%)</th>
+                                        <th>F1 Score (%)</th>
+                                        <th>Completion Rate (%)</th>
+                                        <th>Precision (%)</th>
+                                        <th>Recall (%)</th>
+                                        <th>F1 Score (%)</th>
+                                        <th>Completion Rate (%)</th>
+                                        <th>Precision (%)</th>
+                                        <th>Recall (%)</th>
+                                        <th>F1 Score (%)</th>
+                                        <th>Completion Rate (%)</th>
+                                        <th>Precision (%)</th>
+                                        <th>Recall (%)</th>
+                                        <th>F1 Score (%)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1360,10 +1363,10 @@
                                         <td>74.48</td>
                                         <td>67.59</td>
                                         <td>70.87</td>
-                                        <td><strong>75.00</strong></td>
-                                        <td><strong>91.60</strong></td>
-                                        <td><strong>83.95</strong></td>
-                                        <td><strong>87.61</strong></td>
+                                        <td>75.00</td>
+                                        <td>91.60</td>
+                                        <td>83.95</td>
+                                        <td>87.61</td>
                                         <td>56.25</td>
                                         <td>72.66</td>
                                         <td>65.77</td>
@@ -1401,12 +1404,12 @@
                                         <td>72.44</td>
                                         <td>74.20</td>
                                         <td>70.83</td>
-                                        <td><u>81.25</u></td>
+                                        <td>81.25</td>
                                         <td>75.12</td>
-                                        <td><u>78.06</u></td>
-                                        <td><u>72.92</u></td>
+                                        <td>78.06</td>
+                                        <td>72.92</td>
                                         <td>79.17</td>
-                                        <td><u>76.67</u></td>
+                                        <td>76.67</td>
                                         <td>77.90</td>
                                         <td>10.42</td>
                                         <td>35.42</td>
@@ -1416,14 +1419,14 @@
                                     <tr>
                                         <td>Claude Sonnet 4</td>
                                         <td>Advanced</td>
-                                        <td><strong>53.49</strong></td>
-                                        <td><strong>63.37</strong></td>
-                                        <td><strong>63.41</strong></td>
-                                        <td><strong>63.39</strong></td>
-                                        <td><u>48.84</u></td>
-                                        <td><u>61.51</u></td>
-                                        <td><u>58.40</u></td>
-                                        <td><u>59.91</u></td>
+                                        <td>53.49</td>
+                                        <td>63.37</td>
+                                        <td>63.41</td>
+                                        <td>63.39</td>
+                                        <td>48.84</td>
+                                        <td>61.51</td>
+                                        <td>58.40</td>
+                                        <td>59.91</td>
                                         <td>37.21</td>
                                         <td>41.11</td>
                                         <td>41.80</td>
@@ -1453,7 +1456,7 @@
                                         <th>Avg. Input Tokens</th>
                                         <th>Avg. Output Tokens</th>
                                         <th>Avg. Runtime</th>
-                                        <th>Avg. Cost</th>
+                                        <th>Avg. Cost ($)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1473,57 +1476,57 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">22.69</td>
+                                        <td style="text-align: center">22</td>
                                         <td style="text-align: center">
                                             131,301
                                         </td>
                                         <td style="text-align: center">
-                                            <u>2,334</u>
+                                            2,334
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>130.5s</strong>
+                                            130.5s
                                         </td>
-                                        <td style="text-align: center"><u>0.28$</u></td>
+                                        <td style="text-align: center">0.28</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center"><strong>20.88</strong></td>
+                                        <td style="text-align: center">20</td>
                                         <td style="text-align: center">
-                                            <u>130,270</u>
+                                            130,270
                                         </td>
                                         <td style="text-align: center">
                                             3,511
                                         </td>
                                         <td style="text-align: center">
-                                            <u>142.4s</u>
+                                            142.4s
                                         </td>
-                                        <td style="text-align: center">0.29$</td>
+                                        <td style="text-align: center">0.29</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center"><u>20.92</u></td>
+                                        <td style="text-align: center">20</td>
                                         <td style="text-align: center">
                                             135,362
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>1,901</strong>
+                                            1,901
                                         </td>
                                         <td style="text-align: center">
                                             155.4s
                                         </td>
-                                        <td style="text-align: center">0.29$</td>
+                                        <td style="text-align: center">0.29</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">28.56</td>
+                                        <td style="text-align: center">28</td>
                                         <td style="text-align: center">
-                                            <strong>104,617</strong>
+                                            104,617
                                         </td>
                                         <td style="text-align: center">
                                             2,453
@@ -1531,7 +1534,7 @@
                                         <td style="text-align: center">
                                             176.2s
                                         </td>
-                                        <td style="text-align: center"><strong>0.23$</strong></td>
+                                        <td style="text-align: center">0.23</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -1549,23 +1552,23 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">24.98</td>
+                                        <td style="text-align: center">24</td>
                                         <td style="text-align: center">
-                                            <u>160,922</u>
+                                            160,922
                                         </td>
                                         <td style="text-align: center">
-                                            <u>2,950</u>
+                                            2,950
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>159.2s</strong>
+                                            159.2s
                                         </td>
-                                        <td style="text-align: center"><u>0.35$</u></td>
+                                        <td style="text-align: center">0.35</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center"><u>24.19</u></td>
+                                        <td style="text-align: center">24</td>
                                         <td style="text-align: center">
                                             178,949
                                         </td>
@@ -1573,33 +1576,33 @@
                                             4,658
                                         </td>
                                         <td style="text-align: center">
-                                            <u>177.0s</u>
+                                            177.0s
                                         </td>
-                                        <td style="text-align: center">0.40$</td>
+                                        <td style="text-align: center">0.40</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center"><strong>23.74</strong></td>
+                                        <td style="text-align: center">23</td>
                                         <td style="text-align: center">
                                             169,956
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>2,468</strong>
+                                            2,468
                                         </td>
                                         <td style="text-align: center">
                                             187.8s
                                         </td>
-                                        <td style="text-align: center">0.36$</td>
+                                        <td style="text-align: center">0.36</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">33.33</td>
+                                        <td style="text-align: center">33</td>
                                         <td style="text-align: center">
-                                            <strong>133,972</strong>
+                                            133,972
                                         </td>
                                         <td style="text-align: center">
                                             3,119
@@ -1607,7 +1610,7 @@
                                         <td style="text-align: center">
                                             216.4s
                                         </td>
-                                        <td style="text-align: center"><strong>0.29$</strong></td>
+                                        <td style="text-align: center">0.29</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -1625,7 +1628,7 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">23.69</td>
+                                        <td style="text-align: center">23</td>
                                         <td style="text-align: center">
                                             188,079
                                         </td>
@@ -1635,13 +1638,13 @@
                                         <td style="text-align: center">
                                             222.7s
                                         </td>
-                                        <td style="text-align: center">0.67$</td>
+                                        <td style="text-align: center">0.67</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center">22.04</td>
+                                        <td style="text-align: center">22</td>
                                         <td style="text-align: center">
                                             236,631
                                         </td>
@@ -1651,13 +1654,13 @@
                                         <td style="text-align: center">
                                             334.6s
                                         </td>
-                                        <td style="text-align: center">0.94$</td>
+                                        <td style="text-align: center">0.94</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">25.62</td>
+                                        <td style="text-align: center">25</td>
                                         <td style="text-align: center">
                                             242,597
                                         </td>
@@ -1667,13 +1670,13 @@
                                         <td style="text-align: center">
                                             279.5s
                                         </td>
-                                        <td style="text-align: center">0.82$</td>
+                                        <td style="text-align: center">0.82</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">43.40</td>
+                                        <td style="text-align: center">43</td>
                                         <td style="text-align: center">
                                             364,694
                                         </td>
@@ -1683,7 +1686,7 @@
                                         <td style="text-align: center">
                                             446.9s
                                         </td>
-                                        <td style="text-align: center">1.30$</td>
+                                        <td style="text-align: center">1.30</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -1701,7 +1704,7 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">29.65</td>
+                                        <td style="text-align: center">29</td>
                                         <td style="text-align: center">
                                             291,048
                                         </td>
@@ -1711,13 +1714,13 @@
                                         <td style="text-align: center">
                                             331.7s
                                         </td>
-                                        <td style="text-align: center">1.02$</td>
+                                        <td style="text-align: center">1.02</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center">27.33</td>
+                                        <td style="text-align: center">27</td>
                                         <td style="text-align: center">
                                             364,858
                                         </td>
@@ -1727,13 +1730,13 @@
                                         <td style="text-align: center">
                                             420.9s
                                         </td>
-                                        <td style="text-align: center">1.37$</td>
+                                        <td style="text-align: center">1.37</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">37.26</td>
+                                        <td style="text-align: center">37</td>
                                         <td style="text-align: center">
                                             480,199
                                         </td>
@@ -1743,13 +1746,13 @@
                                         <td style="text-align: center">
                                             471.9s
                                         </td>
-                                        <td style="text-align: center">1.63$</td>
+                                        <td style="text-align: center">1.63</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">47.74</td>
+                                        <td style="text-align: center">47</td>
                                         <td style="text-align: center">
                                             421,704
                                         </td>
@@ -1759,7 +1762,7 @@
                                         <td style="text-align: center">
                                             536.3s
                                         </td>
-                                        <td style="text-align: center">1.53$</td>
+                                        <td style="text-align: center">1.53</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1782,22 +1785,22 @@
                                         <th colspan="4">Vision</th>
                                     </tr>
                                     <tr>
-                                        <th>Completion<br>Rate</th>
-                                        <th>Precision</th>
-                                        <th>Recall</th>
-                                        <th>F1 Score</th>
-                                        <th>Completion<br>Rate</th>
-                                        <th>Precision</th>
-                                        <th>Recall</th>
-                                        <th>F1 Score</th>
-                                        <th>Completion<br>Rate</th>
-                                        <th>Precision</th>
-                                        <th>Recall</th>
-                                        <th>F1 Score</th>
-                                        <th>Completion<br>Rate</th>
-                                        <th>Precision</th>
-                                        <th>Recall</th>
-                                        <th>F1 Score</th>
+                                        <th>Completion Rate (%)</th>
+                                        <th>Precision (%)</th>
+                                        <th>Recall (%)</th>
+                                        <th>F1 Score (%)</th>
+                                        <th>Completion Rate (%)</th>
+                                        <th>Precision (%)</th>
+                                        <th>Recall (%)</th>
+                                        <th>F1 Score (%)</th>
+                                        <th>Completion Rate (%)</th>
+                                        <th>Precision (%)</th>
+                                        <th>Recall (%)</th>
+                                        <th>F1 Score (%)</th>
+                                        <th>Completion Rate (%)</th>
+                                        <th>Precision (%)</th>
+                                        <th>Recall (%)</th>
+                                        <th>F1 Score (%)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1820,7 +1823,7 @@
                                             33.33
                                         </td>
                                         <td style="text-align: center">
-                                            <u>85.42</u>
+                                            85.42
                                         </td>
                                         <td style="text-align: center">
                                             66.48
@@ -1832,13 +1835,13 @@
                                             66.67
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>88.64</strong>
+                                            88.64
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>81.69</strong>
+                                            81.69
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>85.02</strong>
+                                            85.02
                                         </td>
                                         <td style="text-align: center">
                                             33.33
@@ -1882,16 +1885,16 @@
                                             60.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>90.00</strong>
+                                            90.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>90.00</strong>
+                                            90.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>90.00</strong>
+                                            90.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>90.00</strong>
+                                            90.00
                                         </td>
                                         <td style="text-align: center">
                                             40.00
@@ -1938,16 +1941,16 @@
                                             36.36
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>84.85</strong>
+                                            84.85
                                         </td>
                                         <td style="text-align: center">
-                                            <u>59.01</u>
+                                            59.01
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>69.61</strong>
+                                            69.61
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>45.45</strong>
+                                            45.45
                                         </td>
                                         <td style="text-align: center">
                                             68.18
@@ -1976,9 +1979,6 @@
                                             Add to Cart
                                         </td>
                                         <td style="text-align: center">
-                                            <u>85.71</u>
-                                        </td>
-                                        <td style="text-align: center">
                                             85.71
                                         </td>
                                         <td style="text-align: center">
@@ -1988,28 +1988,31 @@
                                             85.71
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>100.00</strong>
+                                            85.71
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>100.00</strong>
+                                            100.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>100.00</strong>
+                                            100.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>100.00</strong>
+                                            100.00
+                                        </td>
+                                        <td style="text-align: center">
+                                            100.00
                                         </td>
                                         <td style="text-align: center">
                                             85.71
                                         </td>
                                         <td style="text-align: center">
-                                            <u>100.00</u>
+                                            100.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>92.86</u>
+                                            92.86
                                         </td>
                                         <td style="text-align: center">
-                                            <u>96.30</u>
+                                            96.30
                                         </td>
                                         <td style="text-align: center">
                                             85.71
@@ -2029,28 +2032,28 @@
                                             Checkout
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>100.00</strong>
+                                            100.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>100.00</strong>
+                                            100.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>100.00</strong>
+                                            100.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>100.00</strong>
+                                            100.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>100.00</u>
+                                            100.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>100.00</u>
+                                            100.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>100.00</u>
+                                            100.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>100.00</u>
+                                            100.00
                                         </td>
                                         <td style="text-align: center">
                                             100.00
@@ -2100,19 +2103,19 @@
                                             80.80
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>75.00</strong>
+                                            75.00
                                         </td>
                                         <td style="text-align: center">
                                             83.33
                                         </td>
                                         <td style="text-align: center">
-                                            <u>79.17</u>
+                                            79.17
                                         </td>
                                         <td style="text-align: center">
-                                            <u>81.20</u>
+                                            81.20
                                         </td>
                                         <td style="text-align: center">
-                                            <u>75.00</u>
+                                            75.00
                                         </td>
                                         <td style="text-align: center">
                                             83.33
@@ -2165,16 +2168,16 @@
                                             70.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>80.00</u>
+                                            80.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>80.00</u>
+                                            80.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>80.00</u>
+                                            80.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>80.00</u>
+                                            80.00
                                         </td>
                                         <td style="text-align: center">
                                             40.00
@@ -2194,7 +2197,7 @@
                                             Best Fit Specific Requirements
                                         </td>
                                         <td style="text-align: center">
-                                            <u>45.45</u>
+                                            45.45
                                         </td>
                                         <td style="text-align: center">
                                             63.64
@@ -2209,13 +2212,13 @@
                                             45.45
                                         </td>
                                         <td style="text-align: center">
-                                            <u>81.82</u>
+                                            81.82
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>59.61</strong>
+                                            59.61
                                         </td>
                                         <td style="text-align: center">
-                                            <u>68.97</u>
+                                            68.97
                                         </td>
                                         <td style="text-align: center">
                                             45.45
@@ -2432,13 +2435,13 @@
                                             25.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>80.09</strong>
+                                            80.09
                                         </td>
                                         <td style="text-align: center">
-                                            <u>65.28</u>
+                                            65.28
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>71.93</strong>
+                                            71.93
                                         </td>
                                         <td style="text-align: center">
                                             25.00
@@ -2473,25 +2476,25 @@
                                             16.67
                                         </td>
                                         <td style="text-align: center">
-                                            <u>54.17</u>
+                                            54.17
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>48.61</strong>
+                                            48.61
                                         </td>
                                         <td style="text-align: center">
-                                            <u>51.24</u>
+                                            51.24
                                         </td>
                                         <td style="text-align: center">
                                             16.67
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>66.67</strong>
+                                            66.67
                                         </td>
                                         <td style="text-align: center">
                                             44.44
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>53.33</strong>
+                                            53.33
                                         </td>
                                         <td style="text-align: center">
                                             16.67
@@ -2500,7 +2503,7 @@
                                             52.50
                                         </td>
                                         <td style="text-align: center">
-                                            <u>48.61</u>
+                                            48.61
                                         </td>
                                         <td style="text-align: center">
                                             50.48
@@ -2579,7 +2582,7 @@
                                             40.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>60.00</u>
+                                            60.00
                                         </td>
                                         <td style="text-align: center">
                                             46.67
@@ -2600,16 +2603,16 @@
                                             40.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>60.00</strong>
+                                            60.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>70.00</strong>
+                                            70.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>66.67</strong>
+                                            66.67
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>68.29</strong>
+                                            68.29
                                         </td>
                                         <td style="text-align: center">
                                             20.00
@@ -2635,28 +2638,28 @@
                                             Cheapest Best Fit Specific Requirements
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>60.00</strong>
+                                            60.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>60.00</strong>
+                                            60.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>60.00</strong>
+                                            60.00
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>60.00</strong>
+                                            60.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>50.00</u>
+                                            50.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>50.00</u>
+                                            50.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>50.00</u>
+                                            50.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>50.00</u>
+                                            50.00
                                         </td>
                                         <td style="text-align: center">
                                             50.00
@@ -2688,22 +2691,22 @@
                                             Best Fit Vague Requirements
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>37.50</strong>
+                                            37.50
                                         </td>
                                         <td style="text-align: center">
                                             68.39
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>68.75</strong>
+                                            68.75
                                         </td>
                                         <td style="text-align: center">
-                                            <u>68.57</u>
+                                            68.57
                                         </td>
                                         <td style="text-align: center">
-                                            <u>37.50</u>
+                                            37.50
                                         </td>
                                         <td style="text-align: center">
-                                            <u>71.88</u>
+                                            71.88
                                         </td>
                                         <td style="text-align: center">
                                             57.64
@@ -2741,7 +2744,7 @@
                                             Cheapest Best Fit Vague Requirements
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>33.33</strong>
+                                            33.33
                                         </td>
                                         <td style="text-align: center">
                                             52.78
@@ -2753,7 +2756,7 @@
                                             45.87
                                         </td>
                                         <td style="text-align: center">
-                                            <u>33.33</u>
+                                            33.33
                                         </td>
                                         <td style="text-align: center">
                                             33.33
@@ -2794,28 +2797,28 @@
                                             Find Substitutes
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>83.33</strong>
+                                            83.33
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>83.33</strong>
+                                            83.33
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>83.33</strong>
+                                            83.33
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>83.33</strong>
+                                            83.33
                                         </td>
                                         <td style="text-align: center">
-                                            <u>66.67</u>
+                                            66.67
                                         </td>
                                         <td style="text-align: center">
-                                            <u>66.67</u>
+                                            66.67
                                         </td>
                                         <td style="text-align: center">
-                                            <u>66.67</u>
+                                            66.67
                                         </td>
                                         <td style="text-align: center">
-                                            <u>66.67</u>
+                                            66.67
                                         </td>
                                         <td style="text-align: center">
                                             16.67
@@ -2853,7 +2856,7 @@
                                             52.22
                                         </td>
                                         <td style="text-align: center">
-                                            <u>66.67</u>
+                                            66.67
                                         </td>
                                         <td style="text-align: center">
                                             58.57
@@ -2871,16 +2874,16 @@
                                             56.84
                                         </td>
                                         <td style="text-align: center">
-                                            <u>60.00</u>
-                                        </td>
-                                        <td style="text-align: center">
                                             60.00
                                         </td>
                                         <td style="text-align: center">
                                             60.00
                                         </td>
                                         <td style="text-align: center">
-                                            <u>60.00</u>
+                                            60.00
+                                        </td>
+                                        <td style="text-align: center">
+                                            60.00
                                         </td>
                                         <td style="text-align: center">
                                             20.00
@@ -2915,7 +2918,7 @@
                                         <th>Avg. Input Tokens</th>
                                         <th>Avg. Output Tokens</th>
                                         <th>Avg. Runtime</th>
-                                        <th>Avg. Cost</th>
+                                        <th>Avg. Cost ($)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -2940,23 +2943,23 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center"><u>19.83</u></td>
+                                        <td style="text-align: center">19</td>
                                         <td style="text-align: center">
-                                            <u>104,112</u>
+                                            104,112
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>2,107</strong>
+                                            2,107
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>112.8s</strong>
+                                            112.8s
                                         </td>
-                                        <td style="text-align: center"><u>0.23$</u></td>
+                                        <td style="text-align: center">0.23</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center"><strong>19.25</strong></td>
+                                        <td style="text-align: center">19</td>
                                         <td style="text-align: center">
                                             116,163
                                         </td>
@@ -2964,33 +2967,33 @@
                                             3,519
                                         </td>
                                         <td style="text-align: center">
-                                            <u>128.6s</u>
+                                            128.6s
                                         </td>
-                                        <td style="text-align: center">0.26$</td>
+                                        <td style="text-align: center">0.26</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">21.83</td>
+                                        <td style="text-align: center">21</td>
                                         <td style="text-align: center">
                                             142,731
                                         </td>
                                         <td style="text-align: center">
-                                            <u>2,123</u>
+                                            2,123
                                         </td>
                                         <td style="text-align: center">
                                             164.6s
                                         </td>
-                                        <td style="text-align: center">0.30$</td>
+                                        <td style="text-align: center">0.30</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">25.50</td>
+                                        <td style="text-align: center">25</td>
                                         <td style="text-align: center">
-                                            <strong>88,910</strong>
+                                            88,910
                                         </td>
                                         <td style="text-align: center">
                                             2,348
@@ -2998,7 +3001,7 @@
                                         <td style="text-align: center">
                                             178.1s
                                         </td>
-                                        <td style="text-align: center"><strong>0.20$</strong></td>
+                                        <td style="text-align: center">0.20</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -3016,7 +3019,7 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">21.17</td>
+                                        <td style="text-align: center">21</td>
                                         <td style="text-align: center">
                                             152,088
                                         </td>
@@ -3026,13 +3029,13 @@
                                         <td style="text-align: center">
                                             204.7s
                                         </td>
-                                        <td style="text-align: center">0.53$</td>
+                                        <td style="text-align: center">0.53</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center">20.25</td>
+                                        <td style="text-align: center">20</td>
                                         <td style="text-align: center">
                                             222,168
                                         </td>
@@ -3042,13 +3045,13 @@
                                         <td style="text-align: center">
                                             371.9s
                                         </td>
-                                        <td style="text-align: center">1.00$</td>
+                                        <td style="text-align: center">1.00</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">22.83</td>
+                                        <td style="text-align: center">22</td>
                                         <td style="text-align: center">
                                             199,290
                                         </td>
@@ -3058,13 +3061,13 @@
                                         <td style="text-align: center">
                                             256.6s
                                         </td>
-                                        <td style="text-align: center">0.68$</td>
+                                        <td style="text-align: center">0.68</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">43.50</td>
+                                        <td style="text-align: center">43</td>
                                         <td style="text-align: center">
                                             353,486
                                         </td>
@@ -3074,7 +3077,7 @@
                                         <td style="text-align: center">
                                             459.9s
                                         </td>
-                                        <td style="text-align: center">1.26$</td>
+                                        <td style="text-align: center">1.26</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -3092,7 +3095,7 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">22.60</td>
+                                        <td style="text-align: center">22</td>
                                         <td style="text-align: center">
                                             125,517
                                         </td>
@@ -3100,15 +3103,15 @@
                                             2,262
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>123.6s</strong>
+                                            123.6s
                                         </td>
-                                        <td style="text-align: center">0.27$</td>
+                                        <td style="text-align: center">0.27</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center">18.60</td>
+                                        <td style="text-align: center">18</td>
                                         <td style="text-align: center">
                                             109,401
                                         </td>
@@ -3116,41 +3119,41 @@
                                             3,262
                                         </td>
                                         <td style="text-align: center">
-                                            <u>130.5s</u>
+                                            130.5s
                                         </td>
-                                        <td style="text-align: center">0.24$</td>
+                                        <td style="text-align: center">0.24</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center"><strong>17.70</strong></td>
+                                        <td style="text-align: center">17</td>
                                         <td style="text-align: center">
-                                            <u>106,590</u>
+                                            106,590
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>1,564</strong>
+                                            1,564
                                         </td>
                                         <td style="text-align: center">
                                             131.9s
                                         </td>
-                                        <td style="text-align: center"><u>0.23$</u></td>
+                                        <td style="text-align: center">0.23</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">20.90</td>
+                                        <td style="text-align: center">20</td>
                                         <td style="text-align: center">
-                                            <strong>65,711</strong>
+                                            65,711
                                         </td>
                                         <td style="text-align: center">
-                                            <u>1,758</u>
+                                            1,758
                                         </td>
                                         <td style="text-align: center">
                                             135.1s
                                         </td>
-                                        <td style="text-align: center"><strong>0.15$</strong></td>
+                                        <td style="text-align: center">0.15</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -3168,7 +3171,7 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">18.80</td>
+                                        <td style="text-align: center">18</td>
                                         <td style="text-align: center">
                                             118,040
                                         </td>
@@ -3178,13 +3181,13 @@
                                         <td style="text-align: center">
                                             148.8s
                                         </td>
-                                        <td style="text-align: center">0.41$</td>
+                                        <td style="text-align: center">0.41</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center"><u>18.10</u></td>
+                                        <td style="text-align: center">18</td>
                                         <td style="text-align: center">
                                             150,517
                                         </td>
@@ -3194,13 +3197,13 @@
                                         <td style="text-align: center">
                                             255.6s
                                         </td>
-                                        <td style="text-align: center">0.60$</td>
+                                        <td style="text-align: center">0.60</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">22.50</td>
+                                        <td style="text-align: center">22</td>
                                         <td style="text-align: center">
                                             181,149
                                         </td>
@@ -3210,13 +3213,13 @@
                                         <td style="text-align: center">
                                             236.8s
                                         </td>
-                                        <td style="text-align: center">0.61$</td>
+                                        <td style="text-align: center">0.61</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">37.30</td>
+                                        <td style="text-align: center">37</td>
                                         <td style="text-align: center">
                                             265,802
                                         </td>
@@ -3226,7 +3229,7 @@
                                         <td style="text-align: center">
                                             377.5s
                                         </td>
-                                        <td style="text-align: center">0.96$</td>
+                                        <td style="text-align: center">0.96</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -3244,23 +3247,23 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center"><strong>17.43</strong></td>
+                                        <td style="text-align: center">17</td>
                                         <td style="text-align: center">
-                                            <u>84,593</u>
+                                            84,593
                                         </td>
                                         <td style="text-align: center">
-                                            <u>1,765</u>
+                                            1,765
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>99.9s</strong>
+                                            99.9s
                                         </td>
-                                        <td style="text-align: center"><u>0.18$</u></td>
+                                        <td style="text-align: center">0.18</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center"><u>17.71</u></td>
+                                        <td style="text-align: center">17</td>
                                         <td style="text-align: center">
                                             97,523
                                         </td>
@@ -3268,33 +3271,33 @@
                                             3,145
                                         </td>
                                         <td style="text-align: center">
-                                            <u>126.4s</u>
+                                            126.4s
                                         </td>
-                                        <td style="text-align: center">0.22$</td>
+                                        <td style="text-align: center">0.22</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">18.00</td>
+                                        <td style="text-align: center">18</td>
                                         <td style="text-align: center">
                                             106,785
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>1,602</strong>
+                                            1,602
                                         </td>
                                         <td style="text-align: center">
                                             133.4s
                                         </td>
-                                        <td style="text-align: center">0.23$</td>
+                                        <td style="text-align: center">0.23</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">22.71</td>
+                                        <td style="text-align: center">22</td>
                                         <td style="text-align: center">
-                                            <strong>74,339</strong>
+                                            74,339
                                         </td>
                                         <td style="text-align: center">
                                             1,967
@@ -3302,7 +3305,7 @@
                                         <td style="text-align: center">
                                             132.4s
                                         </td>
-                                        <td style="text-align: center"><strong>0.16$</strong></td>
+                                        <td style="text-align: center">0.16</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -3320,7 +3323,7 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">23.29</td>
+                                        <td style="text-align: center">23</td>
                                         <td style="text-align: center">
                                             163,199
                                         </td>
@@ -3330,13 +3333,13 @@
                                         <td style="text-align: center">
                                             253.1s
                                         </td>
-                                        <td style="text-align: center">0.70$</td>
+                                        <td style="text-align: center">0.70</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center">19.43</td>
+                                        <td style="text-align: center">19</td>
                                         <td style="text-align: center">
                                             164,683
                                         </td>
@@ -3346,13 +3349,13 @@
                                         <td style="text-align: center">
                                             253.0s
                                         </td>
-                                        <td style="text-align: center">0.68$</td>
+                                        <td style="text-align: center">0.68</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">21.71</td>
+                                        <td style="text-align: center">21</td>
                                         <td style="text-align: center">
                                             168,716
                                         </td>
@@ -3362,13 +3365,13 @@
                                         <td style="text-align: center">
                                             206.3s
                                         </td>
-                                        <td style="text-align: center">0.57$</td>
+                                        <td style="text-align: center">0.57</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">45.14</td>
+                                        <td style="text-align: center">45</td>
                                         <td style="text-align: center">
                                             388,697
                                         </td>
@@ -3378,7 +3381,7 @@
                                         <td style="text-align: center">
                                             485.2s
                                         </td>
-                                        <td style="text-align: center">1.40$</td>
+                                        <td style="text-align: center">1.40</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -3396,55 +3399,55 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">23.88</td>
+                                        <td style="text-align: center">23</td>
                                         <td style="text-align: center">
-                                            <strong>130,314</strong>
+                                            130,314
                                         </td>
                                         <td style="text-align: center">
-                                            <u>2,025</u>
+                                            2,025
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>129.9s</strong>
+                                            129.9s
                                         </td>
-                                        <td style="text-align: center"><strong>0.28$</strong></td>
+                                        <td style="text-align: center">0.28</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center">23.75</td>
+                                        <td style="text-align: center">23</td>
                                         <td style="text-align: center">
-                                            <u>142,864</u>
+                                            142,864
                                         </td>
                                         <td style="text-align: center">
                                             3,016
                                         </td>
                                         <td style="text-align: center">
-                                            <u>138.6s</u>
+                                            138.6s
                                         </td>
-                                        <td style="text-align: center"><u>0.31$</u></td>
+                                        <td style="text-align: center">0.31</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">23.75</td>
+                                        <td style="text-align: center">23</td>
                                         <td style="text-align: center">
                                             151,931
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>1,739</strong>
+                                            1,739
                                         </td>
                                         <td style="text-align: center">
                                             149.1s
                                         </td>
-                                        <td style="text-align: center">0.32$</td>
+                                        <td style="text-align: center">0.32</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">45.88</td>
+                                        <td style="text-align: center">45</td>
                                         <td style="text-align: center">
                                             189,649
                                         </td>
@@ -3454,7 +3457,7 @@
                                         <td style="text-align: center">
                                             246.7s
                                         </td>
-                                        <td style="text-align: center">0.41$</td>
+                                        <td style="text-align: center">0.41</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -3472,7 +3475,7 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center"><strong>23.38</strong></td>
+                                        <td style="text-align: center">23</td>
                                         <td style="text-align: center">
                                             161,683
                                         </td>
@@ -3482,13 +3485,13 @@
                                         <td style="text-align: center">
                                             178.5s
                                         </td>
-                                        <td style="text-align: center">0.55$</td>
+                                        <td style="text-align: center">0.55</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center"><u>23.50</u></td>
+                                        <td style="text-align: center">23</td>
                                         <td style="text-align: center">
                                             204,719
                                         </td>
@@ -3498,13 +3501,13 @@
                                         <td style="text-align: center">
                                             243.0s
                                         </td>
-                                        <td style="text-align: center">0.74$</td>
+                                        <td style="text-align: center">0.74</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">26.75</td>
+                                        <td style="text-align: center">26</td>
                                         <td style="text-align: center">
                                             242,492
                                         </td>
@@ -3514,13 +3517,13 @@
                                         <td style="text-align: center">
                                             250.5s
                                         </td>
-                                        <td style="text-align: center">0.82$</td>
+                                        <td style="text-align: center">0.82</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">47.38</td>
+                                        <td style="text-align: center">47</td>
                                         <td style="text-align: center">
                                             451,284
                                         </td>
@@ -3530,7 +3533,7 @@
                                         <td style="text-align: center">
                                             452.6s
                                         </td>
-                                        <td style="text-align: center">1.60$</td>
+                                        <td style="text-align: center">1.60</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -3548,7 +3551,7 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">28.36</td>
+                                        <td style="text-align: center">28</td>
                                         <td style="text-align: center">
                                             196,660
                                         </td>
@@ -3556,15 +3559,15 @@
                                             3,232
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>175.9s</strong>
+                                            175.9s
                                         </td>
-                                        <td style="text-align: center">0.42$</td>
+                                        <td style="text-align: center">0.42</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center"><u>24.64</u></td>
+                                        <td style="text-align: center">24</td>
                                         <td style="text-align: center">
                                             176,312
                                         </td>
@@ -3572,41 +3575,41 @@
                                             4,320
                                         </td>
                                         <td style="text-align: center">
-                                            <u>181.1s</u>
+                                            181.1s
                                         </td>
-                                        <td style="text-align: center">0.39$</td>
+                                        <td style="text-align: center">0.39</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center"><strong>22.64</strong></td>
+                                        <td style="text-align: center">22</td>
                                         <td style="text-align: center">
-                                            <u>159,616</u>
+                                            159,616
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>2,271</strong>
+                                            2,271
                                         </td>
                                         <td style="text-align: center">
                                             185.3s
                                         </td>
-                                        <td style="text-align: center"><u>0.34$</u></td>
+                                        <td style="text-align: center">0.34</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">30.00</td>
+                                        <td style="text-align: center">30</td>
                                         <td style="text-align: center">
-                                            <strong>114,546</strong>
+                                            114,546
                                         </td>
                                         <td style="text-align: center">
-                                            <u>2,793</u>
+                                            2,793
                                         </td>
                                         <td style="text-align: center">
                                             188.0s
                                         </td>
-                                        <td style="text-align: center"><strong>0.25$</strong></td>
+                                        <td style="text-align: center">0.25</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -3624,7 +3627,7 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">31.36</td>
+                                        <td style="text-align: center">31</td>
                                         <td style="text-align: center">
                                             326,041
                                         </td>
@@ -3634,13 +3637,13 @@
                                         <td style="text-align: center">
                                             322.5s
                                         </td>
-                                        <td style="text-align: center">1.11$</td>
+                                        <td style="text-align: center">1.11</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center">28.18</td>
+                                        <td style="text-align: center">28</td>
                                         <td style="text-align: center">
                                             399,688
                                         </td>
@@ -3650,13 +3653,13 @@
                                         <td style="text-align: center">
                                             484.3s
                                         </td>
-                                        <td style="text-align: center">1.48$</td>
+                                        <td style="text-align: center">1.48</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">33.18</td>
+                                        <td style="text-align: center">33</td>
                                         <td style="text-align: center">
                                             392,796
                                         </td>
@@ -3666,13 +3669,13 @@
                                         <td style="text-align: center">
                                             410.8s
                                         </td>
-                                        <td style="text-align: center">1.32$</td>
+                                        <td style="text-align: center">1.32</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">44.82</td>
+                                        <td style="text-align: center">44</td>
                                         <td style="text-align: center">
                                             388,575
                                         </td>
@@ -3682,7 +3685,7 @@
                                         <td style="text-align: center">
                                             467.5s
                                         </td>
-                                        <td style="text-align: center">1.38$</td>
+                                        <td style="text-align: center">1.38</td>
                                     </tr>
                                     <tr style="background-color: #f0f0f0">
                                         <td colspan="8">
@@ -3705,23 +3708,23 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center"><strong>22.75</strong></td>
+                                        <td style="text-align: center">22</td>
                                         <td style="text-align: center">
-                                            <u>140,989</u>
+                                            140,989
                                         </td>
                                         <td style="text-align: center">
-                                            <u>2,897</u>
+                                            2,897
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>139.1s</strong>
+                                            139.1s
                                         </td>
-                                        <td style="text-align: center"><u>0.31$</u></td>
+                                        <td style="text-align: center">0.31</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center">25.12</td>
+                                        <td style="text-align: center">25</td>
                                         <td style="text-align: center">
                                             181,787
                                         </td>
@@ -3731,31 +3734,31 @@
                                         <td style="text-align: center">
                                             188.4s
                                         </td>
-                                        <td style="text-align: center">0.40$</td>
+                                        <td style="text-align: center">0.40</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center"><u>23.25</u></td>
+                                        <td style="text-align: center">23</td>
                                         <td style="text-align: center">
                                             168,377
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>2,658</strong>
+                                            2,658
                                         </td>
                                         <td style="text-align: center">
-                                            <u>187.8s</u>
+                                            187.8s
                                         </td>
-                                        <td style="text-align: center">0.36$</td>
+                                        <td style="text-align: center">0.36</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">32.62</td>
+                                        <td style="text-align: center">32</td>
                                         <td style="text-align: center">
-                                            <strong>126,021</strong>
+                                            126,021
                                         </td>
                                         <td style="text-align: center">
                                             3,236
@@ -3763,7 +3766,7 @@
                                         <td style="text-align: center">
                                             225.6s
                                         </td>
-                                        <td style="text-align: center"><strong>0.28$</strong></td>
+                                        <td style="text-align: center">0.28</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -3781,7 +3784,7 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">31.62</td>
+                                        <td style="text-align: center">31</td>
                                         <td style="text-align: center">
                                             336,629
                                         </td>
@@ -3791,13 +3794,13 @@
                                         <td style="text-align: center">
                                             354.8s
                                         </td>
-                                        <td style="text-align: center">1.16$</td>
+                                        <td style="text-align: center">1.16</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center">27.38</td>
+                                        <td style="text-align: center">27</td>
                                         <td style="text-align: center">
                                             346,824
                                         </td>
@@ -3807,13 +3810,13 @@
                                         <td style="text-align: center">
                                             456.8s
                                         </td>
-                                        <td style="text-align: center">1.33$</td>
+                                        <td style="text-align: center">1.33</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">38.38</td>
+                                        <td style="text-align: center">38</td>
                                         <td style="text-align: center">
                                             534,397
                                         </td>
@@ -3823,13 +3826,13 @@
                                         <td style="text-align: center">
                                             484.4s
                                         </td>
-                                        <td style="text-align: center">1.83$</td>
+                                        <td style="text-align: center">1.83</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">48.75</td>
+                                        <td style="text-align: center">48</td>
                                         <td style="text-align: center">
                                             475,440
                                         </td>
@@ -3839,7 +3842,7 @@
                                         <td style="text-align: center">
                                             563.5s
                                         </td>
-                                        <td style="text-align: center">1.73$</td>
+                                        <td style="text-align: center">1.73</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -3857,23 +3860,23 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">19.30</td>
+                                        <td style="text-align: center">19</td>
                                         <td style="text-align: center">
-                                            <u>107,727</u>
+                                            107,727
                                         </td>
                                         <td style="text-align: center">
-                                            <u>2,213</u>
+                                            2,213
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>118.6s</strong>
+                                            118.6s
                                         </td>
-                                        <td style="text-align: center"><u>0.23$</u></td>
+                                        <td style="text-align: center">0.23</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center"><u>18.90</u></td>
+                                        <td style="text-align: center">18</td>
                                         <td style="text-align: center">
                                             120,608
                                         </td>
@@ -3881,33 +3884,33 @@
                                             3,744
                                         </td>
                                         <td style="text-align: center">
-                                            <u>136.9s</u>
+                                            136.9s
                                         </td>
-                                        <td style="text-align: center">0.27$</td>
+                                        <td style="text-align: center">0.27</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center"><strong>18.80</strong></td>
+                                        <td style="text-align: center">18</td>
                                         <td style="text-align: center">
                                             117,998
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>1,876</strong>
+                                            1,876
                                         </td>
                                         <td style="text-align: center">
                                             153.6s
                                         </td>
-                                        <td style="text-align: center">0.25$</td>
+                                        <td style="text-align: center">0.25</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">28.80</td>
+                                        <td style="text-align: center">28</td>
                                         <td style="text-align: center">
-                                            <strong>106,068</strong>
+                                            106,068
                                         </td>
                                         <td style="text-align: center">
                                             2,603
@@ -3915,7 +3918,7 @@
                                         <td style="text-align: center">
                                             185.9s
                                         </td>
-                                        <td style="text-align: center"><strong>0.23$</strong></td>
+                                        <td style="text-align: center">0.23</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -3933,7 +3936,7 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">24.00</td>
+                                        <td style="text-align: center">24</td>
                                         <td style="text-align: center">
                                             217,118
                                         </td>
@@ -3943,13 +3946,13 @@
                                         <td style="text-align: center">
                                             297.6s
                                         </td>
-                                        <td style="text-align: center">0.85$</td>
+                                        <td style="text-align: center">0.85</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center">25.10</td>
+                                        <td style="text-align: center">25</td>
                                         <td style="text-align: center">
                                             325,667
                                         </td>
@@ -3959,13 +3962,13 @@
                                         <td style="text-align: center">
                                             367.1s
                                         </td>
-                                        <td style="text-align: center">1.19$</td>
+                                        <td style="text-align: center">1.19</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">35.60</td>
+                                        <td style="text-align: center">35</td>
                                         <td style="text-align: center">
                                             437,355
                                         </td>
@@ -3975,13 +3978,13 @@
                                         <td style="text-align: center">
                                             480.8s
                                         </td>
-                                        <td style="text-align: center">1.49$</td>
+                                        <td style="text-align: center">1.49</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">47.30</td>
+                                        <td style="text-align: center">47</td>
                                         <td style="text-align: center">
                                             412,536
                                         </td>
@@ -3991,7 +3994,7 @@
                                         <td style="text-align: center">
                                             538.1s
                                         </td>
-                                        <td style="text-align: center">1.47$</td>
+                                        <td style="text-align: center">1.47</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -4009,23 +4012,23 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">26.67</td>
+                                        <td style="text-align: center">26</td>
                                         <td style="text-align: center">
-                                            <u>184,821</u>
+                                            184,821
                                         </td>
                                         <td style="text-align: center">
-                                            <u>3,598</u>
+                                            3,598
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>193.9s</strong>
+                                            193.9s
                                         </td>
-                                        <td style="text-align: center"><u>0.40$</u></td>
+                                        <td style="text-align: center">0.40</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center">28.00</td>
+                                        <td style="text-align: center">28</td>
                                         <td style="text-align: center">
                                             246,932
                                         </td>
@@ -4035,31 +4038,31 @@
                                         <td style="text-align: center">
                                             232.0s
                                         </td>
-                                        <td style="text-align: center">0.55$</td>
+                                        <td style="text-align: center">0.55</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center"><u>26.17</u></td>
+                                        <td style="text-align: center">26</td>
                                         <td style="text-align: center">
                                             209,730
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>3,200</strong>
+                                            3,200
                                         </td>
                                         <td style="text-align: center">
-                                            <u>226.5s</u>
+                                            226.5s
                                         </td>
-                                        <td style="text-align: center">0.45$</td>
+                                        <td style="text-align: center">0.45</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">36.83</td>
+                                        <td style="text-align: center">36</td>
                                         <td style="text-align: center">
-                                            <strong>151,453</strong>
+                                            151,453
                                         </td>
                                         <td style="text-align: center">
                                             3,643
@@ -4067,7 +4070,7 @@
                                         <td style="text-align: center">
                                             231.7s
                                         </td>
-                                        <td style="text-align: center"><strong>0.33$</strong></td>
+                                        <td style="text-align: center">0.33</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -4085,7 +4088,7 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">30.00</td>
+                                        <td style="text-align: center">30</td>
                                         <td style="text-align: center">
                                             313,754
                                         </td>
@@ -4095,13 +4098,13 @@
                                         <td style="text-align: center">
                                             334.9s
                                         </td>
-                                        <td style="text-align: center">1.09$</td>
+                                        <td style="text-align: center">1.09</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center"><strong>22.67</strong></td>
+                                        <td style="text-align: center">22</td>
                                         <td style="text-align: center">
                                             259,970
                                         </td>
@@ -4111,13 +4114,13 @@
                                         <td style="text-align: center">
                                             381.2s
                                         </td>
-                                        <td style="text-align: center">1.04$</td>
+                                        <td style="text-align: center">1.04</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">39.83</td>
+                                        <td style="text-align: center">39</td>
                                         <td style="text-align: center">
                                             526,701
                                         </td>
@@ -4127,13 +4130,13 @@
                                         <td style="text-align: center">
                                             473.4s
                                         </td>
-                                        <td style="text-align: center">1.79$</td>
+                                        <td style="text-align: center">1.79</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">42.17</td>
+                                        <td style="text-align: center">42</td>
                                         <td style="text-align: center">
                                             357,716
                                         </td>
@@ -4143,7 +4146,7 @@
                                         <td style="text-align: center">
                                             524.5s
                                         </td>
-                                        <td style="text-align: center">1.35$</td>
+                                        <td style="text-align: center">1.35</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -4161,23 +4164,23 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center"><strong>32.62</strong></td>
+                                        <td style="text-align: center">32</td>
                                         <td style="text-align: center">
-                                            <u>203,866</u>
+                                            203,866
                                         </td>
                                         <td style="text-align: center">
-                                            <u>3,236</u>
+                                            3,236
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>212.0s</strong>
+                                            212.0s
                                         </td>
-                                        <td style="text-align: center"><u>0.43$</u></td>
+                                        <td style="text-align: center">0.43</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center"><u>32.75</u></td>
+                                        <td style="text-align: center">32</td>
                                         <td style="text-align: center">
                                             261,536
                                         </td>
@@ -4185,33 +4188,33 @@
                                             5,404
                                         </td>
                                         <td style="text-align: center">
-                                            <u>226.7s</u>
+                                            226.7s
                                         </td>
-                                        <td style="text-align: center">0.57$</td>
+                                        <td style="text-align: center">0.57</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">37.12</td>
+                                        <td style="text-align: center">37</td>
                                         <td style="text-align: center">
                                             282,332
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>3,141</strong>
+                                            3,141
                                         </td>
                                         <td style="text-align: center">
                                             260.1s
                                         </td>
-                                        <td style="text-align: center">0.59$</td>
+                                        <td style="text-align: center">0.59</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">43.38</td>
+                                        <td style="text-align: center">43</td>
                                         <td style="text-align: center">
-                                            <strong>192,228</strong>
+                                            192,228
                                         </td>
                                         <td style="text-align: center">
                                             3,598
@@ -4219,7 +4222,7 @@
                                         <td style="text-align: center">
                                             243.2s
                                         </td>
-                                        <td style="text-align: center"><strong>0.41$</strong></td>
+                                        <td style="text-align: center">0.41</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -4237,7 +4240,7 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">39.12</td>
+                                        <td style="text-align: center">39</td>
                                         <td style="text-align: center">
                                             371,083
                                         </td>
@@ -4247,13 +4250,13 @@
                                         <td style="text-align: center">
                                             406.4s
                                         </td>
-                                        <td style="text-align: center">1.24$</td>
+                                        <td style="text-align: center">1.24</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center">38.62</td>
+                                        <td style="text-align: center">38</td>
                                         <td style="text-align: center">
                                             602,894
                                         </td>
@@ -4263,13 +4266,13 @@
                                         <td style="text-align: center">
                                             487.4s
                                         </td>
-                                        <td style="text-align: center">2.11$</td>
+                                        <td style="text-align: center">2.11</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">44.75</td>
+                                        <td style="text-align: center">44</td>
                                         <td style="text-align: center">
                                             554,604
                                         </td>
@@ -4279,13 +4282,13 @@
                                         <td style="text-align: center">
                                             483.9s
                                         </td>
-                                        <td style="text-align: center">1.82$</td>
+                                        <td style="text-align: center">1.82</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">50.50</td>
+                                        <td style="text-align: center">50</td>
                                         <td style="text-align: center">
                                             434,913
                                         </td>
@@ -4295,7 +4298,7 @@
                                         <td style="text-align: center">
                                             568.8s
                                         </td>
-                                        <td style="text-align: center">1.58$</td>
+                                        <td style="text-align: center">1.58</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -4313,23 +4316,23 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">25.60</td>
+                                        <td style="text-align: center">25</td>
                                         <td style="text-align: center">
                                             200,441
                                         </td>
                                         <td style="text-align: center">
-                                            <u>2,976</u>
+                                            2,976
                                         </td>
                                         <td style="text-align: center">
-                                            <u>156.3s</u>
+                                            156.3s
                                         </td>
-                                        <td style="text-align: center">0.42$</td>
+                                        <td style="text-align: center">0.42</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center"><u>23.40</u></td>
+                                        <td style="text-align: center">23</td>
                                         <td style="text-align: center">
                                             163,766
                                         </td>
@@ -4339,31 +4342,31 @@
                                         <td style="text-align: center">
                                             164.1s
                                         </td>
-                                        <td style="text-align: center">0.36$</td>
+                                        <td style="text-align: center">0.36</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center"><strong>17.60</strong></td>
+                                        <td style="text-align: center">17</td>
                                         <td style="text-align: center">
-                                            <strong>111,540</strong>
+                                            111,540
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>2,065</strong>
+                                            2,065
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>140.4s</strong>
+                                            140.4s
                                         </td>
-                                        <td style="text-align: center"><strong>0.24$</strong></td>
+                                        <td style="text-align: center">0.24</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">28.80</td>
+                                        <td style="text-align: center">28</td>
                                         <td style="text-align: center">
-                                            <u>113,408</u>
+                                            113,408
                                         </td>
                                         <td style="text-align: center">
                                             3,014
@@ -4371,7 +4374,7 @@
                                         <td style="text-align: center">
                                             239.9s
                                         </td>
-                                        <td style="text-align: center"><u>0.25$</u></td>
+                                        <td style="text-align: center">0.25</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -4389,7 +4392,7 @@
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">29.20</td>
+                                        <td style="text-align: center">29</td>
                                         <td style="text-align: center">
                                             281,322
                                         </td>
@@ -4399,13 +4402,13 @@
                                         <td style="text-align: center">
                                             320.8s
                                         </td>
-                                        <td style="text-align: center">0.97$</td>
+                                        <td style="text-align: center">0.97</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center">26.40</td>
+                                        <td style="text-align: center">26</td>
                                         <td style="text-align: center">
                                             336,625
                                         </td>
@@ -4415,13 +4418,13 @@
                                         <td style="text-align: center">
                                             433.0s
                                         </td>
-                                        <td style="text-align: center">1.34$</td>
+                                        <td style="text-align: center">1.34</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">26.00</td>
+                                        <td style="text-align: center">26</td>
                                         <td style="text-align: center">
                                             286,474
                                         </td>
@@ -4431,13 +4434,13 @@
                                         <td style="text-align: center">
                                             435.4s
                                         </td>
-                                        <td style="text-align: center">1.01$</td>
+                                        <td style="text-align: center">1.01</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">46.80</td>
+                                        <td style="text-align: center">46</td>
                                         <td style="text-align: center">
                                             380,184
                                         </td>
@@ -4447,7 +4450,7 @@
                                         <td style="text-align: center">
                                             443.6s
                                         </td>
-                                        <td style="text-align: center">1.37$</td>
+                                        <td style="text-align: center">1.37</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -4460,12 +4463,12 @@
                                             rowspan="4"
                                             style="text-align: left"
                                         >
-                                            Find Substitutes
+                                            Product Substitutes
                                         </td>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">25.00</td>
+                                        <td style="text-align: center">25</td>
                                         <td style="text-align: center">
                                             162,071
                                         </td>
@@ -4475,55 +4478,55 @@
                                         <td style="text-align: center">
                                             151.2s
                                         </td>
-                                        <td style="text-align: center">0.35$</td>
+                                        <td style="text-align: center">0.35</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center"><strong>17.17</strong></td>
+                                        <td style="text-align: center">17</td>
                                         <td style="text-align: center">
-                                            <strong>106,951</strong>
+                                            106,951
                                         </td>
                                         <td style="text-align: center">
                                             3,393
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>118.1s</strong>
+                                            118.1s
                                         </td>
-                                        <td style="text-align: center"><strong>0.24$</strong></td>
+                                        <td style="text-align: center">0.24</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center"><u>17.50</u></td>
+                                        <td style="text-align: center">17</td>
                                         <td style="text-align: center">
                                             117,727
                                         </td>
                                         <td style="text-align: center">
-                                            <strong>1,911</strong>
+                                            1,911
                                         </td>
                                         <td style="text-align: center">
-                                            <u>149.3s</u>
+                                            149.3s
                                         </td>
-                                        <td style="text-align: center">0.25$</td>
+                                        <td style="text-align: center">0.25</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">28.67</td>
+                                        <td style="text-align: center">28</td>
                                         <td style="text-align: center">
-                                            <u>113,057</u>
+                                            113,057
                                         </td>
                                         <td style="text-align: center">
-                                            <u>2,749</u>
+                                            2,749
                                         </td>
                                         <td style="text-align: center">
                                             184.5s
                                         </td>
-                                        <td style="text-align: center"><u>0.25$</u></td>
+                                        <td style="text-align: center">0.25</td>
                                     </tr>
                                     <tr>
                                         <td
@@ -4536,12 +4539,12 @@
                                             rowspan="4"
                                             style="text-align: left"
                                         >
-                                            Find Substitutes
+                                            Product Substitutes
                                         </td>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree
                                         </td>
-                                        <td style="text-align: center">23.83</td>
+                                        <td style="text-align: center">23</td>
                                         <td style="text-align: center">
                                             232,177
                                         </td>
@@ -4551,13 +4554,13 @@
                                         <td style="text-align: center">
                                             264.0s
                                         </td>
-                                        <td style="text-align: center">0.82$</td>
+                                        <td style="text-align: center">0.82</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Memory
                                         </td>
-                                        <td style="text-align: center">21.33</td>
+                                        <td style="text-align: center">21</td>
                                         <td style="text-align: center">
                                             265,259
                                         </td>
@@ -4567,13 +4570,13 @@
                                         <td style="text-align: center">
                                             403.8s
                                         </td>
-                                        <td style="text-align: center">1.07$</td>
+                                        <td style="text-align: center">1.07</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             AX-Tree + Vision
                                         </td>
-                                        <td style="text-align: center">35.33</td>
+                                        <td style="text-align: center">35</td>
                                         <td style="text-align: center">
                                             495,069
                                         </td>
@@ -4583,13 +4586,13 @@
                                         <td style="text-align: center">
                                             453.3s
                                         </td>
-                                        <td style="text-align: center">1.69$</td>
+                                        <td style="text-align: center">1.69</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: left; padding-left: 2px">
                                             Vision
                                         </td>
-                                        <td style="text-align: center">49.83</td>
+                                        <td style="text-align: center">49</td>
                                         <td style="text-align: center">
                                             446,313
                                         </td>
@@ -4599,7 +4602,7 @@
                                         <td style="text-align: center">
                                             542.7s
                                         </td>
-                                        <td style="text-align: center">1.59$</td>
+                                        <td style="text-align: center">1.59</td>
                                     </tr>
                                 </tbody>
                             </table>
