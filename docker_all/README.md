@@ -15,8 +15,10 @@ This directory contains the Docker configuration for running the WebMall e-comme
 Create a `.env` file in the parent directory (one level up from this `docker_all` folder):
 
 ```bash
-# Copy the example file 
+# Copy the example env file from the docker_all dir
 cp ../.env.example ../.env
+# Copy the example env file from the root dir
+cp .env.example .env
 ```
 Set the SHOP_PORT variable as desired.
 
@@ -26,7 +28,7 @@ Set the SHOP_PORT variable as desired.
 
 ```bash
 cd docker_all
-./restore_all_and_deploy_local.sh
+bash ./restore_all_and_deploy_local.sh
 ```
 
 This script will:
