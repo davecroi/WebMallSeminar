@@ -381,6 +381,7 @@
         <script src="./static/js/bulma-carousel.min.js"></script>
         <script src="./static/js/bulma-slider.min.js"></script>
         <script src="./static/js/index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
         <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -1766,6 +1767,23 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+
+                        <h3 class="title is-4">Cost vs Performance Analysis</h3>
+                        <div class="content has-text-justified">
+                            <p>
+                                The following scatter plot visualizes the trade-off between cost per task and completion rate for different agent configurations. Each point represents an agent setup with different observation spaces (AX-Tree, AX-Tree + Memory, AX-Tree + Vision, Vision) and models (GPT-4.1, Claude Sonnet 4). The plot uses a logarithmic scale for cost to better show the range of values.
+                            </p>
+                        </div>
+
+                        <div style="text-align: center; margin: 1rem 0">
+                            <div class="buttons has-addons is-centered">
+                                <button class="button" id="btnBasic" onclick="updateScatterChart('basic', this)">Basic Tasks</button>
+                                <button class="button" id="btnAdvanced" onclick="updateScatterChart('advanced', this)">Advanced Tasks</button>
+                            </div>
+                        </div>
+                        <div style="max-width: 900px; margin: 2rem auto">
+                            <canvas id="costPerformanceChart" width="900" height="600"></canvas>
                         </div>
 
                         <h3 class="title is-4">
@@ -4888,5 +4906,255 @@
                 </div>
             </div>
         </footer>
+
+        <script>
+            // Cost vs Performance Scatter Plot
+            let costPerfChart = null;
+
+            // Performance data extracted from the tables - cost from "Token Usage, Cost and Runtime per Task" 
+            // and completion rates from "Completion Rates and F1 Score"
+            const performanceData = {
+                basic: {
+                    "AX-Tree_GPT-4.1": { cost: 0.28, performance: 56.25 },
+                    "AX-Tree + Memory_GPT-4.1": { cost: 0.29, performance: 75.00 },
+                    "AX-Tree + Vision_GPT-4.1": { cost: 0.29, performance: 56.25 },
+                    "Vision_GPT-4.1": { cost: 0.23, performance: 41.67 },
+                    "AX-Tree_Claude Sonnet 4": { cost: 0.67, performance: 66.67 },
+                    "AX-Tree + Memory_Claude Sonnet 4": { cost: 0.94, performance: 70.83 },
+                    "AX-Tree + Vision_Claude Sonnet 4": { cost: 0.82, performance: 72.92 },
+                    "Vision_Claude Sonnet 4": { cost: 1.30, performance: 10.42 },
+                },
+                advanced: {
+                    "AX-Tree_GPT-4.1": { cost: 0.35, performance: 32.56 },
+                    "AX-Tree + Memory_GPT-4.1": { cost: 0.40, performance: 34.88 },
+                    "AX-Tree + Vision_GPT-4.1": { cost: 0.36, performance: 39.53 },
+                    "Vision_GPT-4.1": { cost: 0.29, performance: 13.95 },
+                    "AX-Tree_Claude Sonnet 4": { cost: 1.02, performance: 53.49 },
+                    "AX-Tree + Memory_Claude Sonnet 4": { cost: 1.37, performance: 48.84 },
+                    "AX-Tree + Vision_Claude Sonnet 4": { cost: 1.63, performance: 37.21 },
+                    "Vision_Claude Sonnet 4": { cost: 1.53, performance: 4.65 },
+                },
+            };
+
+            function updateScatterChart(category, buttonElement) {
+                // Update button states
+                document.querySelectorAll(".buttons button").forEach((btn) => {
+                    btn.classList.remove("is-primary", "is-selected");
+                });
+
+                // Handle button element
+                if (buttonElement) {
+                    buttonElement.classList.add("is-primary", "is-selected");
+                } else {
+                    // Initial load - select the Basic Tasks button
+                    const basicButton = document.getElementById("btnBasic");
+                    if (basicButton) {
+                        basicButton.classList.add("is-primary", "is-selected");
+                    }
+                }
+
+                const data = performanceData[category];
+                const ctx = document.getElementById("costPerformanceChart");
+
+                if (costPerfChart) {
+                    costPerfChart.destroy();
+                }
+
+                costPerfChart = new Chart(ctx, {
+                    type: "scatter",
+                    data: {
+                        datasets: [
+                            {
+                                label: "AX-Tree (GPT-4.1)",
+                                data: [
+                                    {
+                                        x: data["AX-Tree_GPT-4.1"].cost,
+                                        y: data["AX-Tree_GPT-4.1"].performance,
+                                    },
+                                ],
+                                backgroundColor: "#FF6384",
+                                borderColor: "#FF6384",
+                                pointStyle: "circle",
+                                pointRadius: 10,
+                                pointHoverRadius: 12,
+                            },
+                            {
+                                label: "AX-Tree (Claude 4)",
+                                data: [
+                                    {
+                                        x: data["AX-Tree_Claude Sonnet 4"].cost,
+                                        y: data["AX-Tree_Claude Sonnet 4"].performance,
+                                    },
+                                ],
+                                backgroundColor: "#FF6384",
+                                borderColor: "#FF6384",
+                                pointStyle: "rect",
+                                pointRadius: 10,
+                                pointHoverRadius: 12,
+                            },
+                            {
+                                label: "AX-Tree + Memory (GPT-4.1)",
+                                data: [
+                                    {
+                                        x: data["AX-Tree + Memory_GPT-4.1"].cost,
+                                        y: data["AX-Tree + Memory_GPT-4.1"].performance,
+                                    },
+                                ],
+                                backgroundColor: "#36A2EB",
+                                borderColor: "#36A2EB",
+                                pointStyle: "circle",
+                                pointRadius: 10,
+                                pointHoverRadius: 12,
+                            },
+                            {
+                                label: "AX-Tree + Memory (Claude 4)",
+                                data: [
+                                    {
+                                        x: data["AX-Tree + Memory_Claude Sonnet 4"].cost,
+                                        y: data["AX-Tree + Memory_Claude Sonnet 4"].performance,
+                                    },
+                                ],
+                                backgroundColor: "#36A2EB",
+                                borderColor: "#36A2EB",
+                                pointStyle: "rect",
+                                pointRadius: 10,
+                                pointHoverRadius: 12,
+                            },
+                            {
+                                label: "AX-Tree + Vision (GPT-4.1)",
+                                data: [
+                                    {
+                                        x: data["AX-Tree + Vision_GPT-4.1"].cost,
+                                        y: data["AX-Tree + Vision_GPT-4.1"].performance,
+                                    },
+                                ],
+                                backgroundColor: "#4BC0C0",
+                                borderColor: "#4BC0C0",
+                                pointStyle: "circle",
+                                pointRadius: 10,
+                                pointHoverRadius: 12,
+                            },
+                            {
+                                label: "AX-Tree + Vision (Claude 4)",
+                                data: [
+                                    {
+                                        x: data["AX-Tree + Vision_Claude Sonnet 4"].cost,
+                                        y: data["AX-Tree + Vision_Claude Sonnet 4"].performance,
+                                    },
+                                ],
+                                backgroundColor: "#4BC0C0",
+                                borderColor: "#4BC0C0",
+                                pointStyle: "rect",
+                                pointRadius: 10,
+                                pointHoverRadius: 12,
+                            },
+                            {
+                                label: "Vision (GPT-4.1)",
+                                data: [
+                                    {
+                                        x: data["Vision_GPT-4.1"].cost,
+                                        y: data["Vision_GPT-4.1"].performance,
+                                    },
+                                ],
+                                backgroundColor: "#FFCE56",
+                                borderColor: "#FFCE56",
+                                pointStyle: "circle",
+                                pointRadius: 10,
+                                pointHoverRadius: 12,
+                            },
+                            {
+                                label: "Vision (Claude 4)",
+                                data: [
+                                    {
+                                        x: data["Vision_Claude Sonnet 4"].cost,
+                                        y: data["Vision_Claude Sonnet 4"].performance,
+                                    },
+                                ],
+                                backgroundColor: "#FFCE56",
+                                borderColor: "#FFCE56",
+                                pointStyle: "rect",
+                                pointRadius: 10,
+                                pointHoverRadius: 12,
+                            },
+                        ],
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: `Cost vs Completion Rate: ${category.charAt(0).toUpperCase() + category.slice(1)} Tasks`,
+                                font: {
+                                    size: 18,
+                                },
+                            },
+                            legend: {
+                                position: "right",
+                                labels: {
+                                    font: {
+                                        size: 12,
+                                    },
+                                    usePointStyle: true,
+                                    padding: 15,
+                                },
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        return [`Cost: $${context.parsed.x.toFixed(2)} per task`, `Completion Rate: ${context.parsed.y.toFixed(1)}%`];
+                                    },
+                                },
+                            },
+                        },
+                        scales: {
+                            x: {
+                                type: "logarithmic",
+                                position: "bottom",
+                                title: {
+                                    display: true,
+                                    text: "Average Cost per Task ($) - Log Scale",
+                                    font: {
+                                        size: 14,
+                                    },
+                                },
+                                min: 0.1,
+                                max: 2,
+                                ticks: {
+                                    callback: function (value) {
+                                        if ([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 2.0].includes(value)) {
+                                            return "$" + value.toFixed(1);
+                                        }
+                                        return "";
+                                    },
+                                },
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: "Task Completion Rate (%)",
+                                    font: {
+                                        size: 14,
+                                    },
+                                },
+                                min: category === "basic" ? 0 : 0,
+                                max: category === "basic" ? 80 : 60,
+                                ticks: {
+                                    callback: function (value) {
+                                        return value + "%";
+                                    },
+                                    stepSize: 5,
+                                },
+                            },
+                        },
+                    },
+                });
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                updateScatterChart("basic");
+            });
+        </script>
+
     </body>
 </html>
