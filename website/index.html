@@ -4967,7 +4967,7 @@
                     data: {
                         datasets: [
                             {
-                                label: "AX-Tree (GPT-4.1)",
+                                label: "AX-Tree (GPT)",
                                 data: [
                                     {
                                         x: data["AX-Tree_GPT-4.1"].cost,
@@ -4981,7 +4981,7 @@
                                 pointHoverRadius: 12,
                             },
                             {
-                                label: "AX-Tree (Claude Sonnet 4)",
+                                label: "AX-Tree (Claude)",
                                 data: [
                                     {
                                         x: data["AX-Tree_Claude Sonnet 4"].cost,
@@ -4995,7 +4995,7 @@
                                 pointHoverRadius: 12,
                             },
                             {
-                                label: "AX-Tree + Memory (GPT-4.1)",
+                                label: "AX-Tree + Memory (GPT)",
                                 data: [
                                     {
                                         x: data["AX-Tree + Memory_GPT-4.1"].cost,
@@ -5009,7 +5009,7 @@
                                 pointHoverRadius: 12,
                             },
                             {
-                                label: "AX-Tree + Memory (Claude Sonnet 4)",
+                                label: "AX-Tree + Memory (Claude)",
                                 data: [
                                     {
                                         x: data["AX-Tree + Memory_Claude Sonnet 4"].cost,
@@ -5023,7 +5023,7 @@
                                 pointHoverRadius: 12,
                             },
                             {
-                                label: "AX-Tree + Vision (GPT-4.1)",
+                                label: "AX-Tree + Vision (GPT)",
                                 data: [
                                     {
                                         x: data["AX-Tree + Vision_GPT-4.1"].cost,
@@ -5037,7 +5037,7 @@
                                 pointHoverRadius: 12,
                             },
                             {
-                                label: "AX-Tree + Vision (Claude Sonnet 4)",
+                                label: "AX-Tree + Vision (Claude)",
                                 data: [
                                     {
                                         x: data["AX-Tree + Vision_Claude Sonnet 4"].cost,
@@ -5051,7 +5051,7 @@
                                 pointHoverRadius: 12,
                             },
                             {
-                                label: "Vision (GPT-4.1)",
+                                label: "Vision (GPT)",
                                 data: [
                                     {
                                         x: data["Vision_GPT-4.1"].cost,
@@ -5065,7 +5065,7 @@
                                 pointHoverRadius: 12,
                             },
                             {
-                                label: "Vision (Claude Sonnet 4)",
+                                label: "Vision (Claude)",
                                 data: [
                                     {
                                         x: data["Vision_Claude Sonnet 4"].cost,
@@ -5088,7 +5088,7 @@
                                 display: true,
                                 text: `Cost vs Completion Rate: ${category.charAt(0).toUpperCase() + category.slice(1)} Tasks`,
                                 font: {
-                                    size: 20,
+                                    size: 28,
                                     weight: 'bold',
                                 },
                                 padding: {
@@ -5099,10 +5099,10 @@
                                 position: "right",
                                 labels: {
                                     font: {
-                                        size: 14,
+                                        size: 18,
                                     },
                                     usePointStyle: true,
-                                    padding: 18,
+                                    padding: 20,
                                 },
                             },
                             tooltip: {
@@ -5121,7 +5121,7 @@
                                     display: true,
                                     text: "Average Cost per Task ($) - Log Scale",
                                     font: {
-                                        size: 16,
+                                        size: 20,
                                         weight: 'bold',
                                     },
                                 },
@@ -5130,13 +5130,13 @@
                                 ticks: {
                                     callback: function (value) {
                                         if ([0.2, 0.25, 0.3, 0.35, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0].includes(value)) {
-                                            return "$" + value.toFixed(2);
+                                            return value.toFixed(2);
                                         }
                                         return "";
                                     },
                                     maxTicksLimit: 12,
                                     font: {
-                                        size: 13,
+                                        size: 17,
                                         weight: '500',
                                     },
                                 },
@@ -5146,7 +5146,7 @@
                                     display: true,
                                     text: "Task Completion Rate (%)",
                                     font: {
-                                        size: 16,
+                                        size: 20,
                                         weight: 'bold',
                                     },
                                 },
@@ -5154,11 +5154,11 @@
                                 max: category === "basic" ? 80 : 60,
                                 ticks: {
                                     callback: function (value) {
-                                        return value + "%";
+                                        return value;
                                     },
                                     stepSize: 5,
                                     font: {
-                                        size: 13,
+                                        size: 17,
                                         weight: '500',
                                     },
                                 },
