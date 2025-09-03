@@ -1,6 +1,7 @@
 # WebMall - A Multi-Shop Benchmark for Evaluating Web Agents
 
-🌐 [WebMall Website](https://wbsg-uni-mannheim.github.io/WebMall/)
+🌐 [WebMall Website](https://wbsg-uni-mannheim.github.io/WebMall/)  
+📄 [Paper](https://arxiv.org/abs/2508.13024)
 
 ## Abstract
 
