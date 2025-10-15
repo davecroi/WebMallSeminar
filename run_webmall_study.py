@@ -132,8 +132,8 @@ agent_args = [AGENT_41_AX]
 
 # ## select the benchmark to run on
 
-benchmark = "webmall_basic_v0.7"
-# benchmark = "webmall_advanced_v0.7"
+benchmark = "webmall_basic_v1.0"
+# benchmark = "webmall_advanced_v1.0"
 
 # Set reproducibility_mode = True for reproducibility
 # this will "ask" agents to be deterministic. Also, it will prevent you from launching if you have
