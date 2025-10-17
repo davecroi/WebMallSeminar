@@ -99,9 +99,14 @@ docker compose --env-file ../.env restart
 ### WordPress Configuration
 
 -   **Admin Username**: admin
--   **Admin Password**: admin
 -   **Database**: Each shop has its own MariaDB instance
 -   **Search**: Elasticsearch integration enabled for all shops
+
+If you need to get into a WP instance, you can reset the password with the following command:
+
+```bash
+docker exec WebMall_wordpress_shop{1-4} wp user update admin --user_pass='choose-a-new-password' --path=/opt/bitnami/wordpress
+```
 
 ### Port Configuration
 
