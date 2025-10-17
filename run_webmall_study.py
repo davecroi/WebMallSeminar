@@ -5,13 +5,20 @@ the command line.
 Copy this script and modify at will, but don't push your changes to the
 repository.
 """
+
 import os
 import logging
 from dotenv import load_dotenv
 import bgym
 
 from agentlab.agents.visualwebmall_agent.agent import WA_AGENT_4O
-from agentlab.agents.webmall_generic_agent import AGENT_4o_VISION, AGENT_4o_MINI, AGENT_4o, AGENT_CLAUDE_SONNET_35, AGENT_37_SONNET
+from agentlab.agents.webmall_generic_agent import (
+    AGENT_4o_VISION,
+    AGENT_4o_MINI,
+    AGENT_4o,
+    AGENT_CLAUDE_SONNET_35,
+    AGENT_37_SONNET,
+)
 from webmall_overrides.study import WebMallStudy
 from pathlib import Path
 from datetime import datetime
@@ -25,7 +32,11 @@ from agentlab.agents import dynamic_prompting as dp
 
 from agentlab.llm.llm_configs import CHAT_MODEL_ARGS_DICT
 
-from agentlab.agents.generic_agent.generic_agent import GenericAgent, GenericPromptFlags, GenericAgentArgs
+from agentlab.agents.generic_agent.generic_agent import (
+    GenericAgent,
+    GenericPromptFlags,
+    GenericAgentArgs,
+)
 
 FLAGS_default = GenericPromptFlags(
     obs=dp.ObsFlags(
@@ -65,7 +76,7 @@ FLAGS_default = GenericPromptFlags(
     max_prompt_tokens=60_000,
     be_cautious=True,
     extra_instructions=None,
-    )
+)
 
 FLAGS_AX = FLAGS_default.copy()
 
@@ -80,7 +91,7 @@ FLAGS_AX_V.obs.use_som = True
 
 FLAGS_AX_M = FLAGS_default.copy()
 FLAGS_AX_M.use_memory = True
-FLAGS_AX_M.extra_instructions = 'Use your memory to note down important information like the URLs of potential solutions and corresponding pricing information.'
+FLAGS_AX_M.extra_instructions = "Use your memory to note down important information like the URLs of potential solutions and corresponding pricing information."
 
 AGENT_41_AX = GenericAgentArgs(
     chat_model_args=CHAT_MODEL_ARGS_DICT["openai/gpt-4.1-2025-04-14"],
@@ -117,6 +128,16 @@ AGENT_41_AX_M = GenericAgentArgs(
     flags=FLAGS_AX_M,
 )
 
+AGENT_5mini_AX_M = GenericAgentArgs(
+    chat_model_args=CHAT_MODEL_ARGS_DICT["openai/gpt-5-mini-2025-08-07"],
+    flags=FLAGS_AX_M,
+)
+
+AGENT_5_AX_M = GenericAgentArgs(
+    chat_model_args=CHAT_MODEL_ARGS_DICT["openai/gpt-5-2025-08-07"],
+    flags=FLAGS_AX_M,
+)
+
 AGENT_CLAUDE_AX_M = GenericAgentArgs(
     chat_model_args=CHAT_MODEL_ARGS_DICT["anthropic/claude-sonnet-4-20250514"],
     flags=FLAGS_AX_M,
@@ -128,7 +149,7 @@ load_dotenv(PATH_TO_DOT_ENV_FILE)
 
 
 # choose your agent or provide a new agent
-agent_args = [AGENT_41_AX]
+agent_args = [AGENT_5mini_AX_M]
 
 # ## select the benchmark to run on
 
@@ -160,12 +181,20 @@ if __name__ == "__main__":  # necessary for dask backend
         study.find_incomplete(include_errors=True)
 
     else:
-        study = WebMallStudy(agent_args, benchmark, logging_level_stdout=logging.INFO, suffix="AX")
+        study = WebMallStudy(
+            agent_args, benchmark, logging_level_stdout=logging.INFO, suffix="AX_M"
+        )
         study_name = study.name
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         study_dir = f"{os.getenv('AGENTLAB_EXP_ROOT')}/{timestamp}_{study_name}/"
-        study = WebMallStudy(agent_args, benchmark, logging_level_stdout=logging.INFO, dir=study_dir, suffix="AX")
-        
+        study = WebMallStudy(
+            agent_args,
+            benchmark,
+            logging_level_stdout=logging.INFO,
+            dir=study_dir,
+            suffix="AX_M",
+        )
+
     parallel_backends = ["sequential", "ray"]
     study.run(
         n_jobs=n_jobs,

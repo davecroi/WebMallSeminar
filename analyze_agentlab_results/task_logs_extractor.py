@@ -35,6 +35,8 @@ def extract_step_number(filename):
 
 def extract_eco_metrics(agent_info):
     try:
+        if agent_info is None:
+            return {}
         eco_logits = agent_info.get("extra_info", {}).get("eco_logits", {})
         metrics = {}
         for section in ["usage", "embodied"]:
@@ -56,10 +58,14 @@ def extract_eco_metrics(agent_info):
 def extract_task_summary(step_data):
     try:
         action = getattr(step_data, "action", "")
-        url = step_data.obs.get("url", "") if hasattr(step_data, "obs") else ""
+        url = (
+            step_data.obs.get("url", "")
+            if hasattr(step_data, "obs") and step_data.obs is not None
+            else ""
+        )
         think = (
             step_data.agent_info.get("think", "")
-            if hasattr(step_data, "agent_info")
+            if hasattr(step_data, "agent_info") and step_data.agent_info is not None
             else ""
         )
 
@@ -74,7 +80,7 @@ def extract_task_summary(step_data):
 
         # Match ax_tree element from action
         match = re.match(r".+\(\s*'(\d+)'\s*(?:,.*)?\)", action)
-        if match:
+        if match and step_data.obs is not None:
             target_id = match.group(1)
             nodes = step_data.obs.get("axtree_object", {}).get("nodes", [])
             for node in nodes:
@@ -114,6 +120,12 @@ def summarize_single_task(directory="."):
             step_num = step_data.step
             step_nums_in_order.append(step_num)
 
+            # Log warnings if critical attributes are None
+            if step_data.obs is None:
+                print(f"⚠️ Step {step_num}: obs is None")
+            if hasattr(step_data, "agent_info") and step_data.agent_info is None:
+                print(f"⚠️ Step {step_num}: agent_info is None")
+
             # Eco metrics
             metrics = extract_eco_metrics(step_data.agent_info)
             all_steps_data[step_num] = metrics
@@ -134,11 +146,12 @@ def summarize_single_task(directory="."):
                     "cumulative_reward"
                 ] = cumulative_reward
 
-                last_action_error = step_data.obs.get("last_action_error")
-                if last_action_error:
-                    all_task_summary[previous_step_num][
-                        "action_error"
-                    ] = last_action_error
+                if step_data.obs is not None:
+                    last_action_error = step_data.obs.get("last_action_error")
+                    if last_action_error:
+                        all_task_summary[previous_step_num][
+                            "action_error"
+                        ] = last_action_error
 
             # Store current step summary
             all_task_summary[step_num] = task_summary
@@ -151,6 +164,10 @@ def summarize_single_task(directory="."):
 
     for i in range(len(all_task_summary)):
         task_summary = all_task_summary.get(i)
+
+        # Skip if task_summary is None
+        if task_summary is None:
+            continue
 
         # Try to get shop_id by domain first, then fall back to port
         url = task_summary.get("url", "")
@@ -210,9 +227,21 @@ def summarize_single_task(directory="."):
             print(f"⚠️ Failed to read or parse summary_info.json: {e}")
 
     # Extract and save checklist data from the last step
+    if not last_step_data:
+        print(f"⚠️ No step data found - cannot extract goals/penalties")
+    elif not hasattr(last_step_data, "task_info"):
+        print(
+            f"⚠️ Step data has no task_info attribute - cannot extract goals/penalties"
+        )
+    elif last_step_data.task_info is None:
+        print(f"⚠️ Step data task_info is None - cannot extract goals/penalties")
+    elif "checklist" not in last_step_data.task_info:
+        print(f"⚠️ No checklist in task_info - cannot extract goals/penalties")
+
     if (
         last_step_data
         and hasattr(last_step_data, "task_info")
+        and last_step_data.task_info is not None
         and "checklist" in last_step_data.task_info
     ):
         checklist = last_step_data.task_info["checklist"]
