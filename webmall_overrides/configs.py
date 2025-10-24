@@ -351,4 +351,68 @@ WEBMALL_BENCHMARKS = {
         ),
         task_metadata=task_metadata("webmall"),
     ),
+    "webmall_basic_seminar_v1.0": lambda: WebMallBenchmark(
+        name="webmall_basic_seminar_v1.0",
+        high_level_action_set_args=DEFAULT_HIGHLEVEL_ACTION_SET_ARGS["webarena"],
+        is_multi_tab=True,
+        supports_parallel_seeds=True,
+        backends=["webmall"],
+        env_args_list=make_env_args_list_from_repeat_tasks(
+            task_list=[
+                "webmall.Webmall_Find_Specific_Product_Task1", #Url1,2
+                "webmall.Webmall_Find_Specific_Product_Task4", #Url2,3
+                "webmall.Webmall_Find_Specific_Product_Task5", #Url1,3
+                "webmall.Webmall_Find_Specific_Product_Task8", #Url1,3,4
+                "webmall.Webmall_Find_Specific_Product_Task9", #Url1,2,4
+                "webmall.Webmall_Find_Specific_Product_Task10", #Url3
+                "webmall.Webmall_Find_Specific_Product_Task11", #Url1,2
+                "webmall.Webmall_Find_Specific_Product_Task12", #Url1x2,3
+                "webmall.Webmall_Find_Cheapest_Offer_Task1", #Url3,4
+                "webmall.Webmall_Find_Cheapest_Offer_Task2", #Url1x2,2,3
+                "webmall.Webmall_Find_Cheapest_Offer_Task4", #Url3
+                "webmall.Webmall_Find_Cheapest_Offer_Task5", #Url2
+                "webmall.Webmall_Find_Cheapest_Offer_Task8", #Url1,3
+                "webmall.Webmall_Find_Cheapest_Offer_Task9", #Url1,4
+                "webmall.Webmall_Find_Cheapest_Offer_Task10", #Url2
+                "webmall.Webmall_Products_Fulfilling_Specific_Requirements_Task1", #Url1,3
+                "webmall.Webmall_Products_Fulfilling_Specific_Requirements_Task5", #Url1,3,4x2
+                "webmall.Webmall_Products_Fulfilling_Specific_Requirements_Task6", #Url1
+                "webmall.Webmall_Products_Fulfilling_Specific_Requirements_Task7", #Url3,4
+                "webmall.Webmall_Products_Fulfilling_Specific_Requirements_Task9", #Url1,4
+                "webmall.Webmall_Add_To_Cart_Task3", #Url1,3
+                "webmall.Webmall_Add_To_Cart_Task4", #Url1,4
+                "webmall.Webmall_Add_To_Cart_Task5", #Url3
+                "webmall.Webmall_Add_To_Cart_Task6", #Url1,3
+                "webmall.Webmall_Add_To_Cart_Task7", #Url1x2
+                "webmall.Webmall_Checkout_Task2", #Url1
+                "webmall.Webmall_Checkout_Task4", #Url4
+                "webmall.Webmall_Checkout_Task8", #Url4
+            ],
+            max_steps=50,
+            n_repeats=1,
+            seeds_rng=np.random.RandomState(42),
+        ),
+        task_metadata=task_metadata("webmall"),
+    ),
+    "webmall_basic_seminar_sample_v1.0": lambda: WebMallBenchmark(
+        name="webmall_basic_seminar_sample_v1.0",
+        high_level_action_set_args=DEFAULT_HIGHLEVEL_ACTION_SET_ARGS["webarena"],
+        is_multi_tab=True,
+        supports_parallel_seeds=True,
+        backends=["webmall"],
+        env_args_list=make_env_args_list_from_repeat_tasks(
+            task_list=[
+                "webmall.Webmall_Find_Specific_Product_Task1", #Url1,2
+                "webmall.Webmall_Find_Specific_Product_Task5", #Url1,3
+                "webmall.Webmall_Find_Specific_Product_Task8", #Url1,3,4
+                "webmall.Webmall_Find_Specific_Product_Task9", #Url1,2,4
+                "webmall.Webmall_Find_Specific_Product_Task11", #Url1,2
+                "webmall.Webmall_Find_Specific_Product_Task12", #Url1x2,3
+            ],
+            max_steps=50,
+            n_repeats=1,
+            seeds_rng=np.random.RandomState(42),
+        ),
+        task_metadata=task_metadata("webmall"),
+    ),
 }
