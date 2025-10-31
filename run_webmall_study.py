@@ -143,20 +143,30 @@ AGENT_CLAUDE_AX_M = GenericAgentArgs(
     flags=FLAGS_AX_M,
 )
 
+AGENT_GEMINI25_AX_M = GenericAgentArgs(
+    chat_model_args=CHAT_MODEL_ARGS_DICT["google/gemini-2.5-flash"],
+    flags=FLAGS_AX_M,
+)
+AGENT_GEMINI25_AX_V = GenericAgentArgs(
+    chat_model_args=CHAT_MODEL_ARGS_DICT["google/gemini-2.5-flash"],
+    flags=FLAGS_AX_V,
+)
+
 current_file = Path(__file__).resolve()
 PATH_TO_DOT_ENV_FILE = current_file.parent / ".env"
 load_dotenv(PATH_TO_DOT_ENV_FILE)
 
 
 # choose your agent or provide a new agent
-agent_args = [AGENT_5mini_AX_M]
+agent_args = [AGENT_GEMINI25_AX_M]
 
 # ## select the benchmark to run on
 
-# benchmark = "webmall_basic_v1.0"
+benchmark = "webmall_basic_v1.0"
 # benchmark = "webmall_advanced_v1.0"
-benchmark = "webmall_basic_seminar_sample_v1.0"
-
+# benchmark = "webmall_basic_seminar_sample_v1.0"
+# benchmark = "webmall_basic_checkout_seminar_sample_v1.0"
+# benchmark = "webmall_basic_newsletter_seminar_sample_v1.0"
 # Set reproducibility_mode = True for reproducibility
 # this will "ask" agents to be deterministic. Also, it will prevent you from launching if you have
 # local changes. For your custom agents you need to implement set_reproducibility_mode
